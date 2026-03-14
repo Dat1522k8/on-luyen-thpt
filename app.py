@@ -111,4 +111,9 @@ def chat_ai():
         
     return jsonify({"answer": hoi_ai(prompt)})
 if __name__ == "__main__":
-    app.run(debug=True)
+    if __name__ == "__main__":
+    # Render sẽ tự cấp một cổng (Port) thông qua biến môi trường
+    # Nếu không có (chạy ở máy), nó sẽ dùng cổng 5000
+    import os
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host='0.0.0.0', port=port)
