@@ -110,8 +110,8 @@ def chat_ai():
         prompt = f"Trò chuyện tự do: {msg}"
         
     return jsonify({"answer": hoi_ai(prompt)})
+
 if __name__ == "__main__":
-    if __name__ == "__main__":
     # Render sẽ tự cấp một cổng (Port) thông qua biến môi trường
     # Nếu không có (chạy ở máy), nó sẽ dùng cổng 5000
     import os
