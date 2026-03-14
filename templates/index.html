@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>AI Tutor - Hoàn chỉnh</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <script>
+        window.MathJax = {
+            tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$']], processEscapes: true },
+            options: { skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre'] }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+    <div class="main-wrapper" id="main-wrapper">
+        <div class="exam-container">
+            <div class="container">
+                <h1>Hệ thống luyện tập AI</h1>
+                <div class="controls">
+                    Môn: <select id="mon"><option value="toan">Toán học</option><option value="ly">Vật lý</option></select>
+                    Chủ đề: <select id="concept"></select>
+                    Câu: <input id="so_cau" type="number" value="5" style="width:45px;">
+                    <button onclick="taiDe()">Tạo đề</button>
+                    <button class="btn-chat-free" onclick="moChatTuDo()" style="background:#6f42c1;">💬 Trò chuyện</button>
+                </div>
+                <div id="de"></div>
+                <div style="margin-top:20px;">
+                    <button onclick="nopBai()" style="background:#28a745;">Nộp bài</button>
+                    <button onclick="phanTichAI()" style="background:#17a2b8;">AI Phân tích lỗi</button>
+                </div>
+                <div id="ketqua"></div>
+            </div>
+        </div>
+        <div id="resizer" class="resizer"></div>
+        <div class="ai-panel" id="ai-panel">
+            <div class="chat-header">
+                <span>🤖 AI Gia sư</span>
+                <button onclick="dongAI()" style="background:none; color:#333; font-size:20px; border:none; cursor:pointer;">✕</button>
+            </div>
+            <div id="chatbox"></div>
+            <div class="chat-input">
+                <input id="ai_input" placeholder="Hỏi AI bất cứ điều gì và nhấn Enter...">
+                <button onclick="guiTinNhanAI()">Gửi</button>
+            </div>
+        </div>
+    </div>
+    <script src="/static/script.js"></script>
+</body>
+</html>

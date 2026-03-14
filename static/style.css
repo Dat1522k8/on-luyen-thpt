@@ -1,0 +1,148 @@
+/* Trả lại toàn bộ màu sắc và hiệu ứng từ bản gốc của bạn */
+body {
+    font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+    background: linear-gradient(135deg, #4facfe, #00f2fe);
+    margin: 0;
+    padding: 0;
+    line-height: 1.7;
+    letter-spacing: 0.2px;
+    word-spacing: 2px;
+    height: 100vh;
+    display: flex;
+}
+
+/* Cấu trúc Wrapper để hỗ trợ Resizer mà không phá giao diện body */
+.main-wrapper {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+}
+
+/* PANEL ĐỀ - Trả lại padding và hiệu ứng card */
+.exam-container {
+    flex: 1;
+    overflow-y: auto;
+    padding: 60px 20px; /* Độ dãn từ trên xuống như cũ */
+    display: flex;
+    justify-content: center;
+}
+
+/* Container Card trắng - GIỮ NGUYÊN THÔNG SỐ CŨ */
+.container {
+    width: 100%;
+    max-width: 800px;
+    background: white;
+    padding: 35px;
+    border-radius: 12px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+    height: fit-content;
+}
+
+/* THANH KÉO (RESIZER) - Thiết kế tinh tế để không làm xấu giao diện */
+.resizer {
+    width: 8px;
+    background: rgba(0, 0, 0, 0.05);
+    cursor: col-resize;
+    display: none;
+    transition: background 0.3s;
+}
+.resizer:hover { background: rgba(0, 0, 0, 0.15); }
+.split .resizer { display: block; }
+
+/* PANEL AI - Trả lại bóng đổ và màu sắc cũ */
+.ai-panel {
+    width: 420px;
+    min-width: 300px;
+    max-width: 70vw;
+    background: white;
+    border-left: 1px solid #ccc;
+    display: none;
+    flex-direction: column;
+    box-shadow: -10px 0 25px rgba(0, 0, 0, 0.2);
+}
+.split .ai-panel { display: flex; }
+
+/* HEADER CHAT CŨ */
+.chat-header {
+    background: #eee;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+    border-bottom: 1px solid #ccc;
+}
+
+/* CHAT BOX CŨ */
+#chatbox {
+    flex: 1;
+    overflow-y: auto;
+    padding: 20px;
+    line-height: 1.7;
+    letter-spacing: 1px;
+}
+
+/* INPUT CHAT CŨ */
+.chat-input {
+    display: flex;
+    padding: 10px;
+    border-top: 1px solid #ccc;
+    background: #fff;
+}
+.chat-input input {
+    flex: 1;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    outline: none;
+}
+
+/* BUTTON CŨ - Trả lại màu cam và hiệu ứng scale */
+button {
+    padding: 12px 22px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    margin: 10px 5px;
+    transition: 0.25s;
+    color: white;
+    font-weight: 600;
+    background: #ff7a18;
+}
+button:hover {
+    background: #e3640a;
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+button:active { transform: scale(0.97); }
+
+/* Nút Chat tự do (Màu tím để phân biệt nhưng vẫn cùng kiểu dáng) */
+.btn-chat-free { background: #6f42c1; }
+.btn-chat-free:hover { background: #59359a; }
+
+/* QUESTION CARD CŨ - Trả lại đường kẻ xanh và khoảng cách */
+.question-card {
+    background: #f7f9fc;
+    padding: 18px;
+    margin: 18px 0;
+    border-radius: 10px;
+    border-left: 6px solid #4facfe;
+    text-align: left;
+}
+
+/* LỰA CHỌN THEO HÀNG - Đã tối ưu */
+.option {
+    display: block;
+    margin: 12px 0;
+    padding: 10px;
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+.option:hover { background: #eef7ff; }
+.option input { margin-right: 10px; }
+
+/* LATEX SIZE */
+mjx-container { font-size: 110%; }
