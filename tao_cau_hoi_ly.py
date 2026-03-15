@@ -53,38 +53,45 @@ def generate_physics_dataset(num_questions=500):
 # ==========================================
 # 2. HÀM SINH CÂU HỎI VẬT LÝ NÂNG CAO (VDC)
 # ==========================================
+import random
+
 def generate_physics_dataset_pro(num_questions=500):
     dataset = []
     for i in range(num_questions):
         level = random.choice(["Khó", "Nâng cao (VDC)"])
         concept = random.choice(["tu_truong", "hat_nhan", "khi_ly_tuong", "nhiet_dong_luc_hoc"])
         
-        # Giá trị mặc định
         q = f"Câu hỏi nâng cao về {concept} mức độ {level} đang được cập nhật..."
         ans = "Liên hệ GV để biết đáp án"
         theory = "Đang biên soạn..."
+        distractors = ["Đáp án nhiễu A", "Đáp án nhiễu B", "Đáp án nhiễu C"]
         
         if concept == "nhiet_dong_luc_hoc":
             if level == "Nâng cao (VDC)":
                 q = "Một máy nhiệt lý tưởng hoạt động theo chu trình Carnot giữa hai nguồn nhiệt $T_1 = 600K$ và $T_2 = 300K$. Trong mỗi chu trình, máy nhận từ nguồn nóng nhiệt lượng $Q_1 = 1200J$. Tính công toàn phần máy thực hiện và hiệu suất thực tế nếu hao phí thêm 10%."
                 ans = "$A = 540J, H = 45\%$"
+                distractors = ["$A = 600J, H = 50\%$", "$A = 480J, H = 40\%$", "$A = 540J, H = 50\%$"]
                 theory = "Hiệu suất Carnot $H = 1 - T_2/T_1$. Công $A = H \\cdot Q_1$. Hao phí 10% công nên $A' = 0.9A$."
             else:
                 q = "Nội năng của khí lý tưởng đơn nguyên tử biến thiên thế nào trong quá trình đẳng áp?"
                 ans = "Tăng theo nhiệt độ"
+                distractors = ["Giảm khi nhiệt độ tăng", "Không thay đổi", "Chỉ phụ thuộc áp suất"]
                 theory = "Công thức nội năng: $U = \\frac{3}{2}nRT$."
 
         elif concept == "hat_nhan":
             if level == "Nâng cao (VDC)":
                 q = "Bắn hạt $\\alpha$ vào hạt nhân $^{14}_{7}N$ đứng yên gây ra phản ứng: $^{4}_{2}He + ^{14}_{7}N \\rightarrow ^{17}_{8}O + ^{1}_{1}p$. Biết phản ứng thu nhiệt $1.21 MeV$. Hạt $\\alpha$ phải có động năng tối thiểu bao nhiêu để phản ứng xảy ra?"
                 ans = "$1.56 MeV$"
+                distractors = ["$1.21 MeV$", "$1.82 MeV$", "$2.15 MeV$"]
                 theory = "Động năng tối thiểu $K_{min} = |Q| \\cdot \\frac{m_{\\alpha} + m_N}{m_N}$."
             else:
                 q = "Đại lượng nào đặc trưng cho mức độ bền vững của hạt nhân?"
                 ans = "Năng lượng liên kết riêng"
+                distractors = ["Năng lượng liên kết", "Độ hụt khối", "Số khối (A)"]
                 theory = "Năng lượng liên kết riêng càng lớn, hạt nhân càng bền vững."
 
-        options = [ans, "Đáp án nhiễu A", "Đáp án nhiễu B", "Đáp án nhiễu C"]
+        # Trộn đáp án đúng với các đáp án nhiễu đã được định nghĩa
+        options = [ans] + distractors
         random.shuffle(options)
 
         dataset.append({
@@ -306,5 +313,5 @@ if __name__ == "__main__":
 
     print("-" * 30)
     print(f"THÀNH CÔNG: Đã tạo {len(all_questions)} câu hỏi.")
-    print(f"Đường dẫn: dataset/physics.json")
+    print(f"Đường dẫn:ai_exam_project/dataset/physics.json")
     print("-" * 30)
