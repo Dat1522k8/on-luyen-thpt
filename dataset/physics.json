@@ -762,7 +762,7 @@
             "\\left( P + \\frac{a}{V^2} \\right)(V - b) = RT",
             "\\left( P - \\frac{a}{V^2} \\right)(V + b) = RT",
             "\\left( P + \\frac{a}{V} \\right)(V - b) = RT",
-            "\left( P - \\frac{a}{V} \\right)(V + b) = RT"
+            "\\left( P - \\frac{a}{V} \\right)(V + b) = RT"
         ],
         "answer": "\\left( P + \\frac{a}{V^2} \\right)(V - b) = RT",
         "concept": "pttt"
