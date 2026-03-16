@@ -1,14 +1,15 @@
 import requests
+import os
 
-API_KEY = "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"
-
-# =====================
-# CHAT AI
-# =====================
+# Lấy API Key từ biến môi trường của hệ thống
+API_KEY = os.getenv("GROQ_API_KEY", "") 
 
 def hoi_ai(message):
-
+    if not API_KEY:
+        return "Lỗi: Chưa cấu hình API Key trên server."
+    
     url = "https://api.groq.com/openai/v1/chat/completions"
+    # ... giữ nguyên phần còn lại ...
 
     headers = {
         "Authorization": f"Bearer {API_KEY}",
