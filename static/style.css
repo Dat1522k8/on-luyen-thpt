@@ -5,10 +5,18 @@ body {
     margin: 0;
     padding: 0;
     line-height: 1.7;
-    letter-spacing: 0.2px;
-    word-spacing: 2px;
-    height: 100vh;
-    display: flex;
+    height: auto; /* Cho phép trang dài ra để chứa footer */
+    display: block; /* Quan trọng: Đổi từ flex sang block */
+}
+.site-footer {
+    background: white;
+    padding: 30px 20px;
+    text-align: center;
+    border-top: 1px solid rgba(0,0,0,0.1);
+    width: 100%;
+    box-sizing: border-box; /* Đảm bảo không bị tràn chiều rộng */
+    position: relative;
+    z-index: 5;
 }
 
 /* Cấu trúc Wrapper để hỗ trợ Resizer mà không phá giao diện body */
@@ -59,6 +67,7 @@ body {
     display: none;
     flex-direction: column;
     box-shadow: -10px 0 25px rgba(0, 0, 0, 0.2);
+    z-index: 10;
 }
 .split .ai-panel { display: flex; }
 

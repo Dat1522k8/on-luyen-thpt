@@ -2,8 +2,43 @@
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
-    <title></title>
+    <title>Hệ thống luyện tập AI</title>
     <link rel="stylesheet" href="/static/style.css">
+    <style>
+        /* Đảm bảo trang luôn có chiều cao tối thiểu */
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            position: relative; /* Làm gốc tọa độ cho footer */
+        }
+
+        /* Thêm khoảng trống ở dưới cùng của nội dung chính để không bị footer đè lên */
+        .main-wrapper {
+            padding-bottom: 120px; /* Độ cao ước tính của footer + khoảng cách */
+            min-height: calc(100vh - 120px);
+            display: flex; /* Giữ nguyên logic chia đôi màn hình cũ */
+        }
+
+        /* Footer cố định ở đáy nhưng không can thiệp vào luồng kéo dãn */
+        footer {
+            position: relative; /* Hoặc dùng absolute nếu bạn muốn nó luôn ở đáy dù nội dung ngắn */
+            width: 100%;
+            padding: 20px 0;
+            border-top: 1px solid #eee;
+            text-align: center;
+            color: #666;
+            font-size: 0.9em;
+            background-color: #fff;
+            margin-top: 20px;
+        }
+
+        /* Đảm bảo khung chat và đề thi vẫn co giãn được */
+        .exam-container, .ai-panel {
+            height: auto; 
+            min-height: 500px; /* Hoặc chiều cao bạn mong muốn */
+        }
+    </style>
     <script>
         window.MathJax = {
             tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$']], processEscapes: true },
@@ -14,8 +49,9 @@
 </head>
 <body>
     <div class="top-corner-logo">
-        <img src="{{ url_for('static', filename='410248302_265238099893030_4556676985882445566_n.jpg') }}" alt="logo jet jet" >
+        <img src="{{ url_for('static', filename='410248302_265238099893030_4556676985882445566_n.jpg') }}" alt="logo jet jet">
     </div>
+
     <div class="main-wrapper" id="main-wrapper">
         <div class="exam-container">
             <div class="container">
@@ -25,7 +61,7 @@
                     Chủ đề: <select id="concept"></select>
                     Câu: <input id="so_cau" type="number" value="5" style="width:45px;">
                     <button onclick="taiDe()">Tạo đề</button>
-                    <button class="btn-chat-free" onclick="moChatTuDo()" style="background:#6f42c1;">💬 Trò chuyện</button>
+                    <button class="btn-chat-free" onclick="moChatTuDo()">💬 Trò chuyện</button>
                 </div>
                 <div id="de"></div>
                 <div style="margin-top:20px;">
@@ -35,12 +71,16 @@
                 <div id="ketqua"></div>
             </div>
         </div>
+
         <div id="resizer" class="resizer"></div>
+
         <div class="ai-panel" id="ai-panel">
-           <div class="chat-header" style="display: flex; align-items: center; gap: 10px; padding: 10px; border-bottom: 1px solid #ddd;">
-                <img src="{{ url_for('static', filename='cheems.jpg') }}" alt="cheems jet jet" class="chat-avt">
-                <span style="flex-grow: 1; font-weight: bold;">jet jet gia sư Việt Đức</span>
-                <button onclick="dongAI()" style="background:none; color:#333; font-size:20px; border:none; cursor:pointer;">✕</button>
+           <div class="chat-header">
+                <div style="display: flex; align-items: center; gap: 10px;">
+                    <img src="{{ url_for('static', filename='cheems.jpg') }}" alt="cheems jet jet" class="chat-avt">
+                    <span>jet jet gia sư Việt Đức</span>
+                </div>
+                <button onclick="dongAI()" style="background:none; color:#333; font-size:20px; border:none; cursor:pointer; margin:0; padding:0;">✕</button>
             </div>
             <div id="chatbox"></div>
             <div class="chat-input">
@@ -49,6 +89,13 @@
             </div>
         </div>
     </div>
+
+    <footer class="site-footer">
+        <p style="font-weight: bold; color: #333; margin-bottom: 5px;">Trung Học Phổ Thông Việt Đức</p>
+        <p style="margin: 2px 0;">Địa chỉ: Km12, Quốc lộ 27, Xã Ea Ktur, Tỉnh Đắk Lắk</p>
+        <p style="margin: 10px 0 0 0; font-style: italic; opacity: 0.8;">Code by: Hoàng Gia Đạt</p>
+    </footer>
+
     <script src="/static/script.js"></script>
 </body>
 </html>
