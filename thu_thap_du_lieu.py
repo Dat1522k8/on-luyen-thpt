@@ -22,18 +22,19 @@ def fetch_from_ai(subject_name, concept_display, concept_slug, level, quantity):
     prompt = f"""
     Tạo {quantity} câu hỏi trắc nghiệm {subject_name}. Chủ đề: {concept_display}. Mức độ: {level}.
     
-    YÊU CẦU QUAN TRỌNG:
-    1. Trường 'options' PHẢI chứa nội dung chi tiết (số hoặc biểu thức LaTeX), KHÔNG được ghi "A", "B", "C", "D".
-    2. Trường 'answer' PHẢI là nội dung của đáp án đúng (phải khớp 100% với 1 trong 4 options).
-    3. Cấu trúc JSON:
+    YÊU CẦU BẮT BUỘC:
+    1. Trường 'options' PHẢI chứa nội dung chi tiết. KHÔNG được ghi "A", "B", "C", "D".
+    2. Trường 'answer' PHẢI khớp 100% với 1 trong 4 options.
+    3. TẤT CẢ các biểu thức toán học, công số, phân số, ký hiệu vector (ví dụ: \\vec{{u}}, \\binom{{n}}{{k}}, \\frac{{a}}{{b}}) PHẢI được bao quanh bởi dấu $ (ví dụ: $\\frac{{1}}{{2}}$).
+    4. Cấu trúc JSON:
     {{
         "level": "{level}",
-        "question": "Nội dung câu hỏi...",
-        "options": ["Nội dung 1", "Nội dung 2", "Nội dung 3", "Nội dung 4"],
-        "answer": "Nội dung đúng",
+        "question": "Nội dung câu hỏi (nếu có công thức phải nằm trong $...$)",
+        "options": ["$công thức 1$", "$công thức 2$", "văn bản", "$công thức 4$"],
+        "answer": "Nội dung đúng (phải có $ nếu option có $)",
         "concept": "{concept_slug}"
     }}
-    Lưu ý: Dùng \\\\ cho LaTeX. Trả về DUY NHẤT mảng JSON.
+    Lưu ý: Sử dụng double backslash \\\\ cho các lệnh LaTeX để không làm hỏng định dạng JSON. Trả về DUY NHẤT mảng JSON.
     """
 
     payload = { # Đã đổi tên thành payload để tránh nhầm lẫn
@@ -109,11 +110,14 @@ if __name__ == "__main__":
     #fetch_and_append("Toán", "nhân xác suất", "nha_xac_xuat", "Khó", 10, "math.json")
     #fetch_and_append("Toán", "xác xuất", "xac_suat", "Khó", 10, "math.json")
     #fetch_and_append("Toán", "xác xuất có điều kiện", "xac_suat_co_dieu_kien", "Khó", 10, "math.json")
+    #fetch_and_append("Toán", "xác xuất toàn phần và bayes", "xac_suat_toan_phan_va_bayes", "Khó", 10, "math.json")
+    fetch_and_append("Toán", "vector", "vector", "Khó", 5, "math.json")
+    fetch_and_append("Toán", "tọa độ hóa hình học không gian", "toa_do_hoa_hinh_hoc", "Khó", 10, "math.json")
     #LÝ
-    fetch_and_append("Vật lý", "Từ trường", "tu_truong", "Khó", 20, "physics.json")
-    fetch_and_append("Vật lý", "điện áp", "dien_ap", "Khó", 20, "physics.json")
-    fetch_and_append("Vật lý", "khí lý tưởng", "khi_ly_tuong", "Khó", 20, "physics.json")
-    fetch_and_append("Vật lý", "hạt nhân", "hat_nhan", "Khó", 20, "physics.json")
-    fetch_and_append("Vật lý", "mô men lực", "mo_men_luc", "Khó", 20, "physics.json")
-    fetch_and_append("Vật lý", "phương trình trạng thái", "pttt", "Khó", 20, "physics.json")
-    fetch_and_append("Vật lý", "vật lý nhiệt", "vat_ly_nhiet", "Khó", 20, "physics.json")
+    #fetch_and_append("Vật lý", "Từ trường", "tu_truong", "Khó", 10, "physics.json")
+    #fetch_and_append("Vật lý", "điện áp", "dien_ap", "Khó", 10, "physics.json")
+    #fetch_and_append("Vật lý", "khí lý tưởng", "khi_ly_tuong", "Khó", 10, "physics.json")
+    #fetch_and_append("Vật lý", "hạt nhân", "hat_nhan", "Khó", 10, "physics.json")
+    #fetch_and_append("Vật lý", "mô men lực", "mo_men_luc", "Khó", 10, "physics.json")
+    #fetch_and_append("Vật lý", "phương trình trạng thái", "pttt", "Khó", 10, "physics.json")
+    #fetch_and_append("Vật lý", "vật lý nhiệt", "vat_ly_nhiet", "Khó", 10, "physics.json")

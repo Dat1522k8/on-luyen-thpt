@@ -39,7 +39,7 @@ def home():
 def concepts():
     mon = request.args.get("mon")
     if mon == "toan":
-        concepts = ["dao_ham", "nguyen_ham", "logarit", "cap_so_cong", "cap_so_nhan", "nhan_xac_suat","xac_suat_co_dieu_kien", "xac_suat"]
+        concepts = ["dao_ham", "nguyen_ham", "logarit", "cap_so_cong", "cap_so_nhan", "nhan_xac_xuat", "xac_suat_co_dieu_kien", "xac_suat_toan_phan_va_bayes", "xac_suat", "vector", "toa_do_hoa_hinh_hoc"]
     else:
         concepts = ["dien_ap", "tu_truong", "khi_ly_tuong", "nhiet_hoc", "hat_nhan", "mo_men_luc", "pttt", "vat_ly_nhiet"]
     return jsonify(concepts)

@@ -603,190 +603,190 @@
         "level": "Khó",
         "question": "Cho hai biến ngẫu nhiên độc lập $X$ và $Y$ với hàm phân phối xác suất $f(x)$ và $g(y)$. Tìm xác suất để $X+Y$ lớn hơn $5$ khi $f(x) = \\frac{1}{2}$ nếu $0 < x < 2$ và $g(y) = \\frac{1}{3}$ nếu $1 < y < 4$.",
         "options": [
-            "\\frac{1}{2} \\times \\frac{1}{3} \\times (2 \\times 3)",
-            "\\frac{1}{2} \\times \\frac{1}{3} \\times (2 + 3)",
-            "\\frac{1}{2} \\times \\frac{1}{3} \\times (4 - 1)",
-            "\\frac{1}{6} \\times (3 - 1)"
+            "$\\frac{1}{2} \\times \\frac{1}{3} \\times (2 \\times 3)$",
+            "$\\frac{1}{2} \\times \\frac{1}{3} \\times (2 + 3)$",
+            "$\\frac{1}{2} \\times \\frac{1}{3} \\times (4 - 1)$",
+            "$\\frac{1}{6} \\times (3 - 1)"
         ],
-        "answer": "\\frac{1}{6} \\times (3 - 1)",
-        "concept": "nha_xac_xuat"
+        "answer": "$\\frac{1}{6} \\times (3 - 1)$",
+        "concept": "nhan_xac_xuat"
     },
     {
         "level": "Khó",
         "question": "Tìm xác suất để ít nhất một trong hai sự kiện độc lập $A$ và $B$ xảy ra, biết rằng $P(A) = \\frac{1}{3}$ và $P(B) = \\frac{2}{5}$.",
         "options": [
-            "1 - (\\frac{2}{3} \\times \\frac{3}{5})",
-            "1 - (\\frac{1}{3} \\times \\frac{2}{5})",
-            "\\frac{1}{3} + \\frac{2}{5} - (\\frac{1}{3} \\times \\frac{2}{5})",
-            "\\frac{1}{3} \\times \\frac{2}{5}"
+            "$1 - (\\frac{2}{3} \\times \\frac{3}{5})$",
+            "$1 - (\\frac{1}{3} \\times \\frac{2}{5})$",
+            "$\\frac{1}{3} + \\frac{2}{5} - (\\frac{1}{3} \\times \\frac{2}{5})$",
+            "$\\frac{1}{3} \\times \\frac{2}{5}$"
         ],
-        "answer": "1 - (\\frac{2}{3} \\times \\frac{3}{5})",
-        "concept": "nha_xac_xuat"
+        "answer": "$1 - (\\frac{2}{3} \\times \\frac{3}{5})$",
+        "concept": "nhan_xac_xuat"
     },
     {
         "level": "Khó",
         "question": "Cho ba sự kiện độc lập $A$, $B$, và $C$ với $P(A) = \\frac{1}{2}$, $P(B) = \\frac{2}{3}$, và $P(C) = \\frac{3}{4}$. Tìm xác suất để cả ba sự kiện xảy ra.",
         "options": [
-            "\\frac{1}{2} \\times \\frac{2}{3} \\times \\frac{3}{4}",
-            "\\frac{1}{2} + \\frac{2}{3} + \\frac{3}{4}",
-            "\\frac{1}{2} \\times \\frac{2}{3} + \\frac{3}{4}",
-            "\\frac{1}{2} + \\frac{2}{3} \\times \\frac{3}{4}"
+            "$\\frac{1}{2} \\times \\frac{2}{3} \\times \\frac{3}{4}$",
+            "$\\frac{1}{2} + \\frac{2}{3} + \\frac{3}{4}$",
+            "$\\frac{1}{2} \\times \\frac{2}{3} + \\frac{3}{4}$",
+            "$\\frac{1}{2} + \\frac{2}{3} \\times \\frac{3}{4}$"
         ],
-        "answer": "\\frac{1}{2} \\times \\frac{2}{3} \\times \\frac{3}{4}",
-        "concept": "nha_xac_xuat"
+        "answer": "$\\frac{1}{2} \\times \\frac{2}{3} \\times \\frac{3}{4}$",
+        "concept": "nhan_xac_xuat"
     },
     {
         "level": "Khó",
         "question": "Hai biến ngẫu nhiên độc lập $X$ và $Y$ có phân phối đều trong khoảng $[0, 1]$. Tìm xác suất để $X + Y$ nhỏ hơn $1$.",
         "options": [
-            "\\frac{1}{2}",
-            "\\frac{1}{4}",
-            "1 - \\frac{1}{2}",
-            "\\frac{1}{4} \\times \\frac{1}{2}"
+            "$\\frac{1}{2}$",
+            "$\\frac{1}{4}$",
+            "$1 - \\frac{1}{2}$",
+            "$\\frac{1}{4} \\times \\frac{1}{2}$"
         ],
-        "answer": "\\frac{1}{2}",
-        "concept": "nha_xac_xuat"
+        "answer": "$\\frac{1}{2}$",
+        "concept": "nhan_xac_xuat"
     },
     {
         "level": "Khó",
         "question": "Cho hai sự kiện độc lập $A$ và $B$ với $P(A) = \\frac{2}{5}$ và $P(B) = \\frac{3}{7}$. Tìm xác suất để cả hai sự kiện xảy ra.",
         "options": [
-            "\\frac{2}{5} + \\frac{3}{7}",
-            "\\frac{2}{5} \\times \\frac{3}{7}",
-            "\\frac{2}{5} - \\frac{3}{7}",
-            "1 - (\\frac{2}{5} \\times \\frac{3}{7})"
+            "$\\frac{2}{5} + \\frac{3}{7}$",
+            "$\\frac{2}{5} \\times \\frac{3}{7}$",
+            "$\\frac{2}{5} - \\frac{3}{7}$",
+            "$1 - (\\frac{2}{5} \\times \\frac{3}{7})$"
         ],
-        "answer": "\\frac{2}{5} \\times \\frac{3}{7}",
-        "concept": "nha_xac_xuat"
+        "answer": "$\\frac{2}{5} \\times \\frac{3}{7}$",
+        "concept": "nhan_xac_xuat"
     },
     {
         "level": "Khó",
         "question": "Cho hai biến ngẫu nhiên độc lập $X$ và $Y$ với hàm phân phối xác suất $f(x) = \\frac{1}{2}$ nếu $0 < x < 2$ và $f(y) = \\frac{1}{3}$ nếu $1 < y < 4$. Tìm xác suất để $X + Y > 3$.",
         "options": [
-            "\\frac{1}{2}",
-            "\\frac{3}{4}",
-            "\\frac{5}{6}",
-            "\\frac{3}{4}"
+            "$\\frac{1}{2}$",
+            "$\\frac{3}{4}$",
+            "$\\frac{5}{6}$",
+            "$\\frac{3}{4}$"
         ],
-        "answer": "\\frac{5}{6}",
-        "concept": "nha_xac_xuat"
+        "answer": "$\\frac{5}{6}$",
+        "concept": "nhan_xac_xuat"
     },
     {
         "level": "Khó",
         "question": "Cho biến ngẫu nhiên $X$ với phân phối đều trong khoảng $[0, 1]$ và biến ngẫu nhiên $Y$ với phân phối đều trong khoảng $[0, 2]$. Tìm xác suất để $XY < \\frac{1}{4}$.",
         "options": [
-            "\\frac{3}{4}",
-            "\\frac{1}{2}",
-            "\\frac{1}{4}",
-            "\\frac{7}{8}"
+            "$\\frac{3}{4}$",
+            "$\\frac{1}{2}$",
+            "$\\frac{1}{4}$",
+            "$\\frac{7}{8}$"
         ],
-        "answer": "\\frac{7}{8}",
-        "concept": "nha_xac_xuat"
+        "answer": "$\\frac{7}{8}$",
+        "concept": "nhan_xac_xuat"
     },
     {
         "level": "Khó",
         "question": "Hai sự kiện $A$ và $B$ có xác suất $P(A) = \\frac{1}{3}$ và $P(B) = \\frac{2}{5}$. Biết rằng $A$ và $B$ là độc lập. Tìm xác suất của sự kiện $A \\cap B$.",
         "options": [
-            "\\frac{1}{15}",
-            "\\frac{2}{15}",
-            "\\frac{1}{5}",
-            "\\frac{2}{5}"
+            "$\\frac{1}{15}$",
+            "$\\frac{2}{15}$",
+            "$\\frac{1}{5}$",
+            "$\\frac{2}{5}$"
         ],
-        "answer": "\\frac{2}{15}",
-        "concept": "nha_xac_xuat"
+        "answer": "$\\frac{2}{15}$",
+        "concept": "nhan_xac_xuat"
     },
     {
         "level": "Khó",
         "question": "Cho biến ngẫu nhiên $X$ với phân phối đều trong khoảng $[0, 3]$ và biến ngẫu nhiên $Y$ với phân phối đều trong khoảng $[1, 4]$. Tìm xác suất để $X + Y > 4$.",
         "options": [
-            "\\frac{1}{2}",
-            "\\frac{1}{3}",
-            "\\frac{5}{9}",
-            "\\frac{2}{3}"
+            "$\\frac{1}{2}$",
+            "$\\frac{1}{3}$",
+            "$\\frac{5}{9}$",
+            "$\\frac{2}{3}$"
         ],
-        "answer": "\\frac{5}{9}",
-        "concept": "nha_xac_xuat"
+        "answer": "$\\frac{5}{9}$",
+        "concept": "nhan_xac_xuat"
     },
     {
         "level": "Khó",
         "question": "Hai biến ngẫu nhiên độc lập $X$ và $Y$ có phân phối đều trong khoảng $[0, 1]$. Tìm xác suất để $|X - Y| < \\frac{1}{2}$.",
         "options": [
-            "\\frac{1}{4}",
-            "\\frac{3}{4}",
-            "\\frac{1}{2}",
-            "\\frac{3}{4}"
+            "$\\frac{1}{4}$",
+            "$\\frac{3}{4}$",
+            "$\\frac{1}{2}$",
+            "$\\frac{3}{4}$"
         ],
-        "answer": "\\frac{3}{4}",
-        "concept": "nha_xac_xuat"
+        "answer": "$\\frac{3}{4}$",
+        "concept": "nhan_xac_xuat"
     },
     {
         "level": "Khó",
         "question": "Một hộp có 10 viên bi, trong đó 3 viên bi màu đỏ, 4 viên bi màu xanh và 3 viên bi màu vàng. Tìm xác suất để chọn được một viên bi màu đỏ hoặc màu xanh?",
         "options": [
-            "\\frac{3}{10}",
-            "\\frac{7}{10}",
-            "\\frac{4}{10}",
-            "\\frac{6}{10}"
+            "$\\frac{3}{10}$",
+            "$\\frac{7}{10}$",
+            "$\\frac{4}{10}$",
+            "$\\frac{6}{10}$"
         ],
-        "answer": "\\frac{7}{10}",
+        "answer": "$\\frac{7}{10}$",
         "concept": "xac_suat"
     },
     {
         "level": "Khó",
         "question": "Một đồng xu được tung 5 lần. Tìm xác suất để có được 3 lần sấp và 2 lần ngửa?",
         "options": [
-            "\\frac{1}{32}",
-            "\\frac{5}{16}",
-            "\\frac{3}{8}",
-            "\\frac{1}{2}"
+            "$\\frac{1}{32}$",
+            "$\\frac{5}{16}$",
+            "$\\frac{3}{8}$",
+            "$\\frac{1}{2}$"
         ],
-        "answer": "\\frac{5}{16}",
+        "answer": "$\\frac{5}{16}$",
         "concept": "xac_suat"
     },
     {
         "level": "Khó",
         "question": "Một túi có 15 viên bi, trong đó 5 viên bi màu trắng, 6 viên bi màu đen và 4 viên bi màu xám. Tìm xác suất để chọn được một viên bi màu trắng hoặc màu xám?",
         "options": [
-            "\\frac{3}{5}",
-            "\\frac{9}{15}",
-            "\\frac{1}{3}",
-            "\\frac{2}{5}"
+            "$\\frac{3}{5}$",
+            "$\\frac{9}{15}$",
+            "$\\frac{1}{3}$",
+            "$\\frac{2}{5}$"
         ],
-        "answer": "\\frac{9}{15}",
+        "answer": "$\\frac{9}{15}$",
         "concept": "xac_suat"
     },
     {
         "level": "Khó",
         "question": "Một người chơi trò chơi may rủi, trong đó có 20% cơ hội thắng và 80% cơ hội thua. Tìm xác suất để người đó thắng 2 lần trong 5 lần chơi?",
         "options": [
-            "\\frac{1}{16}",
-            "\\frac{5}{16}",
-            "\\frac{4}{25}",
-            "\\frac{2}{5}"
+            "$\\frac{1}{16}$",
+            "$\\frac{5}{16}$",
+            "$\\frac{4}{25}$",
+            "$\\frac{2}{5}$"
         ],
-        "answer": "\\frac{4}{25}",
+        "answer": "$\\frac{4}{25}$",
         "concept": "xac_suat"
     },
     {
         "level": "Khó",
         "question": "Một hộp có 8 viên bi, trong đó 2 viên bi màu đỏ, 3 viên bi màu xanh và 3 viên bi màu vàng. Tìm xác suất để chọn được một viên bi màu đỏ hoặc màu vàng?",
         "options": [
-            "\\frac{1}{4}",
-            "\\frac{5}{8}",
-            "\\frac{2}{3}",
-            "\\frac{5}{8}"
+            "$\\frac{1}{4}$",
+            "$\\frac{5}{8}$",
+            "$\\frac{2}{3}$",
+            "$\\frac{5}{8}$"
         ],
-        "answer": "\\frac{5}{8}",
+        "answer": "$\\frac{5}{8}$",
         "concept": "xac_suat"
     },
     {
         "level": "Khó",
         "question": "Một hộp có 10 viên bi, trong đó 3 viên bi màu đỏ, 4 viên bi màu xanh và 3 viên bi màu vàng. Tìm xác suất để chọn được một viên bi màu đỏ hoặc màu xanh?",
         "options": [
-            "\\frac{3}{10}",
-            "\\frac{7}{10}",
-            "\\frac{4}{10}",
-            "\\frac{6}{10}"
+            "$\\frac{3}{10}$",
+            "$\\frac{7}{10}$",
+            "$\\frac{4}{10}$",
+            "$\\frac{6}{10}$"
         ],
         "answer": "\\frac{7}{10}",
         "concept": "xac_suat"
@@ -795,48 +795,48 @@
         "level": "Khó",
         "question": "Một đồng xu được tung 5 lần. Tìm xác suất để xuất hiện đúng 3 lần sấp?",
         "options": [
-            "\\frac{5}{32}",
-            "\\frac{10}{32}",
-            "\\frac{1}{32}",
-            "\\frac{3}{32}"
+            "$\\frac{5}{32}$",
+            "$\\frac{10}{32}$",
+            "$\\frac{1}{32}$",
+            "$\\frac{3}{32}$"
         ],
-        "answer": "\\frac{10}{32}",
+        "answer": "$\\frac{10}{32}$",
         "concept": "xac_suat"
     },
     {
         "level": "Khó",
         "question": "Một con xúc xắc 6 mặt được tung một lần. Tìm xác suất để xuất hiện một con số chẵn?",
         "options": [
-            "\\frac{1}{2}",
-            "\\frac{1}{3}",
-            "\\frac{2}{3}",
-            "\\frac{3}{4}"
+            "$\\frac{1}{2}$",
+            "$\\frac{1}{3}$",
+            "$\\frac{2}{3}$",
+            "$\\frac{3}{4}$"
         ],
-        "answer": "\\frac{1}{2}",
+        "answer": "$\\frac{1}{2}$",
         "concept": "xac_suat"
     },
     {
         "level": "Khó",
         "question": "Một hộp có 20 viên bi, trong đó 5 viên bi màu đỏ, 8 viên bi màu xanh và 7 viên bi màu vàng. Tìm xác suất để chọn được một viên bi màu đỏ hoặc màu vàng?",
         "options": [
-            "\\frac{12}{20}",
-            "\\frac{10}{20}",
-            "\\frac{8}{20}",
-            "\\frac{5}{20}"
+            "$\\frac{12}{20}$",
+            "$\\frac{10}{20}$",
+            "$\\frac{8}{20}$",
+            "$\\frac{5}{20}$"
         ],
-        "answer": "\\frac{12}{20}",
+        "answer": "$\\frac{12}{20}$",
         "concept": "xac_suat"
     },
     {
         "level": "Khó",
         "question": "Một đồng xu được tung 4 lần. Tìm xác suất để xuất hiện đúng 2 lần sấp?",
         "options": [
-            "\\frac{3}{8}",
-            "\\frac{6}{16}",
-            "\\frac{1}{8}",
-            "\\frac{4}{16}"
+            "$\\frac{3}{8}$",
+            "$\\frac{6}{16}$",
+            "$\\frac{1}{8}$",
+            "$\\frac{4}{16}$"
         ],
-        "answer": "\\frac{6}{16}",
+        "answer": "$\\frac{6}{16}$",
         "concept": "xac_suat"
     },
     {
@@ -2769,7 +2769,7 @@
             "$\\frac{1}{4}$"
         ],
         "answer": "$\\frac{1}{3}$",
-        "concept": "nha_xac_xuat"
+        "concept": "nhan_xac_xuat"
     },
     {
         "level": "Khó",
@@ -2781,7 +2781,7 @@
             "$\\frac{1}{6}$"
         ],
         "answer": "$\\frac{1}{4}$",
-        "concept": "nha_xac_xuat"
+        "concept": "nhan_xac_xuat"
     },
     {
         "level": "Khó",
@@ -2793,7 +2793,7 @@
             "$\\frac{1}{4}$"
         ],
         "answer": "$\\frac{3}{10}$",
-        "concept": "nha_xac_xuat"
+        "concept": "nhan_xac_xuat"
     },
     {
         "level": "Khó",
@@ -2805,7 +2805,7 @@
             "$\\frac{2}{15}$"
         ],
         "answer": "$\\frac{1}{5}$",
-        "concept": "nha_xac_xuat"
+        "concept": "nhan_xac_xuat"
     },
     {
         "level": "Khó",
@@ -2817,342 +2817,342 @@
             "$\\frac{1}{5}$"
         ],
         "answer": "$\\frac{2}{5}$",
-        "concept": "nha_xac_xuat"
+        "concept": "nhan_xac_xuat"
     },
     {
         "level": "Khó",
         "question": "Cho hai biến cố độc lập A và B. Biết P(A) = \\frac{1}{3} và P(B) = \\frac{2}{5}. Tìm P(A \\cap B).",
         "options": [
-            "\\frac{1}{15}",
-            "\\frac{2}{15}",
-            "\\frac{1}{5}",
-            "\\frac{2}{3}"
+            "$\frac{1}{15}$",
+            "$\frac{2}{15}$",
+            "$\\frac{1}{5}$",
+            "$\\frac{2}{3}$"
         ],
-        "answer": "\\frac{2}{15}",
+        "answer": "$\frac{2}{15}$",
         "concept": "nhan_xac_xuat"
     },
     {
         "level": "Khó",
         "question": "Cho ba biến cố độc lập A, B và C. Biết P(A) = \\frac{1}{2}, P(B) = \\frac{3}{4} và P(C) = \\frac{2}{3}. Tìm P(A \\cap B \\cap C).",
         "options": [
-            "\\frac{1}{4}",
-            "\\frac{1}{3}",
-            "\\frac{1}{2}",
-            "\\frac{1}{6}"
+            "$\\frac{1}{4}$",
+            "$\\frac{1}{3}$",
+            "$\\frac{1}{2}$",
+            "$\\frac{1}{6}$"
         ],
-        "answer": "\\frac{1}{4}",
+        "answer": "$\\frac{1}{4}$",
         "concept": "nhan_xac_xuat"
     },
     {
         "level": "Khó",
         "question": "Cho hai biến cố độc lập A và B. Biết P(A) = \\frac{2}{3} và P(A \\cup B) = \\frac{5}{6}. Tìm P(B).",
         "options": [
-            "\\frac{1}{2}",
-            "\\frac{1}{3}",
-            "\\frac{2}{3}",
-            "\\frac{3}{4}"
+            "$\\frac{1}{2}$",
+            "$\\frac{1}{3}$",
+            "$\\frac{2}{3}$",
+            "$\\frac{3}{4}$"
         ],
-        "answer": "\\frac{1}{2}",
+        "answer": "$\\frac{1}{2}$",
         "concept": "nhan_xac_xuat"
     },
     {
         "level": "Khó",
         "question": "Cho ba biến cố độc lập A, B và C. Biết P(A) = \\frac{1}{2}, P(B) = \\frac{2}{3} và P(C) = \\frac{3}{4}. Tìm P(A \\cup B \\cup C).",
         "options": [
-            "\\frac{3}{4}",
-            "\\frac{7}{12}",
-            "\\frac{11}{12}",
-            "\\frac{13}{16}"
+            "$\\frac{3}{4}$",
+            "$\\frac{7}{12}$",
+            "$\\frac{11}{12}$",
+            "$\\frac{13}{16}$"
         ],
-        "answer": "\\frac{11}{12}",
+        "answer": "$\\frac{11}{12}$",
         "concept": "nhan_xac_xuat"
     },
     {
         "level": "Khó",
         "question": "Cho hai biến cố độc lập A và B. Biết P(A) = \\frac{3}{4} và P(B) = \\frac{2}{5}. Tìm P(A \\cup B).",
         "options": [
-            "\\frac{3}{5}",
-            "\\frac{2}{3}",
-            "\\frac{11}{20}",
-            "\\frac{13}{20}"
+            "$\\frac{3}{5}$",
+            "$\\frac{2}{3}$",
+            "$\\frac{11}{20}$",
+            "$\\frac{13}{20}$"
         ],
-        "answer": "\\frac{11}{20}",
+        "answer": "$\\frac{11}{20}$",
         "concept": "nhan_xac_xuat"
     },
     {
         "level": "Khó",
         "question": "Cho hai biến ngẫu nhiên độc lập $X$ và $Y$ với hàm phân phối xác suất $f(x)$ và $g(y)$. Tìm xác suất để $X+Y$ nhỏ hơn $5$ khi $f(x) = \\frac{1}{2}$ nếu $0 < x < 2$ và $g(y) = \\frac{1}{3}$ nếu $1 < y < 4$.",
         "options": [
-            "\\frac{1}{6}",
-            "\\frac{1}{4}",
-            "\\frac{1}{3}",
-            "\\frac{1}{2}"
+            "$\\frac{1}{6}$",
+            "$\\frac{1}{4}$",
+            "$\\frac{1}{3}$",
+            "$\\frac{1}{2}$"
         ],
-        "answer": "\\frac{1}{6}",
-        "concept": "nha_xac_xuat"
+        "answer": "$\\frac{1}{6}$",
+        "concept": "nhan_xac_xuat"
     },
     {
         "level": "Khó",
         "question": "Tìm xác suất để ít nhất một trong hai sự kiện độc lập $A$ và $B$ xảy ra, biết rằng $P(A) = \\frac{2}{5}$ và $P(B) = \\frac{3}{7}$.",
         "options": [
-            "\\frac{17}{35}",
-            "\\frac{19}{35}",
-            "\\frac{23}{35}",
-            "\\frac{29}{35}"
+            "$\\frac{17}{35}$",
+            "$\\frac{19}{35}$",
+            "$\\frac{23}{35}$",
+            "$\\frac{29}{35}$"
         ],
-        "answer": "\\frac{23}{35}",
-        "concept": "nha_xac_xuat"
+        "answer": "$\\frac{23}{35}$",
+        "concept": "nhan_xac_xuat"
     },
     {
         "level": "Khó",
         "question": "Cho ba sự kiện độc lập $A$, $B$, và $C$ với xác suất $P(A) = \\frac{1}{2}$, $P(B) = \\frac{2}{3}$, và $P(C) = \\frac{3}{4}$. Tìm xác suất để cả ba sự kiện xảy ra.",
         "options": [
-            "\\frac{1}{4}",
-            "\\frac{1}{3}",
-            "\\frac{1}{6}",
-            "\\frac{1}{12}"
+            "$\\frac{1}{4}$",
+            "$\\frac{1}{3}$",
+            "$\\frac{1}{6}$",
+            "$\\frac{1}{12}$"
         ],
-        "answer": "\\frac{1}{4}",
-        "concept": "nha_xac_xuat"
+        "answer": "$\\frac{1}{4}$",
+        "concept": "nhan_xac_xuat"
     },
     {
         "level": "Khó",
         "question": "Hai biến ngẫu nhiên độc lập $X$ và $Y$ có phân phối đều trong khoảng $[0, 1]$. Tìm xác suất để $X^2 + Y^2 < 1$.",
         "options": [
-            "\\frac{\\pi}{4}",
-            "\\frac{\\pi}{2}",
-            "\\frac{\\pi}{3}",
-            "\\frac{\\pi}{6}"
+            "$\\frac{\\pi}{4}$",
+            "$\\frac{\\pi}{2}$",
+            "$\\frac{\\pi}{3}$",
+            "$\\frac{\\pi}{6}$"
         ],
-        "answer": "\\frac{\\pi}{4}",
-        "concept": "nha_xac_xuat"
+        "answer": "$\\frac{\\pi}{4}$",
+        "concept": "nhan_xac_xuat"
     },
     {
         "level": "Khó",
         "question": "Cho hai sự kiện độc lập $A$ và $B$ với $P(A) = \\frac{3}{5}$ và $P(B) = \\frac{2}{3}$. Tìm xác suất để cả hai sự kiện xảy ra.",
         "options": [
-            "\\frac{6}{15}",
-            "\\frac{6}{10}",
-            "\\frac{2}{5}",
-            "\\frac{6}{15}"
+            "$\\frac{6}{15}$",
+            "$\\frac{6}{10}$",
+            "$\\frac{2}{5}$",
+            "$\\frac{6}{15}$"
         ],
-        "answer": "\\frac{6}{15}",
-        "concept": "nha_xac_xuat"
+        "answer": "$\\frac{6}{15}$",
+        "concept": "nhan_xac_xuat"
     },
     {
         "level": "Khó",
         "question": "Cho hai biến ngẫu nhiên độc lập $X$ và $Y$ với hàm phân phối xác suất $f(x)$ và $g(y)$. Tìm xác suất để $X+Y$ nhỏ hơn $5$ khi $f(x) = \\frac{1}{2}$ nếu $0 < x < 2$ và $g(y) = \\frac{1}{3}$ nếu $1 < y < 4$.",
         "options": [
-            "\\frac{1}{6}",
-            "\\frac{1}{4}",
-            "\\frac{1}{3}",
-            "\\frac{1}{2}"
+            "$\\frac{1}{6}$",
+            "$\\frac{1}{4}$",
+            "$\\frac{1}{3}$",
+            "$\\frac{1}{2}$"
         ],
-        "answer": "\\frac{1}{6}",
-        "concept": "nha_xac_xuat"
+        "answer": "$\\frac{1}{6}$",
+        "concept": "nhan_xac_xuat"
     },
     {
         "level": "Khó",
         "question": "Tìm xác suất để ít nhất một trong hai sự kiện độc lập $A$ và $B$ xảy ra, biết rằng $P(A) = \\frac{2}{5}$ và $P(B) = \\frac{3}{7}$.",
         "options": [
-            "\\frac{17}{35}",
-            "\\frac{19}{35}",
-            "\\frac{23}{35}",
-            "\\frac{29}{35}"
+            "$\\frac{17}{35}$",
+            "$\\frac{19}{35}$",
+            "$\\frac{23}{35}$",
+            "$\\frac{29}{35}$"
         ],
-        "answer": "\\frac{23}{35}",
-        "concept": "nha_xac_xuat"
+        "answer": "$\\frac{23}{35}$",
+        "concept": "nhan_xac_xuat"
     },
     {
         "level": "Khó",
         "question": "Cho ba sự kiện độc lập $A$, $B$, và $C$ với $P(A) = \\frac{1}{3}$, $P(B) = \\frac{2}{5}$, và $P(C) = \\frac{3}{7}$. Tìm xác suất để cả ba sự kiện xảy ra.",
         "options": [
-            "\\frac{2}{105}",
-            "\\frac{1}{35}",
-            "\\frac{2}{35}",
-            "\\frac{1}{21}"
+            "$\\frac{2}{105}$",
+            "$\\frac{1}{35}$",
+            "$\\frac{2}{35}$",
+            "$\\frac{1}{21}$"
         ],
-        "answer": "\\frac{2}{105}",
-        "concept": "nha_xac_xuat"
+        "answer": "$\\frac{2}{105}$",
+        "concept": "nhan_xac_xuat"
     },
     {
         "level": "Khó",
         "question": "Tìm xác suất để chính xác hai trong ba sự kiện độc lập $A$, $B$, và $C$ xảy ra, biết $P(A) = \\frac{1}{2}$, $P(B) = \\frac{2}{3}$, và $P(C) = \\frac{3}{4}$.",
         "options": [
-            "\\frac{1}{4} + \\frac{1}{6} + \\frac{1}{8}",
-            "\\frac{1}{4} + \\frac{1}{6} + \\frac{1}{12}",
-            "\\frac{1}{8} + \\frac{1}{12} + \\frac{1}{16}",
-            "\\frac{3}{16} + \\frac{1}{8} + \\frac{1}{12}"
+            "$\\frac{1}{4} + \\frac{1}{6} + \\frac{1}{8}$",
+            "$\\frac{1}{4} + \\frac{1}{6} + \\frac{1}{12}$",
+            "$\\frac{1}{8} + \\frac{1}{12} + \\frac{1}{16}$",
+            "$\\frac{3}{16} + \\frac{1}{8} + \\frac{1}{12}$"
         ],
-        "answer": "\\frac{1}{4} + \\frac{1}{6} + \\frac{1}{8}",
-        "concept": "nha_xac_xuat"
+        "answer": "$\\frac{1}{4} + \\frac{1}{6} + \\frac{1}{8}$",
+        "concept": "nhan_xac_xuat"
     },
     {
         "level": "Khó",
         "question": "Cho hai biến ngẫu nhiên độc lập $X$ và $Y$ với $P(X=1) = \\frac{1}{4}$, $P(X=2) = \\frac{3}{4}$, $P(Y=1) = \\frac{1}{5}$, và $P(Y=2) = \\frac{4}{5}$. Tìm xác suất để $XY$ bằng $2$.",
         "options": [
-            "\\frac{3}{20}",
-            "\\frac{3}{5}",
-            "\\frac{1}{5}",
-            "\\frac{12}{20}"
+            "$\\frac{3}{20}$",
+            "$\\frac{3}{5}$",
+            "$\\frac{1}{5}$",
+            "$\\frac{12}{20}$"
         ],
-        "answer": "\\frac{3}{20}",
-        "concept": "nha_xac_xuat"
+        "answer": "$\\frac{3}{20}$",
+        "concept": "nhan_xac_xuat"
     },
     {
         "level": "Khó",
         "question": "Cho hai biến ngẫu nhiên độc lập $X$ và $Y$ với hàm phân phối xác suất $f(x)$ và $g(y)$. Tìm xác suất để $X+Y$ lớn hơn $5$ khi $f(x) = \\frac{1}{2}$ nếu $0 < x < 2$ và $g(y) = \\frac{1}{3}$ nếu $1 < y < 4$.",
         "options": [
-            "\\frac{1}{2} \\times \\frac{1}{3} = \\frac{1}{6}",
-            "\\frac{1}{2} \\times \\frac{2}{3} = \\frac{1}{3}",
-            "\\frac{1}{2} \\times \\frac{1}{3} \\times (4-1) = \\frac{1}{2}",
-            "\\frac{1}{2} \\times \\frac{1}{3} \\times (5-2) = \\frac{1}{2}"
+            "$\\frac{1}{2} \\times \\frac{1}{3} = \\frac{1}{6}$",
+            "$\\frac{1}{2} \\times \\frac{2}{3} = \\frac{1}{3}$",
+            "$\\frac{1}{2} \\times \\frac{1}{3} \\times (4-1) = \\frac{1}{2}$",
+            "$\\frac{1}{2} \\times \\frac{1}{3} \\times (5-2) = \\frac{1}{2}$"
         ],
-        "answer": "\\frac{1}{2} \\times \\frac{1}{3} \\times (4-1) = \\frac{1}{2}",
-        "concept": "nha_xac_xuat"
+        "answer": "$\\frac{1}{2} \\times \\frac{1}{3} \\times (4-1) = \\frac{1}{2}$",
+        "concept": "nhan_xac_xuat"
     },
     {
         "level": "Khó",
         "question": "Tìm xác suất để ít nhất một trong hai sự kiện độc lập $A$ và $B$ xảy ra, biết rằng $P(A) = \\frac{1}{3}$ và $P(B) = \\frac{2}{5}$.",
         "options": [
-            "1 - (\\frac{2}{3} \\times \\frac{3}{5}) = \\frac{13}{15}",
-            "1 - (\\frac{2}{3} \\times \\frac{3}{5}) = \\frac{2}{15}",
-            "(\\frac{1}{3} + \\frac{2}{5}) - (\\frac{1}{3} \\times \\frac{2}{5}) = \\frac{13}{15}",
-            "(\\frac{1}{3} + \\frac{2}{5}) - (\\frac{1}{3} \\times \\frac{2}{5}) = \\frac{2}{15}"
+            "$1 - (\\frac{2}{3} \\times \\frac{3}{5}) = \\frac{13}{15}$",
+            "$1 - (\\frac{2}{3} \\times \\frac{3}{5}) = \\frac{2}{15}$",
+            "$(\\frac{1}{3} + \\frac{2}{5}) - (\\frac{1}{3} \\times \\frac{2}{5}) = \\frac{13}{15}$",
+            "$(\\frac{1}{3} + \\frac{2}{5}) - (\\frac{1}{3} \\times \\frac{2}{5}) = \\frac{2}{15}$"
         ],
-        "answer": "1 - (\\frac{2}{3} \\times \\frac{3}{5}) = \\frac{13}{15}",
-        "concept": "nha_xac_xuat"
+        "answer": "$1 - (\\frac{2}{3} \\times \\frac{3}{5}) = \\frac{13}{15}$",
+        "concept": "nhan_xac_xuat"
     },
     {
         "level": "Khó",
         "question": "Cho ba sự kiện độc lập $A$, $B$, $C$ với $P(A) = \\frac{1}{2}$, $P(B) = \\frac{2}{3}$ và $P(C) = \\frac{3}{4}$. Tìm xác suất để cả ba sự kiện xảy ra.",
         "options": [
-            "\\frac{1}{2} \\times \\frac{2}{3} \\times \\frac{3}{4} = \\frac{1}{4}",
-            "\\frac{1}{2} \\times \\frac{2}{3} \\times \\frac{3}{4} = \\frac{1}{12}",
-            "\\frac{1}{2} + \\frac{2}{3} + \\frac{3}{4} = \\frac{23}{12}",
-            "\\frac{1}{2} \\times \\frac{2}{3} + \\frac{3}{4} = \\frac{5}{6}"
+            "$\\frac{1}{2} \\times \\frac{2}{3} \\times \\frac{3}{4} = \\frac{1}{4}$",
+            "$\\frac{1}{2} \\times \\frac{2}{3} \\times \\frac{3}{4} = \\frac{1}{12}$",
+            "$\\frac{1}{2} + \\frac{2}{3} + \\frac{3}{4} = \\frac{23}{12}$",
+            "$\\frac{1}{2} \\times \\frac{2}{3} + \\frac{3}{4} = \\frac{5}{6}$"
         ],
-        "answer": "\\frac{1}{2} \\times \\frac{2}{3} \\times \\frac{3}{4} = \\frac{1}{4}",
-        "concept": "nha_xac_xuat"
+        "answer": "$\\frac{1}{2} \\times \\frac{2}{3} \\times \\frac{3}{4} = \\frac{1}{4}$",
+        "concept": "nhan_xac_xuat"
     },
     {
         "level": "Khó",
         "question": "Tìm xác suất để chính xác một trong hai sự kiện độc lập $A$ và $B$ xảy ra, biết rằng $P(A) = \\frac{1}{4}$ và $P(B) = \\frac{1}{5}$.",
         "options": [
-            "(\\frac{1}{4} \\times \\frac{4}{5}) + (\\frac{3}{4} \\times \\frac{1}{5}) = \\frac{7}{20}",
-            "(\\frac{1}{4} \\times \\frac{4}{5}) + (\\frac{3}{4} \\times \\frac{1}{5}) = \\frac{1}{20}",
-            "(\\frac{1}{4} + \\frac{1}{5}) - (\\frac{1}{4} \\times \\frac{1}{5}) = \\frac{7}{20}",
-            "(\\frac{1}{4} + \\frac{1}{5}) - (\\frac{1}{4} \\times \\frac{1}{5}) = \\frac{1}{20}"
+            "$(\\frac{1}{4} \\times \\frac{4}{5}) + (\\frac{3}{4} \\times \\frac{1}{5}) = \\frac{7}{20}$",
+            "$(\\frac{1}{4} \\times \\frac{4}{5}) + (\\frac{3}{4} \\times \\frac{1}{5}) = \\frac{1}{20}$",
+            "$(\\frac{1}{4} + \\frac{1}{5}) - (\\frac{1}{4} \\times \\frac{1}{5}) = \\frac{7}{20}$",
+            "$(\\frac{1}{4} + \\frac{1}{5}) - (\\frac{1}{4} \\times \\frac{1}{5}) = \\frac{1}{20}$"
         ],
-        "answer": "(\\frac{1}{4} \\times \\frac{4}{5}) + (\\frac{3}{4} \\times \\frac{1}{5}) = \\frac{7}{20}",
-        "concept": "nha_xac_xuat"
+        "answer": "$(\\frac{1}{4} \\times \\frac{4}{5}) + (\\frac{3}{4} \\times \\frac{1}{5}) = \\frac{7}{20}$",
+        "concept": "nhan_xac_xuat"
     },
     {
         "level": "Khó",
         "question": "Cho hai biến ngẫu nhiên độc lập $X$ và $Y$ với hàm phân phối xác suất $f(x)$ và $g(y)$. Tìm xác suất để $X$ và $Y$ đều lớn hơn $2$ khi $f(x) = \\frac{1}{3}$ nếu $1 < x < 4$ và $g(y) = \\frac{1}{2}$ nếu $2 < y < 5$.",
         "options": [
-            "\\frac{1}{3} \\times \\frac{1}{2} = \\frac{1}{6}",
-            "\\frac{1}{3} \\times \\frac{1}{2} \\times (4-1) = \\frac{1}{2}",
-            "\\frac{1}{3} \\times \\frac{1}{2} \\times (5-2) = \\frac{1}{2}",
-            "\\frac{1}{3} \\times \\frac{1}{2} \\times (3-1) = \\frac{1}{3}"
+            "$\\frac{1}{3} \\times \\frac{1}{2} = \\frac{1}{6}$",
+            "$\\frac{1}{3} \\times \\frac{1}{2} \\times (4-1) = \\frac{1}{2}$",
+            "$\\frac{1}{3} \\times \\frac{1}{2} \\times (5-2) = \\frac{1}{2}$",
+            "$\\frac{1}{3} \\times \\frac{1}{2} \\times (3-1) = \\frac{1}{3}$"
         ],
-        "answer": "\\frac{1}{3} \\times \\frac{1}{2} \\times (3-1) = \\frac{1}{3}",
-        "concept": "nha_xac_xuat"
+        "answer": "$\\frac{1}{3} \\times \\frac{1}{2} \\times (3-1) = \\frac{1}{3}$",
+        "concept": "nhan_xac_xuat"
     },
     {
         "level": "Khó",
         "question": "Cho hai biến ngẫu nhiên độc lập $X$ và $Y$ với hàm phân phối xác suất $f(x) = \\frac{1}{2}$ nếu $0 < x < 2$ và $f(y) = \\frac{1}{3}$ nếu $1 < y < 4$. Tìm xác suất để $X + Y > 3$.",
         "options": [
-            "\\frac{1}{2}",
-            "\\frac{3}{4}",
-            "\\frac{5}{6}",
-            "\\frac{3}{12}"
+            "$\\frac{1}{2}$",
+            "$\\frac{3}{4}$",
+            "$\\frac{5}{6}$",
+            "$\\frac{3}{12}$"
         ],
-        "answer": "\\frac{5}{6}",
-        "concept": "nha_xac_xuat"
+        "answer": "$\\frac{5}{6}$",
+        "concept": "nhan_xac_xuat"
     },
     {
         "level": "Khó",
         "question": "Hai sự kiện $A$ và $B$ có xác suất $P(A) = \\frac{1}{3}$ và $P(B) = \\frac{2}{5}$. Nếu $A$ và $B$ là độc lập, tìm xác suất của $A \\cap B$.",
         "options": [
-            "\\frac{1}{15}",
-            "\\frac{2}{15}",
-            "\\frac{1}{5}",
-            "\\frac{2}{5}"
+            "$\\frac{1}{15}$",
+            "$\\frac{2}{15}$",
+            "$\\frac{1}{5}$",
+            "$\\frac{2}{5}$"
         ],
-        "answer": "\\frac{2}{15}",
-        "concept": "nha_xac_xuat"
+        "answer": "$$\\frac{2}{15}$",
+        "concept": "nhan_xac_xuat"
     },
     {
         "level": "Khó",
         "question": "Cho biến ngẫu nhiên $X$ với xác suất $P(X = 1) = \\frac{1}{4}$ và $P(X = 2) = \\frac{3}{4}$. Tìm xác suất để $X^2 > 1$.",
         "options": [
-            "\\frac{1}{4}",
-            "\\frac{3}{4}",
-            "1",
-            "\\frac{1}{2}"
+            "$\\frac{1}{4}$",
+            "$\\frac{3}{4}$",
+            "$1$",
+            "$\\frac{1}{2}$"
         ],
-        "answer": "\\frac{3}{4}",
-        "concept": "nha_xac_xuat"
+        "answer": "$$\\frac{3}{4}$",
+        "concept": "nhan_xac_xuat"
     },
     {
         "level": "Khó",
         "question": "Hai sự kiện $A$ và $B$ có xác suất $P(A) = \\frac{2}{5}$ và $P(B) = \\frac{3}{10}$. Nếu $A$ và $B$ là độc lập, tìm xác suất của $A \\cup B$.",
         "options": [
-            "\\frac{1}{5}",
-            "\\frac{2}{5}",
-            "\\frac{1}{2}",
-            "\\frac{7}{10}"
+            "$\\frac{1}{5}$",
+            "$\\frac{2}{5}$",
+            "$\\frac{1}{2}$",
+            "$\\frac{7}{10}$"
         ],
-        "answer": "\\frac{7}{10}",
-        "concept": "nha_xac_xuat"
+        "answer": "$\\frac{7}{10}$",
+        "concept": "nhan_xac_xuat"
     },
     {
         "level": "Khó",
         "question": "Cho biến ngẫu nhiên $X$ với hàm phân phối xác suất $f(x) = \\frac{1}{4}$ nếu $0 < x < 4$. Tìm xác suất để $2X > 3$.",
         "options": [
-            "\\frac{1}{4}",
-            "\\frac{1}{2}",
-            "\\frac{3}{4}",
-            "\\frac{1}{8}"
+            "$\\frac{1}{4}$",
+            "$\\frac{1}{2}$",
+            "$\\frac{3}{4}$",
+            "$\\frac{1}{8}$"
         ],
-        "answer": "\\frac{3}{4}",
-        "concept": "nha_xac_xuat"
+        "answer": "$\\frac{3}{4}$",
+        "concept": "nhan_xac_xuat"
     },
     {
         "level": "Khó",
         "question": "Một hộp có 10 viên bi, trong đó 3 viên bi màu đỏ, 4 viên bi màu xanh và 3 viên bi màu vàng. Tìm xác suất để chọn được một viên bi màu đỏ hoặc màu xanh?",
         "options": [
-            "\\frac{3}{10}",
-            "\\frac{7}{10}",
-            "\\frac{4}{10}",
-            "\\frac{6}{10}"
+            "$\\frac{3}{10}$",
+            "$\\frac{7}{10}$",
+            "$\\frac{4}{10}$",
+            "$\\frac{6}{10}$"
         ],
-        "answer": "\\frac{7}{10}",
+        "answer": "$\\frac{7}{10}$",
         "concept": "xac_suat"
     },
     {
         "level": "Khó",
         "question": "Một đồng xu được tung 5 lần. Tìm xác suất để có chính xác 3 lần xuất hiện mặt ngửa?",
         "options": [
-            "\\frac{1}{32}",
-            "\\frac{5}{32}",
-            "\\frac{10}{32}",
-            "\\frac{15}{32}"
+            "$\\frac{1}{32}$",
+            "$\\frac{5}{32}$",
+            "$\\frac{10}{32}$",
+            "$\\frac{15}{32}$"
         ],
-        "answer": "\\frac{10}{32}",
+        "answer": "$\\frac{10}{32}$",
         "concept": "xac_suat"
     },
     {
         "level": "Khó",
         "question": "Một bộ bài gồm 52 lá. Tìm xác suất để rút được một lá bài là quân Át?",
         "options": [
-            "\\frac{1}{13}",
-            "\\frac{1}{26}",
-            "\\frac{1}{52}",
-            "\\frac{4}{52}"
+            "$\\frac{1}{13}$",
+            "$\\frac{1}{26}$",
+            "$\\frac{1}{52}$",
+            "$\\frac{4}{52}$"
         ],
-        "answer": "\\frac{4}{52}",
+        "answer": "$\\frac{4}{52}$",
         "concept": "xac_suat"
     },
     {
@@ -3183,216 +3183,216 @@
         "level": "Khó",
         "question": "Một hộp có 10 viên bi, trong đó 3 viên bi màu đỏ, 4 viên bi màu xanh và 3 viên bi màu vàng. Nếu lấy ngẫu nhiên 2 viên bi, xác suất để cả 2 viên bi đều màu đỏ là:",
         "options": [
-            "\\frac{3}{10} \\times \\frac{2}{9}",
-            "\\frac{3}{10} \\times \\frac{3}{9}",
-            "\\frac{1}{2} \\times \\frac{1}{3}",
-            "\\frac{1}{15}"
+            "$\\frac{3}{10} \\times \\frac{2}{9}$",
+            "$\\frac{3}{10} \\times \\frac{3}{9}$",
+            "$\\frac{1}{2} \\times \\frac{1}{3}$",
+            "$\\frac{1}{15}$"
         ],
-        "answer": "\\frac{3}{10} \\times \\frac{2}{9}",
+        "answer": "$\\frac{3}{10} \\times \\frac{2}{9}$",
         "concept": "xac_suat"
     },
     {
         "level": "Khó",
         "question": "Một đồng xu được tung 5 lần. Xác suất để có chính xác 3 lần sấp là:",
         "options": [
-            "\\left(\\frac{1}{2}\\right)^5",
-            "\\left(\\frac{1}{2}\\right)^3 \\times \\left(\\frac{1}{2}\\right)^2",
-            "\\binom{5}{3} \\times \\left(\\frac{1}{2}\\right)^5",
-            "\\binom{5}{2} \\times \\left(\\frac{1}{2}\\right)^5"
+            "$\\left(\\frac{1}{2}\\right)^5$",
+            "$\\left(\\frac{1}{2}\\right)^3 \\times \\left(\\frac{1}{2}\\right)^2$",
+            "$\\binom{5}{3} \\times \\left(\\frac{1}{2}\\right)^5$",
+            "$\\binom{5}{2} \\times \\left(\\frac{1}{2}\\right)^5$"
         ],
-        "answer": "\\binom{5}{3} \\times \\left(\\frac{1}{2}\\right)^5",
+        "answer": "$\\binom{5}{3} \\times \\left(\\frac{1}{2}\\right)^5$",
         "concept": "xac_suat"
     },
     {
         "level": "Khó",
         "question": "Một chiếc túi có 12 quả cầu, trong đó 4 quả màu đỏ, 4 quả màu xanh và 4 quả màu vàng. Nếu lấy ngẫu nhiên 3 quả cầu, xác suất để có cả 3 màu là:",
         "options": [
-            "\\frac{4}{12} \\times \\frac{4}{11} \\times \\frac{4}{10}",
-            "\\frac{4}{12} \\times \\frac{4}{11} \\times \\frac{3}{10}",
-            "\\frac{4 \times 4 \times 4}{12 \times 11 \times 10}",
-            "\\frac{4 \times 4 \times 4 \times 3!}{12 \times 11 \times 10 \times 3!}"
+            "$\\frac{4}{12} \\times \\frac{4}{11} \\times \\frac{4}{10}$",
+            "$\\frac{4}{12} \\times \\frac{4}{11} \\times \\frac{3}{10}$",
+            "$\\frac{4 \times 4 \times 4}{12 \times 11 \times 10}$",
+            "$\\frac{4 \times 4 \times 4 \times 3!}{12 \times 11 \times 10 \times 3!}$"
         ],
-        "answer": "\\frac{4 \times 4 \times 4 \times 3!}{12 \times 11 \times 10 \times 3!}",
+        "answer": "$\\frac{4 \times 4 \times 4 \times 3!}{12 \times 11 \times 10 \times 3!}$",
         "concept": "xac_suat"
     },
     {
         "level": "Khó",
         "question": "Một người chơi trò chơi may rủi, mỗi lần chơi có thể thắng hoặc thua. Xác suất để thắng là 0,6. Nếu chơi 4 lần, xác suất để thắng 2 lần và thua 2 lần là:",
         "options": [
-            "\\binom{4}{2} \\times (0,6)^2 \\times (0,4)^2",
-            "\\binom{4}{1} \\times (0,6)^3 \\times (0,4)^1",
-            "\\binom{4}{3} \\times (0,6)^3 \\times (0,4)^1",
-            "\\binom{4}{4} \\times (0,6)^4 \\times (0,4)^0"
+            "$\\binom{4}{2} \\times (0,6)^2 \\times (0,4)^2$",
+            "$\\binom{4}{1} \\times (0,6)^3 \\times (0,4)^1$",
+            "$\\binom{4}{3} \\times (0,6)^3 \\times (0,4)^1$",
+            "$\\binom{4}{4} \\times (0,6)^4 \\times (0,4)^0$"
         ],
-        "answer": "\\binom{4}{2} \\times (0,6)^2 \\times (0,4)^2",
+        "answer": "$\\binom{4}{2} \\times (0,6)^2 \\times (0,4)^2$",
         "concept": "xac_suat"
     },
     {
         "level": "Khó",
         "question": "Một công ty bảo hiểm có 1000 khách hàng, trong đó 200 khách hàng có xe máy và 800 khách hàng không có xe máy. Nếu chọn ngẫu nhiên 1 khách hàng, xác suất để khách hàng đó có xe máy là:",
         "options": [
-            "\\frac{1}{5}",
-            "\\frac{1}{4}",
-            "\\frac{2}{10}",
-            "\\frac{200}{1000}"
+            "$\\frac{1}{5}$",
+            "$\\frac{1}{4}$",
+            "$\\frac{2}{10}$",
+            "$\\frac{200}{1000}$"
         ],
-        "answer": "\\frac{200}{1000}",
+        "answer": "$\\frac{200}{1000}$",
         "concept": "xac_suat"
     },
     {
         "level": "Khó",
         "question": "Một hộp có 10 viên bi, trong đó 3 viên bi màu đỏ, 4 viên bi màu xanh và 3 viên bi màu vàng. Tìm xác suất để chọn được một viên bi màu đỏ hoặc màu xanh?",
         "options": [
-            "\\frac{3}{10}",
-            "\\frac{7}{10}",
-            "\\frac{4}{10}",
-            "\\frac{6}{10}"
+            "$\\frac{3}{10}$",
+            "$\\frac{7}{10}$",
+            "$\\frac{4}{10}$",
+            "$\\frac{6}{10}$"
         ],
-        "answer": "\\frac{7}{10}",
+        "answer": "$\\frac{7}{10}$",
         "concept": "xac_suat"
     },
     {
         "level": "Khó",
         "question": "Một đồng xu được tung 5 lần. Tìm xác suất để có được 3 lần sấp và 2 lần ngửa?",
         "options": [
-            "\\frac{1}{32}",
-            "\\frac{5}{32}",
-            "\\frac{10}{32}",
-            "\\frac{15}{32}"
+            "$\\frac{1}{32}$",
+            "$\\frac{5}{32}$",
+            "$\\frac{10}{32}$",
+            "$\\frac{15}{32}$"
         ],
-        "answer": "\\frac{10}{32}",
+        "answer": "$\\frac{10}{32}$",
         "concept": "xac_suat"
     },
     {
         "level": "Khó",
         "question": "Một bộ bài có 52 lá, trong đó 13 lá là cây cơ. Tìm xác suất để chọn được một lá cây cơ?",
         "options": [
-            "\\frac{1}{4}",
-            "\\frac{1}{13}",
-            "\\frac{13}{52}",
-            "\\frac{1}{12}"
+            "$\\frac{1}{4}$",
+            "$\\frac{1}{13}$",
+            "$\\frac{13}{52}$",
+            "$\\frac{1}{12}$"
         ],
-        "answer": "\\frac{1}{4}",
+        "answer": "$\\frac{1}{4}$",
         "concept": "xac_suat"
     },
     {
         "level": "Khó",
         "question": "Một người chơi trò chơi may rủi, trong đó có 20% cơ hội thắng và 80% cơ hội thua. Tìm xác suất để người đó thắng 2 lần trong 5 lần chơi?",
         "options": [
-            "\\frac{1}{16}",
-            "\\frac{5}{16}",
-            "\\frac{10}{16}",
-            "\\frac{20}{16}"
+            "$\\frac{1}{16}$",
+            "$\\frac{5}{16}$",
+            "$\\frac{10}{16}$",
+            "$\\frac{20}{16}$"
         ],
-        "answer": "\\frac{5}{16}",
+        "answer": "$\\frac{5}{16}$",
         "concept": "xac_suat"
     },
     {
         "level": "Khó",
         "question": "Một công ty có 100 nhân viên, trong đó 60 nhân viên là nam và 40 nhân viên là nữ. Tìm xác suất để chọn được một nhân viên nam?",
         "options": [
-            "\\frac{3}{5}",
-            "\\frac{2}{5}",
-            "\\frac{1}{2}",
-            "\\frac{4}{5}"
+            "$\\frac{3}{5}$",
+            "$\\frac{2}{5}$",
+            "$\\frac{1}{2}$",
+            "$\\frac{4}{5}$"
         ],
-        "answer": "\\frac{3}{5}",
+        "answer": "$\\frac{3}{5}$",
         "concept": "xac_suat"
     },
     {
         "level": "Khó",
         "question": "Một hộp có 10 viên bi, trong đó 3 viên bi màu đỏ, 4 viên bi màu xanh và 3 viên bi màu vàng. Tìm xác suất để chọn được một viên bi màu đỏ hoặc màu xanh?",
         "options": [
-            "\\frac{3}{10}",
-            "\\frac{7}{10}",
-            "\\frac{4}{10}",
-            "\\frac{6}{10}"
+            "$\\frac{3}{10}$",
+            "$\\frac{7}{10}$",
+            "$\\frac{4}{10}$",
+            "$\\frac{6}{10}$$"
         ],
-        "answer": "\\frac{7}{10}",
+        "answer": "$\\frac{7}{10}$",
         "concept": "xac_suat"
     },
     {
         "level": "Khó",
         "question": "Một đồng xu được tung 5 lần. Tìm xác suất để có được 3 lần sấp và 2 lần ngửa?",
         "options": [
-            "\\frac{1}{32}",
-            "\\frac{5}{16}",
-            "\\frac{3}{8}",
-            "\\frac{1}{2}"
+            "$\\frac{1}{32}$",
+            "$\\frac{5}{16}$",
+            "$\\frac{3}{8}$",
+            "$\\frac{1}{2}$"
         ],
-        "answer": "\\frac{5}{16}",
+        "answer": "$\\frac{5}{16}$",
         "concept": "xac_suat"
     },
     {
         "level": "Khó",
         "question": "Một bộ bài gồm 52 lá. Tìm xác suất để rút được một lá bài là quân át?",
         "options": [
-            "\\frac{1}{13}",
-            "\\frac{1}{4}",
-            "\\frac{1}{52}",
-            "\\frac{4}{52}"
+            "$\\frac{1}{13}$",
+            "$\\frac{1}{4}$",
+            "$\\frac{1}{52}$",
+            "$\\frac{4}{52}$"
         ],
-        "answer": "\\frac{4}{52}",
+        "answer": "$\\frac{4}{52}$",
         "concept": "xac_suat"
     },
     {
         "level": "Khó",
         "question": "Một người chơi trò chơi may rủi, trong đó có 20% cơ hội thắng và 80% cơ hội thua. Tìm xác suất để người đó thắng 2 lần trong 5 lần chơi?",
         "options": [
-            "\\frac{1}{16}",
-            "\\frac{5}{16}",
-            "\\frac{4}{25}",
-            "\\frac{2}{5}"
+            "$\\frac{1}{16}$",
+            "$\\frac{5}{16}$$",
+            "$\\frac{4}{25}$",
+            "$\\frac{2}{5}$"
         ],
-        "answer": "\\frac{4}{25}",
+        "answer": "$\\frac{4}{25}$",
         "concept": "xac_suat"
     },
     {
         "level": "Khó",
         "question": "Một công ty có 100 nhân viên, trong đó 60 nhân viên nam và 40 nhân viên nữ. Tìm xác suất để chọn được một nhân viên nữ?",
         "options": [
-            "\\frac{3}{5}",
-            "\\frac{2}{5}",
-            "\\frac{1}{2}",
-            "\\frac{4}{10}"
+            "$\\frac{3}{5}$",
+            "$\\frac{2}{5}$",
+            "$\\frac{1}{2}$",
+            "$\\frac{4}{10}$"
         ],
-        "answer": "\\frac{2}{5}",
+        "answer": "$\\frac{2}{5}$",
         "concept": "xac_suat"
     },
     {
         "level": "Khó",
         "question": "Một hộp có 10 viên bi, trong đó 3 viên bi màu đỏ, 4 viên bi màu xanh và 3 viên bi màu vàng. Nếu lấy ngẫu nhiên 2 viên bi từ hộp, xác suất để cả 2 viên bi đều có màu đỏ là:",
         "options": [
-            "\\frac{3}{10} \\times \\frac{2}{9}",
-            "\\frac{3}{10} \\times \\frac{3}{9}",
-            "\\frac{1}{2} \\times \\frac{1}{3}",
-            "\\frac{1}{5} \\times \\frac{2}{9}"
+            "$\\frac{3}{10} \\times \\frac{2}{9}$",
+            "$\\frac{3}{10} \\times \\frac{3}{9}$",
+            "$\\frac{1}{2} \\times \\frac{1}{3}$",
+            "$\\frac{1}{5} \\times \\frac{2}{9}$"
         ],
-        "answer": "\\frac{3}{10} \\times \\frac{2}{9}",
+        "answer": "$\\frac{3}{10} \\times \\frac{2}{9}$",
         "concept": "xac_suat"
     },
     {
         "level": "Khó",
         "question": "Một đồng xu được tung 5 lần. Xác suất để có chính xác 3 lần sấp là:",
         "options": [
-            "\\binom{5}{3} \\left( \\frac{1}{2} \\right) ^3 \\left( \\frac{1}{2} \\right) ^2",
-            "\\binom{5}{2} \\left( \\frac{1}{2} \\right) ^3 \\left( \\frac{1}{2} \\right) ^2",
-            "\\binom{5}{4} \\left( \\frac{1}{2} \\right) ^3 \\left( \\frac{1}{2} \\right) ^2",
-            "\\binom{5}{1} \\left( \\frac{1}{2} \\right) ^3 \\left( \\frac{1}{2} \\right) ^2"
+            "$\\binom{5}{3} \\left( \\frac{1}{2} \\right) ^3 \\left( \\frac{1}{2} \\right) ^2$",
+            "$\\binom{5}{2} \\left( \\frac{1}{2} \\right) ^3 \\left( \\frac{1}{2} \\right) ^2$",
+            "$\\binom{5}{4} \\left( \\frac{1}{2} \\right) ^3 \\left( \\frac{1}{2} \\right) ^2$",
+            "$\\binom{5}{1} \\left( \\frac{1}{2} \\right) ^3 \\left( \\frac{1}{2} \\right) ^2$"
         ],
-        "answer": "\\binom{5}{3} \\left( \\frac{1}{2} \\right) ^3 \\left( \\frac{1}{2} \\right) ^2",
+        "answer": "$\\binom{5}{3} \\left( \\frac{1}{2} \\right) ^3 \\left( \\frac{1}{2} \\right) ^2$",
         "concept": "xac_suat"
     },
     {
         "level": "Khó",
         "question": "Một người chơi trò chơi may rủi, mỗi lần chơi có thể thắng hoặc thua. Xác suất để thắng là 0,6. Nếu chơi 4 lần, xác suất để thắng 2 lần và thua 2 lần là:",
         "options": [
-            "\\binom{4}{2} \\times (0,6)^2 \\times (0,4)^2",
-            "\\binom{4}{1} \\times (0,6)^2 \\times (0,4)^2",
-            "\\binom{4}{3} \\times (0,6)^2 \\times (0,4)^2",
-            "\\binom{4}{4} \\times (0,6)^2 \\times (0,4)^2"
+            "$\\binom{4}{2} \\times (0,6)^2 \\times (0,4)^2$",
+            "$\\binom{4}{1} \\times (0,6)^2 \\times (0,4)^2$",
+            "$\\binom{4}{3} \\times (0,6)^2 \\times (0,4)^2$",
+            "$\\binom{4}{4} \\times (0,6)^2 \\times (0,4)^2$"
         ],
-        "answer": "\\binom{4}{2} \\times (0,6)^2 \\times (0,4)^2",
+        "answer": "$\\binom{4}{2} \\times (0,6)^2 \\times (0,4)^2$",
         "concept": "xac_suat"
     },
     {
@@ -3411,72 +3411,72 @@
         "level": "Khó",
         "question": "Một thí nghiệm ngẫu nhiên có thể kết quả là A, B, C hoặc D. Xác suất để kết quả là A là 0,2, kết quả là B là 0,3, kết quả là C là 0,2 và kết quả là D là 0,3. Nếu thực hiện thí nghiệm này 2 lần, xác suất để có kết quả là A trong cả 2 lần là:",
         "options": [
-            "(0,2)^2",
-            "(0,3)^2",
-            "(0,2) \\times (0,3)",
-            "(0,3) \\times (0,2)"
+            "$(0,2)^2$",
+            "$(0,3)^2$",
+            "$(0,2) \\times (0,3)$",
+            "$(0,3) \\times (0,2)$"
         ],
-        "answer": "(0,2)^2",
+        "answer": "$(0,2)^2$",
         "concept": "xac_suat"
     },
     {
         "level": "Khó",
         "question": "Một hộp có 10 viên bi, trong đó 3 viên bi màu đỏ, 4 viên bi màu xanh và 3 viên bi màu vàng. Nếu lấy ngẫu nhiên 2 viên bi từ hộp, xác suất để cả 2 viên bi đều có màu đỏ là:",
         "options": [
-            "\\frac{3}{10} \\times \\frac{2}{9}",
-            "\\frac{3}{10} \\times \\frac{3}{9}",
-            "\\frac{1}{2} \\times \\frac{1}{3}",
-            "\\frac{1}{15}"
+            "$\\frac{3}{10} \\times \\frac{2}{9}$",
+            "$\\frac{3}{10} \\times \\frac{3}{9}$",
+            "$\\frac{1}{2} \\times \\frac{1}{3}$",
+            "$\\frac{1}{15}$"
         ],
-        "answer": "\\frac{3}{10} \\times \\frac{2}{9}",
+        "answer": "$\\frac{3}{10} \\times \\frac{2}{9}$",
         "concept": "xac_suat"
     },
     {
         "level": "Khó",
         "question": "Một đồng xu được tung 5 lần. Xác suất để có chính xác 3 lần xuất hiện mặt ngửa là:",
         "options": [
-            "\\left(\\frac{1}{2}\\right)^3 \\times \\left(\\frac{1}{2}\\right)^2",
-            "\\left(\\frac{1}{2}\\right)^5 \\times \\binom{5}{3}",
-            "\\left(\\frac{1}{2}\\right)^5 \\times \\binom{5}{2}",
-            "\\left(\\frac{1}{2}\\right)^5 \\times \\binom{5}{3}"
+            "$\\left(\\frac{1}{2}\\right)^3 \\times \\left(\\frac{1}{2}\\right)^2$",
+            "$\\left(\\frac{1}{2}\\right)^5 \\times \\binom{5}{3}$",
+            "$\\left(\\frac{1}{2}\\right)^5 \\times \\binom{5}{2}$",
+            "$\\left(\\frac{1}{2}\\right)^5 \\times \\binom{5}{3}$"
         ],
-        "answer": "\\left(\\frac{1}{2}\\right)^5 \\times \\binom{5}{3}",
+        "answer": "$\\left(\\frac{1}{2}\\right)^5 \\times \\binom{5}{3}$",
         "concept": "xac_suat"
     },
     {
         "level": "Khó",
         "question": "Một con súc sắc được tung 2 lần. Xác suất để tổng của 2 lần tung là 7 là:",
         "options": [
-            "\\frac{1}{6} \\times \\frac{1}{6} \\times 6",
-            "\\frac{1}{36} \\times 6",
-            "\\frac{1}{6} \\times \\frac{1}{6}",
-            "\\frac{1}{6}"
+            "$\\frac{1}{6} \\times \\frac{1}{6} \\times 6$",
+            "$\\frac{1}{36} \\times 6$",
+            "$\\frac{1}{6} \\times \\frac{1}{6}$",
+            "$\\frac{1}{6}$"
         ],
-        "answer": "\\frac{1}{6}",
+        "answer": "$\\frac{1}{6}$",
         "concept": "xac_suat"
     },
     {
         "level": "Khó",
         "question": "Một hộp có 20 viên bi, trong đó 5 viên bi màu đỏ, 8 viên bi màu xanh và 7 viên bi màu vàng. Nếu lấy ngẫu nhiên 1 viên bi từ hộp, xác suất để viên bi có màu đỏ hoặc màu xanh là:",
         "options": [
-            "\\frac{5}{20} + \\frac{8}{20}",
-            "\\frac{5}{20} \\times \\frac{8}{20}",
-            "\\frac{5}{20} - \\frac{8}{20}",
-            "\\frac{5}{20} \\div \\frac{8}{20}"
+            "$\\frac{5}{20} + \\frac{8}{20}$",
+            "$\\frac{5}{20} \\times \\frac{8}{20}$",
+            "$\\frac{5}{20} - \\frac{8}{20}$",
+            "$\\frac{5}{20} \\div \\frac{8}{20}$"
         ],
-        "answer": "\\frac{5}{20} + \\frac{8}{20}",
+        "answer": "$\\frac{5}{20} + \\frac{8}{20}$",
         "concept": "xac_suat"
     },
     {
         "level": "Khó",
         "question": "Một đồng xu được tung 10 lần. Xác suất để có ít nhất 8 lần xuất hiện mặt ngửa là:",
         "options": [
-            "\\sum_{k=8}^{10} \\binom{10}{k} \\left(\\frac{1}{2}\\right)^{10}",
-            "\\sum_{k=0}^{7} \\binom{10}{k} \\left(\\frac{1}{2}\\right)^{10}",
-            "\\sum_{k=8}^{10} \\binom{10}{k} \\left(\\frac{1}{2}\\right)^{k} \\left(\\frac{1}{2}\\right)^{10-k}",
-            "\\sum_{k=0}^{7} \\binom{10}{k} \\left(\\frac{1}{2}\\right)^{k} \\left(\\frac{1}{2}\\right)^{10-k}"
+            "$\\sum_{k=8}^{10} \\binom{10}{k} \\left(\\frac{1}{2}\\right)^{10}$",
+            "$\\sum_{k=0}^{7} \\binom{10}{k} \\left(\\frac{1}{2}\\right)^{10}$",
+            "$\\sum_{k=8}^{10} \\binom{10}{k} \\left(\\frac{1}{2}\\right)^{k} \\left(\\frac{1}{2}\\right)^{10-k}$",
+            "$\\sum_{k=0}^{7} \\binom{10}{k} \\left(\\frac{1}{2}\\right)^{k} \\left(\\frac{1}{2}\\right)^{10-k}$"
         ],
-        "answer": "\\sum_{k=8}^{10} \\binom{10}{k} \\left(\\frac{1}{2}\\right)^{10}",
+        "answer": "$\\sum_{k=8}^{10} \\binom{10}{k} \\left(\\frac{1}{2}\\right)^{10}$",
         "concept": "xac_suat"
     },
     {
@@ -4275,24 +4275,24 @@
         "level": "Khó",
         "question": "Cho hai biến ngẫu nhiên độc lập $X$ và $Y$ với hàm phân phối xác suất $P(X=1)=\\frac{1}{3}$, $P(X=2)=\\frac{2}{3}$ và $P(Y=1)=\\frac{1}{2}$, $P(Y=2)=\\frac{1}{2}$. Tìm xác suất để $X+Y=3$.",
         "options": [
-            "\\frac{1}{3}",
-            "\\frac{1}{2}",
-            "\\frac{2}{3} \\times \\frac{1}{2}",
-            "\\frac{1}{3} \\times \\frac{1}{2}"
+            "$\\frac{1}{3}$",
+            "$\\frac{1}{2}$",
+            "$\\frac{2}{3} \\times \\frac{1}{2}$",
+            "$\\frac{1}{3} \\times \\frac{1}{2$}$"
         ],
-        "answer": "\\frac{2}{3} \\times \\frac{1}{2}",
+        "answer": "$\\frac{2}{3} \\times \\frac{1}{2}$",
         "concept": "nhan_xac_xuat"
     },
     {
         "level": "Khó",
         "question": "Cho hai sự kiện độc lập $A$ và $B$ với $P(A)=\\frac{2}{5}$ và $P(B)=\\frac{3}{4}$. Tìm xác suất để cả hai sự kiện $A$ và $B$ xảy ra.",
         "options": [
-            "\\frac{2}{5} + \\frac{3}{4}",
-            "\\frac{2}{5} \\times \\frac{3}{4}",
-            "\\frac{2}{5} - \\frac{3}{4}",
-            "\\frac{3}{4} - \\frac{2}{5}"
+            "$\\frac{2}{5} + \\frac{3}{4}$",
+            "$\\frac{2}{5} \\times \\frac{3}{4}$",
+            "$\\frac{2}{5} - \\frac{3}{4}$",
+            "$\\frac{3}{4} - \\frac{2}{5}$"
         ],
-        "answer": "\\frac{2}{5} \\times \\frac{3}{4}",
+        "answer": "$\\frac{2}{5} \\times \\frac{3}{4}$",
         "concept": "nhan_xac_xuat"
     },
     {
@@ -4323,120 +4323,120 @@
         "level": "Khó",
         "question": "Một hộp có 10 viên bi, trong đó 3 viên bi màu đỏ, 4 viên bi màu xanh và 3 viên bi màu vàng. Nếu lấy ngẫu nhiên 2 viên bi từ hộp, xác suất để cả 2 viên bi đều có màu đỏ là:",
         "options": [
-            "\\frac{3}{10} \\times \\frac{2}{9}",
-            "\\frac{3}{10} \\times \\frac{3}{9}",
-            "\\frac{4}{10} \\times \\frac{3}{9}",
-            "\\frac{3}{10} \\times \\frac{1}{9}"
+            "$\\frac{3}{10} \\times \\frac{2}{9}$",
+            "$\\frac{3}{10} \\times \\frac{3}{9}$",
+            "$\\frac{4}{10} \\times \\frac{3}{9}$",
+            "$\\frac{3}{10} \\times \\frac{1}{9}$"
         ],
-        "answer": "\\frac{3}{10} \\times \\frac{2}{9}",
+        "answer": "$\\frac{3}{10} \\times \\frac{2}{9}$",
         "concept": "xac_suat"
     },
     {
         "level": "Khó",
         "question": "Một đồng xu được tung 5 lần liên tiếp. Xác suất để có chính xác 3 lần sấp trong 5 lần tung là:",
         "options": [
-            "\\binom{5}{3} \\times \\left(\\frac{1}{2}\\right)^3 \\times \\left(\\frac{1}{2}\\right)^2",
-            "\\binom{5}{2} \\times \\left(\\frac{1}{2}\\right)^3 \\times \\left(\\frac{1}{2}\\right)^2",
-            "\\binom{5}{4} \\times \\left(\\frac{1}{2}\\right)^3 \\times \\left(\\frac{1}{2}\\right)^2",
-            "\\binom{5}{1} \\times \\left(\\frac{1}{2}\\right)^3 \\times \\left(\\frac{1}{2}\\right)^2"
+            "$\\binom{5}{3} \\times \\left(\\frac{1}{2}\\right)^3 \\times \\left(\\frac{1}{2}\\right)^2$",
+            "$\\binom{5}{2} \\times \\left(\\frac{1}{2}\\right)^3 \\times \\left(\\frac{1}{2}\\right)^2$",
+            "$\\binom{5}{4} \\times \\left(\\frac{1}{2}\\right)^3 \\times \\left(\\frac{1}{2}\\right)^2$",
+            "$\\binom{5}{1} \\times \\left(\\frac{1}{2}\\right)^3 \\times \\left(\\frac{1}{2}\\right)^2$"
         ],
-        "answer": "\\binom{5}{3} \\times \\left(\\frac{1}{2}\\right)^3 \\times \\left(\\frac{1}{2}\\right)^2",
+        "answer": "$\\binom{5}{3} \\times \\left(\\frac{1}{2}\\right)^3 \\times \\left(\\frac{1}{2}\\right)^2$",
         "concept": "xac_suat"
     },
     {
         "level": "Khó",
         "question": "Một hộp có 5 quả bóng đỏ, 3 quả bóng xanh và 2 quả bóng vàng. Nếu lấy ngẫu nhiên 2 quả bóng, xác suất để cả 2 quả bóng đều là màu xanh là:",
         "options": [
-            "\\frac{3}{10} \\cdot \\frac{2}{9}",
-            "\\frac{3}{10} \\cdot \\frac{1}{3}",
-            "\\frac{1}{2} \\cdot \\frac{1}{3}",
-            "\\frac{1}{5} \\cdot \\frac{2}{5}"
+            "$\\frac{3}{10} \\cdot \\frac{2}{9}$",
+            "$\\frac{3}{10} \\cdot \\frac{1}{3}$",
+            "$\\frac{1}{2} \\cdot \\frac{1}{3}$",
+            "$\\frac{1}{5} \\cdot \\frac{2}{5}$"
         ],
-        "answer": "\\frac{3}{10} \\cdot \\frac{2}{9}",
+        "answer": "$\\frac{3}{10} \\cdot \\frac{2}{9}$",
         "concept": "xac_suat"
     },
     {
         "level": "Khó",
         "question": "Một đồng xu được tung 5 lần. Xác suất để có chính xác 3 lần sấp là:",
         "options": [
-            "\\binom{5}{3} \\left( \\frac{1}{2} \\right) ^3 \\left( \\frac{1}{2} \\right) ^2",
-            "\\binom{5}{2} \\left( \\frac{1}{2} \\right) ^3 \\left( \\frac{1}{2} \\right) ^2",
-            "\\binom{5}{4} \\left( \\frac{1}{2} \\right) ^3 \\left( \\frac{1}{2} \\right) ^2",
-            "\\binom{5}{1} \\left( \\frac{1}{2} \\right) ^3 \\left( \\frac{1}{2} \\right) ^2"
+            "$\\binom{5}{3} \\left( \\frac{1}{2} \\right) ^3 \\left( \\frac{1}{2} \\right) ^2$",
+            "$\\binom{5}{2} \\left( \\frac{1}{2} \\right) ^3 \\left( \\frac{1}{2} \\right) ^2$",
+            "$\\binom{5}{4} \\left( \\frac{1}{2} \\right) ^3 \\left( \\frac{1}{2} \\right) ^2$",
+            "$\\binom{5}{1} \\left( \\frac{1}{2} \\right) ^3 \\left( \\frac{1}{2} \\right) ^2$"
         ],
-        "answer": "\\binom{5}{3} \\left( \\frac{1}{2} \\right) ^3 \\left( \\frac{1}{2} \\right) ^2",
+        "answer": "$\\binom{5}{3} \\left( \\frac{1}{2} \\right) ^3 \\left( \\frac{1}{2} \\right) ^2$",
         "concept": "xac_suat"
     },
     {
         "level": "Khó",
         "question": "Một hộp có 5 quả bóng đỏ, 3 quả bóng xanh và 2 quả bóng vàng. Nếu lấy ngẫu nhiên 2 quả bóng, xác suất để cả 2 quả bóng đều là màu xanh là:",
         "options": [
-            "\\frac{3}{10} \\cdot \\frac{2}{9}",
-            "\\frac{3}{10} \\cdot \\frac{1}{3}",
-            "\\frac{1}{5} \\cdot \\frac{2}{9}",
-            "\\frac{1}{10} \\cdot \\frac{3}{9}"
+            "$\\frac{3}{10} \\cdot \\frac{2}{9}$",
+            "$\\frac{3}{10} \\cdot \\frac{1}{3}$",
+            "$\\frac{1}{5} \\cdot \\frac{2}{9}$",
+            "$\\frac{1}{10} \\cdot \\frac{3}{9}$"
         ],
-        "answer": "\\frac{3}{10} \\cdot \\frac{2}{9}",
+        "answer": "$\\frac{3}{10} \\cdot \\frac{2}{9}$",
         "concept": "xac_suat"
     },
     {
         "level": "Khó",
         "question": "Một đồng xu được tung 5 lần. Xác suất để xuất hiện đúng 3 lần sấp là:",
         "options": [
-            "\\binom{5}{3} \\cdot \\left(\\frac{1}{2}\\right)^3 \\cdot \\left(\\frac{1}{2}\\right)^2",
-            "\\binom{5}{2} \\cdot \\left(\\frac{1}{2}\\right)^3 \\cdot \\left(\\frac{1}{2}\\right)^2",
-            "\\binom{5}{4} \\cdot \\left(\\frac{1}{2}\\right)^3 \\cdot \\left(\\frac{1}{2}\\right)^2",
-            "\\binom{5}{1} \\cdot \\left(\\frac{1}{2}\\right)^3 \\cdot \\left(\\frac{1}{2}\\right)^2"
+            "$\\binom{5}{3} \\cdot \\left(\\frac{1}{2}\\right)^3 \\cdot \\left(\\frac{1}{2}\\right)^2$",
+            "$\\binom{5}{2} \\cdot \\left(\\frac{1}{2}\\right)^3 \\cdot \\left(\\frac{1}{2}\\right)^2$",
+            "$\\binom{5}{4} \\cdot \\left(\\frac{1}{2}\\right)^3 \\cdot \\left(\\frac{1}{2}\\right)^2$",
+            "$\\binom{5}{1} \\cdot \\left(\\frac{1}{2}\\right)^3 \\cdot \\left(\\frac{1}{2}\\right)^2$"
         ],
-        "answer": "\\binom{5}{3} \\cdot \\left(\\frac{1}{2}\\right)^3 \\cdot \\left(\\frac{1}{2}\\right)^2",
+        "answer": "$\\binom{5}{3} \\cdot \\left(\\frac{1}{2}\\right)^3 \\cdot \\left(\\frac{1}{2}\\right)^2$",
         "concept": "xac_suat"
     },
     {
         "level": "Khó",
         "question": "Một hộp có 10 viên bi, trong đó 3 viên bi màu đỏ, 4 viên bi màu xanh và 3 viên bi màu vàng. Nếu lấy ngẫu nhiên 2 viên bi từ hộp, xác suất để cả 2 viên bi đều có màu xanh là:",
         "options": [
-            "\\frac{2}{45}",
-            "\\frac{4}{45}",
-            "\\frac{6}{45}",
-            "\\frac{4}{15}"
+            "$\\frac{2}{45}$",
+            "$\\frac{4}{45}$",
+            "$\\frac{6}{45}$",
+            "$\\frac{4}{15}$"
         ],
-        "answer": "\\frac{6}{45}",
+        "answer": "$\\frac{6}{45}$",
         "concept": "xac_suat"
     },
     {
         "level": "Khó",
         "question": "Một đồng xu được tung 5 lần. Xác suất để có chính xác 3 lần xuất hiện mặt ngửa là:",
         "options": [
-            "\\frac{5}{32}",
-            "\\frac{10}{32}",
-            "\\frac{1}{32}",
-            "\\frac{40}{128}"
+            "$\\frac{5}{32}$",
+            "$\\frac{10}{32}$",
+            "$\\frac{1}{32}$",
+            "$\\frac{40}{128}$"
         ],
-        "answer": "\\frac{10}{32}",
+        "answer": "$\\frac{10}{32}$",
         "concept": "xac_suat"
     },
     {
         "level": "Khó",
         "question": "Một hộp có 10 viên bi, trong đó 3 viên bi màu đỏ, 4 viên bi màu xanh và 3 viên bi màu vàng. Nếu lấy ngẫu nhiên 2 viên bi từ hộp, xác suất để cả 2 viên bi đều có màu đỏ là:",
         "options": [
-            "\\frac{3}{10} \\times \\frac{2}{9}",
-            "\\frac{3}{10} \\times \\frac{3}{9}",
-            "\\frac{4}{10} \\times \\frac{3}{9}",
-            "\\frac{3}{10} \\times \\frac{1}{9}"
+            "$\\frac{3}{10} \\times \\frac{2}{9}$",
+            "$\\frac{3}{10} \\times \\frac{3}{9}$",
+            "$\\frac{4}{10} \\times \\frac{3}{9}$",
+            "$\\frac{3}{10} \\times \\frac{1}{9}$"
         ],
-        "answer": "\\frac{3}{10} \\times \\frac{2}{9}",
+        "answer": "$\\frac{3}{10} \\times \\frac{2}{9}$",
         "concept": "xac_suat"
     },
     {
         "level": "Khó",
         "question": "Một đồng xu được tung 5 lần liên tiếp. Xác suất để có chính xác 3 lần xuất hiện mặt ngửa là:",
         "options": [
-            "\\binom{5}{3} \\times \\left(\\frac{1}{2}\\right)^3 \\times \\left(\\frac{1}{2}\\right)^2",
-            "\\binom{5}{2} \\times \\left(\\frac{1}{2}\\right)^3 \\times \\left(\\frac{1}{2}\\right)^2",
-            "\\binom{5}{4} \\times \\left(\\frac{1}{2}\\right)^3 \\times \\left(\\frac{1}{2}\\right)^2",
-            "\\binom{5}{1} \\times \\left(\\frac{1}{2}\\right)^3 \\times \\left(\\frac{1}{2}\\right)^2"
+            "$\\binom{5}{3} \\times \\left(\\frac{1}{2}\\right)^3 \\times \\left(\\frac{1}{2}\\right)^2$",
+            "$\\binom{5}{2} \\times \\left(\\frac{1}{2}\\right)^3 \\times \\left(\\frac{1}{2}\\right)^2$",
+            "$\\binom{5}{4} \\times \\left(\\frac{1}{2}\\right)^3 \\times \\left(\\frac{1}{2}\\right)^2$",
+            "$\\binom{5}{1} \\times \\left(\\frac{1}{2}\\right)^3 \\times \\left(\\frac{1}{2}\\right)^2$"
         ],
-        "answer": "\\binom{5}{3} \\times \\left(\\frac{1}{2}\\right)^3 \\times \\left(\\frac{1}{2}\\right)^2",
+        "answer": "$\\binom{5}{3} \\times \\left(\\frac{1}{2}\\right)^3 \\times \\left(\\frac{1}{2}\\right)^2$",
         "concept": "xac_suat"
     },
     {
@@ -4446,9 +4446,9 @@
             "0,2",
             "0,3",
             "0,4",
-            "\\frac{0,12}{0,4}"
+            "$\\frac{0,12}{0,4}$"
         ],
-        "answer": "\\frac{0,12}{0,4}",
+        "answer": "$\\frac{0,12}{0,4}$",
         "concept": "xac_suat_co_dieu_kien"
     },
     {
@@ -4458,9 +4458,9 @@
             "0,4",
             "0,5",
             "0,6",
-            "\\frac{0,25}{0,5}"
+            "$\\frac{0,25}{0,5}$"
         ],
-        "answer": "\\frac{0,25}{0,5}",
+        "answer": "$\\frac{0,25}{0,5}$",
         "concept": "xac_suat_co_dieu_kien"
     },
     {
@@ -4477,7 +4477,7 @@
     },
     {
         "level": "Khó",
-        "question": "Cho hai sự kiện A và B, với P(A) = 0,3 và P(A|B) = 0,6. Tìm xác suất của sự kiện B nếu P(A \\cap B) = 0,18?",
+        "question": "Cho hai sự kiện A và B, với P(A) = 0,3 và P(A|B) = 0,6. Tìm xác suất của sự kiện B nếu $P(A \\cap B)$ = 0,18?",
         "options": [
             "0,3",
             "0,4",
@@ -4489,26 +4489,26 @@
     },
     {
         "level": "Khó",
-        "question": "Cho hai sự kiện A và B, với P(A) = \\frac{1}{3} và P(B|A) = \\frac{2}{5}. Tìm xác suất có điều kiện P(A|B) nếu P(B) = \\frac{1}{2}.",
+        "question": "Cho hai sự kiện A và B, với $P(A) = \\frac{1}{3}$ và $P(B|A) = \\frac{2}{5}$. Tìm xác suất có điều kiện P(A|B) nếu $P(B) = \\frac{1}{2}$.",
         "options": [
-            "\\frac{1}{5}",
-            "\\frac{2}{5}",
-            "\\frac{1}{3}",
-            "\\frac{4}{15}"
+            "$\\frac{1}{5}$",
+            "$\\frac{2}{5}$",
+            "$\\frac{1}{3}$",
+            "$\\frac{4}{15}$"
         ],
-        "answer": "\\frac{4}{15}",
+        "answer": "$\\frac{4}{15}$",
         "concept": "xac_suat_co_dieu_kien"
     },
     {
         "level": "Khó",
-        "question": "Cho ba sự kiện A, B và C, với P(A) = \\frac{1}{2}, P(B) = \\frac{1}{3} và P(C|A \\cap B) = \\frac{3}{4}. Tìm xác suất có điều kiện P(A \\cap B|C) nếu P(C) = \\frac{1}{4}.",
+        "question": "Cho ba sự kiện A, B và C, với $P(A) = \\frac{1}{2}$, $P(B) = \\frac{1}{3}$ và $P(C|A \\cap B) = \\frac{3}{4}$. Tìm xác suất có điều kiện $P(A \\cap B|C)$ nếu $P(C) = \\frac{1}{4}$.",
         "options": [
-            "\\frac{1}{4}",
-            "\\frac{1}{6}",
-            "\\frac{1}{8}",
-            "\\frac{1}{12}"
+            "$\\frac{1}{4}$",
+            "$\\frac{1}{6}$",
+            "$\\frac{1}{8}$",
+            "$\\frac{1}{12}$"
         ],
-        "answer": "\\frac{1}{8}",
+        "answer": "$\\frac{1}{8}$",
         "concept": "xac_suat_co_dieu_kien"
     },
     {
@@ -4537,26 +4537,326 @@
     },
     {
         "level": "Khó",
-        "question": "Cho hai sự kiện A và B, với P(A) = \\frac{1}{3} và P(B|A) = \\frac{2}{5}. Tìm xác suất có điều kiện P(A|B) nếu P(B) = \\frac{1}{2}.",
+        "question": "Cho hai sự kiện A và B, với $P(A) = \\frac{1}{3}$ và $P(B|A) = \\frac{2}{5}$. Tìm xác suất có điều kiện P(A|B) nếu $P(B) = \\frac{1}{2}$s.",
         "options": [
-            "\\frac{1}{5}",
-            "\\frac{2}{5}",
-            "\\frac{1}{3}",
-            "\\frac{2}{15}"
+            "$\\frac{1}{5}$",
+            "$\\frac{2}{5}$",
+            "$\\frac{1}{3}$",
+            "$\\frac{2}{15}$"
         ],
-        "answer": "\\frac{2}{15}",
+        "answer": "$\\frac{2}{15}$",
         "concept": "xac_suat_co_dieu_kien"
     },
     {
         "level": "Khó",
-        "question": "Cho ba sự kiện A, B và C, với P(A) = \\frac{1}{2}, P(B) = \\frac{1}{3} và P(C|A \\cap B) = \\frac{3}{4}. Tìm xác suất có điều kiện P(A \\cap B|C) nếu P(C) = \\frac{1}{4}.",
+        "question": "Cho ba sự kiện A, B và C, với $P(A) = \\frac{1}{2}$, $P(B) = \\frac{1}{3}$ và $P(C|A \\cap B) = \\frac{3}{4}$. Tìm xác suất có điều kiện $P(A \\cap B|C)$ nếu $P(C) = \\frac{1}{4}$.",
         "options": [
-            "\\frac{1}{4}",
-            "\\frac{1}{6}",
-            "\\frac{1}{8}",
-            "\\frac{1}{12}"
+            "$\\frac{1}{4}$",
+            "$\\frac{1}{6}$",
+            "$\\frac{1}{8}$",
+            "$\\frac{1}{12}$"
         ],
-        "answer": "\\frac{1}{8}",
+        "answer": "$$\\frac{1}{8}$$",
         "concept": "xac_suat_co_dieu_kien"
+    },
+    {
+        "level": "Khó",
+        "question": "Cho hai sự kiện A và B, với $P(A) = \\frac{1}{3}$ và $P(B) = \\frac{1}{2}$. Nếu $P(A|B) = \\frac{2}{3}$, hãy tính xác suất P(B|A).",
+        "options": [
+            "$\\frac{1}{2}$",
+            "$\\frac{2}{3}$",
+            "$\\frac{1}{3}$",
+            "$\\frac{3}{4}$"
+        ],
+        "answer": "$\\frac{1}{2}$",
+        "concept": "xac_suat_toan_phan_va_bayes"
+    },
+    {
+        "level": "Khó",
+        "question": "Một công ty có 30% nhân viên là nữ và 70% là nam. Nếu 80% nhân viên nữ và 60% nhân viên nam có bằng cấp đại học, hãy tính xác suất một nhân viên ngẫu nhiên có bằng cấp đại học biết rằng nhân viên đó là nữ.",
+        "options": [
+            "0,8",
+            "0,6",
+            "0,4",
+            "0,2"
+        ],
+        "answer": "0,8",
+        "concept": "xac_suat_toan_phan_va_bayes"
+    },
+    {
+        "level": "Khó",
+        "question": "Cho hai sự kiện A và B, với $P(A) = \\frac{1}{3}$ và $P(B) = \\frac{1}{2}$. Nếu $P(A|B) = \\frac{2}{3}$, hãy tính xác suất P(B|A).",
+        "options": [
+            "$\\frac{1}{2}$",
+            "$\\frac{2}{3}$",
+            "$\\frac{1}{3}$",
+            "$\\frac{3}{4}$"
+        ],
+        "answer": "$\\frac{1}{2}$",
+        "concept": "xac_suat_toan_phan_va_bayes"
+    },
+    {
+        "level": "Khó",
+        "question": "Một công ty có 30% nhân viên là nữ và 70% là nam. Nếu 80% nhân viên nữ và 60% nhân viên nam có bằng cấp đại học, hãy tính xác suất một nhân viên ngẫu nhiên có bằng cấp đại học biết rằng nhân viên đó là nữ.",
+        "options": [
+            "0,8",
+            "0,6",
+            "0,4",
+            "0,2"
+        ],
+        "answer": "0,8",
+        "concept": "xac_suat_toan_phan_va_bayes"
+    },
+    {
+        "level": "Khó",
+        "question": "Cho hai sự kiện độc lập A và B, với $P(A) = \\frac{1}{3}$ và $P(B) = \\frac{2}{5}$. Tìm xác suất của sự kiện A và B xảy ra đồng thời.",
+        "options": [
+            "$\\frac{1}{15}$",
+            "$\\frac{2}{15}$",
+            "$\\frac{1}{5}$",
+            "$\\frac{2}{5}$"
+        ],
+        "answer": "$\\frac{2}{15}$",
+        "concept": "xac_suat_toan_phan_va_bayes"
+    },
+    {
+        "level": "Khó",
+        "question": "Cho ba sự kiện A, B và C, với $P(A) = \\frac{1}{2}$, $P(B) = \\frac{1}{3}$ và $P(C|A $\\cap$ B) = \\frac{3}{4}$. Tìm xác suất của sự kiện C xảy ra khi biết A và B đã xảy ra.",
+        "options": [
+            "$\\frac{1}{2}$",
+            "$\\frac{1}{3}$",
+            "$\\frac{1}{4}$",
+            "$\\frac{3}{4}$"
+        ],
+        "answer": "$\\frac{3}{4}$",
+        "concept": "xac_suat_toan_phan_va_bayes"
+    },
+    {
+        "level": "Khó",
+        "question": "Tìm vector chỉ phương của đường thẳng đi qua hai điểm $A(1, 2, 3)$ và $B(4, 5, 6)$",
+        "options": [
+            "$\\vec{u} = \\begin{pmatrix} 3 \\ 3 \\ 3 \\ \\end{pmatrix}$",
+            "$\\vec{u} = \\begin{pmatrix} -3 \\ -3 \\ -3 \\ \\end{pmatrix}$",
+            "$\\vec{u} = \\begin{pmatrix} 1 \\ 1 \\ 1 \\ \\end{pmatrix}$",
+            "$\\vec{u} = \\begin{pmatrix} -1 \\ -1 \\ -1 \\ \\end{pmatrix}$"
+        ],
+        "answer": "$\\vec{u} = \\begin{pmatrix} 3 \\ 3 \\ 3 \\ \\end{pmatrix}$",
+        "concept": "vector"
+    },
+    {
+        "level": "Khó",
+        "question": "Tìm giá trị của $x$ sao cho vector $\\vec{a} = \\begin{pmatrix} x \\ 2 \\ 3 \\ \\end{pmatrix}$ và vector $\\vec{b} = \\begin{pmatrix} 4 \\ 5 \\ 6 \\ \\end{pmatrix}$ vuông góc với nhau",
+        "options": [
+            "x = 1",
+            "x = -1",
+            "x = 2",
+            "x = -4"
+        ],
+        "answer": "x = -4",
+        "concept": "vector"
+    },
+    {
+        "level": "Khó",
+        "question": "Tìm vector chỉ phương của đường thẳng đi qua hai điểm $A(1, 2, 3)$ và $B(4, 5, 6)$",
+        "options": [
+            "$\\vec{v} = \\begin{pmatrix} 3 \\ 3 \\ 3 \\ \\end{pmatrix}$",
+            "$\\vec{v} = \\begin{pmatrix} -3 \\ -3 \\ -3 \\ \\end{pmatrix}$",
+            "$\\vec{v} = \\begin{pmatrix} 1 \\ 1 \\ 1 \\ \\end{pmatrix}$",
+            "$\\vec{v} = \\begin{pmatrix} 2 \\ 2 \\ 2 \\ \\end{pmatrix}$"
+        ],
+        "answer": "$\\vec{v} = \\begin{pmatrix} 3 \\ 3 \\ 3 \\ \\end{pmatrix}$",
+        "concept": "vector"
+    },
+    {
+        "level": "Khó",
+        "question": "Tìm giá trị của $\\lambda$ sao cho vector $\\vec{a} = \\begin{pmatrix} 1 \\ 2 \\ 3 \\ \\end{pmatrix}$ và vector $\\vec{b} = \\lambda \\begin{pmatrix} 4 \\ 5 \\ 6 \\ \\end{pmatrix}$ cùng phương",
+        "options": [
+            "$\\lambda = \\frac{1}{4}$",
+            "$\\lambda = \\frac{2}{5}$",
+            "$\\lambda = \\frac{3}{6}$",
+            "$\\lambda = 0$"
+        ],
+        "answer": "$\\lambda = \\frac{1}{4}$",
+        "concept": "vector"
+    },
+    {
+        "level": "Khó",
+        "question": "Tìm vector chỉ phương của đường thẳng đi qua hai điểm $A(1, 2, 3)$ và $B(4, 5, 6)$",
+        "options": [
+            "$\\vec{u} = \\begin{pmatrix} 3 \\ 3 \\ 3 \\ \\end{pmatrix}$",
+            "$\\vec{u} = \\begin{pmatrix} -3 \\ -3 \\ -3 \\ \\end{pmatrix}$",
+            "$\\vec{u} = \\begin{pmatrix} 1 \\ 1 \\ 1 \\ \\end{pmatrix}$",
+            "$\\vec{u} = \\begin{pmatrix} 0 \\ 0 \\ 0 \\ \\end{pmatrix}$"
+        ],
+        "answer": "$\\vec{u} = \\begin{pmatrix} 3 \\ 3 \\ 3 \\ \\end{pmatrix}$",
+        "concept": "vector"
+    },
+    {
+        "level": "Khó",
+        "question": "Tìm giá trị của $\\lambda$ sao cho vector $\\vec{a} = \\begin{pmatrix} 1 \\ 2 \\ 3 \\ \\end{pmatrix}$ và vector $\\vec{b} = \\lambda \\begin{pmatrix} 4 \\ 5 \\ 6 \\ \\end{pmatrix}$ cùng phương",
+        "options": [
+            "$\\lambda = \\frac{1}{4}$",
+            "$\\lambda = \\frac{2}{5}$",
+            "$\\lambda = \\frac{3}{6}$",
+            "$\\lambda = 0$"
+        ],
+        "answer": "$\\lambda = \\frac{1}{4}$",
+        "concept": "vector"
+    },
+    {
+        "level": "Khó",
+        "question": "Cho vector $\\vec{u} = \\binom{1}{2}$ và vector $\\vec{v} = \\binom{3}{4}$. Tìm vector $\\vec{w}$ sao cho $\\vec{u} \\times \\vec{v} = \\vec{w}$.",
+        "options": [
+            "$\\vec{w} = \\binom{2}{-3}$",
+            "$\\vec{w} = \\binom{-2}{3}$",
+            "$\\vec{w} = \\binom{3}{-2}$",
+            "$\\vec{w} = \\binom{-3}{2}$"
+        ],
+        "answer": "$\\vec{w} = \\binom{-2}{3}$",
+        "concept": "vector"
+    },
+    {
+        "level": "Khó",
+        "question": "Tìm giá trị của $x$ sao cho vector $\\vec{a} = \\binom{x}{2}$ và vector $\\vec{b} = \\binom{3}{4}$ cùng hướng.",
+        "options": [
+            "$x = \\frac{3}{2}$",
+            "$x = \\frac{4}{3}$",
+            "$x = 2$",
+            "$x = \\frac{8}{3}$"
+        ],
+        "answer": "$x = \\frac{8}{3}$",
+        "concept": "vector"
+    },
+    {
+        "level": "Khó",
+        "question": "Cho vector \\( \\vec{u} = \\begin{pmatrix} 1 \\ 2 \\ 3 \\end{pmatrix} \\) và vector \\( \\vec{v} = \\begin{pmatrix} 4 \\ 5 \\ 6 \\end{pmatrix} \\). Tính độ lớn của vector \\( \\vec{u} \\times \\vec{v} \\)",
+        "options": [
+            "$\\sqrt{3}$",
+            "$\\sqrt{6}$",
+            "$\\sqrt{\\frac{3}{2}}$",
+            "$\\sqrt{\\frac{27}{2}}$"
+        ],
+        "answer": "$\\sqrt{\\frac{27}{2}}$",
+        "concept": "vector"
+    },
+    {
+        "level": "Khó",
+        "question": "Cho vector \\( \\vec{a} = \\begin{pmatrix} 2 \\ 1 \\ -1 \\end{pmatrix} \\) và vector \\( \\vec{b} = \\begin{pmatrix} 1 \\ -2 \\ 1 \\end{pmatrix} \\). Tìm vector đơn vị của vector \\( \\vec{a} + \\vec{b} \\)",
+        "options": [
+            "$\\frac{1}{\\sqrt{6}}\\begin{pmatrix} 3 \\ -1 \\ 0 \\end{pmatrix}$",
+            "$\\frac{1}{\\sqrt{3}}\\begin{pmatrix} 1 \\ 0 \\ -1 \\end{pmatrix}$",
+            "$\\frac{1}{\\sqrt{2}}\\begin{pmatrix} 1 \\ 0 \\ 0 \\end{pmatrix}$",
+            "$\\frac{1}{\\sqrt{27}}\\begin{pmatrix} 3 \\ -1 \\ 0 \\end{pmatrix}$"
+        ],
+        "answer": "$\\frac{1}{\\sqrt{6}}\\begin{pmatrix} 3 \\ -1 \\ 0 \\end{pmatrix}$",
+        "concept": "vector"
+    },
+    {
+        "level": "Khó",
+        "question": "Cho vector $\\vec{u} = \\binom{1}{2}$ và vector $\\vec{v} = \\binom{3}{4}$. Tìm vector $\\vec{w}$ sao cho $\\vec{u} \\times \\vec{v} = \\vec{w}$.",
+        "options": [
+            "$\\vec{w} = \\binom{2}{-3}$",
+            "$\\vec{w} = \\binom{-2}{3}$",
+            "$\\vec{w} = \\binom{8}{-5}$",
+            "$\\vec{w} = \\binom{-8}{5}$"
+        ],
+        "answer": "$\\vec{w} = \\binom{-2}{3}$",
+        "concept": "vector"
+    },
+    {
+        "level": "Khó",
+        "question": "Tìm phương trình của mặt phẳng chứa điểm $\\left(1, 2, 3\\right)$ và vuông góc với vector $\\vec{n} = \\left(\\frac{1}{2}, \\frac{1}{3}, \\frac{1}{4}\\right)$",
+        "options": [
+            "$\\frac{1}{2}x + \\frac{1}{3}y + \\frac{1}{4}z = \\frac{1}{2} + \\frac{1}{3} + \\frac{1}{4}$",
+            "$\\frac{1}{2}x + \\frac{1}{3}y + \\frac{1}{4}z = 1$",
+            "$x + y + z = 6$",
+            "$\\frac{1}{2}x + \\frac{1}{3}y + \\frac{1}{4}z = \\frac{1}{2} + \\frac{2}{3} + \\frac{3}{4}$"
+        ],
+        "answer": "$\\frac{1}{2}x + \\frac{1}{3}y + \\frac{1}{4}z = \\frac{1}{2} + \\frac{1}{3} + \\frac{1}{4}$",
+        "concept": "toa_do_hoa_hinh_hoc"
+    },
+    {
+        "level": "Khó",
+        "question": "Tìm giá trị của $k$ để đường thẳng $\\frac{x - 1}{2} = \\frac{y - 2}{3} = \\frac{z - 3}{4}$ cắt mặt phẳng $kx + y - z = 0$",
+        "options": [
+            "$k = \\frac{1}{2}$",
+            "$k = \\frac{2}{3}$",
+            "$k = \\frac{3}{4}$",
+            "$k = 1$"
+        ],
+        "answer": "$k = \\frac{1}{2}$",
+        "concept": "toa_do_hoa_hinh_hoc"
+    },
+    {
+        "level": "Khó",
+        "question": "Tìm phương trình của mặt phẳng chứa điểm $M(1, 2, 3)$ và vuông góc với vector $\\vec{n} = \\begin{pmatrix} 1 \\ 2 \\ 3 \\end{pmatrix}$",
+        "options": [
+            "$x + 2y + 3z = 14$",
+            "$x - 2y - 3z = -14$",
+            "$x + 2y + 3z = -14$",
+            "$x - 2y - 3z = 14$"
+        ],
+        "answer": "$x + 2y + 3z = 14$",
+        "concept": "toa_do_hoa_hinh_hoc"
+    },
+    {
+        "level": "Khó",
+        "question": "Tìm giá trị của $k$ để đường thẳng $\\frac{x - 1}{2} = \\frac{y - 2}{3} = \\frac{z - 3}{4}$ cắt mặt phẳng $kx + 2y - 3z = 1$",
+        "options": [
+            "$k = \\frac{1}{2}$",
+            "$k = \\frac{2}{3}$",
+            "$k = \\frac{3}{4}$",
+            "$k = 1$"
+        ],
+        "answer": "$k = \\frac{1}{2}$",
+        "concept": "toa_do_hoa_hinh_hoc"
+    },
+    {
+        "level": "Khó",
+        "question": "Tìm phương trình của mặt phẳng chứa điểm $\\left(1, 2, 3\\right)$ và vuông góc với vector $\\vec{n} = \\left(\\frac{1}{2}, \\frac{1}{3}, \\frac{1}{4}\\right)$",
+        "options": [
+            "$\\frac{1}{2}x + \\frac{1}{3}y + \\frac{1}{4}z = \\frac{1}{2} + \\frac{1}{3} + \\frac{1}{4}$",
+            "$\\frac{1}{2}x + \\frac{1}{3}y + \\frac{1}{4}z = \\frac{1}{2} + \\frac{2}{3} + \\frac{3}{4}$",
+            "$\\frac{1}{2}x + \\frac{1}{3}y + \\frac{1}{4}z = 1$",
+            "$\\frac{1}{2}x + \\frac{1}{3}y + \\frac{1}{4}z = \\frac{1}{2} + \\frac{1}{3} + \\frac{1}{4} + 1$"
+        ],
+        "answer": "$\\frac{1}{2}x + \\frac{1}{3}y + \\frac{1}{4}z = \\frac{1}{2} + \\frac{1}{3} + \\frac{1}{4}$",
+        "concept": "toa_do_hoa_hinh_hoc"
+    },
+    {
+        "level": "Khó",
+        "question": "Tìm tọa độ của điểm $M$ trên trục $oz$ sao cho khoảng cách từ $M$ đến điểm $A(1, 2, 3)$ và khoảng cách từ $M$ đến điểm $B(4, 5, 6)$ bằng nhau",
+        "options": [
+            "$M(0, 0, \\frac{3}{2})$",
+            "$M(0, 0, \\frac{27}{4})$",
+            "$M(0, 0, \\frac{27}{2})$",
+            "$M(0, 0, \\frac{3}{4})$"
+        ],
+        "answer": "$M(0, 0, \\frac{27}{2})$",
+        "concept": "toa_do_hoa_hinh_hoc"
+    },
+    {
+        "level": "Khó",
+        "question": "Tìm phương trình của mặt phẳng chứa điểm $\\left(1, 2, 3\\right)$ và vuông góc với vector $\\vec{n} = \\left(\\frac{1}{2}, \\frac{1}{3}, \\frac{1}{4}\\right)$",
+        "options": [
+            "$\\frac{1}{2}x + \\frac{1}{3}y + \\frac{1}{4}z = \\frac{1}{2} + \\frac{1}{3} + \\frac{1}{4}$",
+            "$\\frac{1}{2}x + \\frac{1}{3}y + \\frac{1}{4}z = 1$",
+            "$x + y + z = 6$",
+            "$\\frac{1}{2}x + \\frac{1}{3}y + \\frac{1}{4}z = \\frac{1}{2} + \\frac{2}{3} + \\frac{3}{4}$"
+        ],
+        "answer": "$\\frac{1}{2}x + \\frac{1}{3}y + \\frac{1}{4}z = \\frac{1}{2} + \\frac{1}{3} + \\frac{1}{4}$",
+        "concept": "toa_do_hoa_hinh_hoc"
+    },
+    {
+        "level": "Khó",
+        "question": "Tìm khoảng cách từ điểm $\\left(1, 2, 3\\right)$ đến mặt phẳng $2x + 3y - 4z = 12$",
+        "options": [
+            "$\\frac{|2 + 3(2) - 4(3) - 12|}{\\sqrt{2^2 + 3^2 + (-4)^2}}$",
+            "$\\frac{|2 + 6 - 12 - 12|}{\\sqrt{2^2 + 3^2 + (-4)^2}}$",
+            "$\\frac{|2(1) + 3(2) - 4(3) - 12|}{\\sqrt{2^2 + 3^2 + (-4)^2}}$",
+            "$\\frac{|2(1) + 3(2) - 4(3)|}{\\sqrt{2^2 + 3^2 + (-4)^2}}$"
+        ],
+        "answer": "$\\frac{|2(1) + 3(2) - 4(3) - 12|}{\\sqrt{2^2 + 3^2 + (-4)^2}}$",
+        "concept": "toa_do_hoa_hinh_hoc"
     }
 ]
