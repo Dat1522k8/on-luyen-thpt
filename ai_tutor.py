@@ -2,7 +2,7 @@ import requests
 import os
 
 # Lấy API Key từ biến môi trường của hệ thống
-API_KEY = os.getenv("GROQ_API_KEY", "") 
+API_KEY = os.getenv("AI_API_KEY", "") 
 
 def hoi_ai(message):
     if not API_KEY:
