@@ -146,3 +146,43 @@ button:active { transform: scale(0.97); }
 
 /* LATEX SIZE */
 mjx-container { font-size: 110%; }
+.logo-container {
+    padding: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.site-logo {
+    width: 60px;        /* Bạn chỉnh độ to nhỏ của logo ở đây */
+    height: auto;       /* Giữ đúng tỉ lệ ảnh, không bị méo */
+    border-radius: 8px; /* Nếu muốn bo góc logo thì dùng dòng này */
+    transition: transform 0.3s; /* Hiệu ứng khi di chuột vào */
+}
+
+.site-logo:hover {
+    transform: scale(1.1); /* Logo hơi to lên một chút khi di chuột vào cho sinh động */
+}
+.top-corner-logo {
+    position: fixed;    /* Cố định vị trí khi cuộn trang */
+    top: 15px;          /* Cách mép trên 15px */
+    left: 15px;         /* Cách mép trái 15px */
+    z-index: 9999;      /* Đảm bảo luôn nằm trên các thành phần khác */
+}
+
+.top-corner-logo img {
+    width: 50px;        /* Chỉnh kích thước logo nhỏ lại ở đây */
+    height: auto;
+    filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.2)); /* Đổ bóng nhẹ cho chuyên nghiệp */
+}
+.chat-avt {
+    width: 24px;         /* Độ rộng bằng với kích thước dòng chữ */
+    height: 24px;        /* Chiều cao bằng chiều rộng */
+    border-radius: 50%;  /* Làm ảnh hình tròn (kiểu avatar) */
+    object-fit: cover;   /* Đảm bảo ảnh không bị méo nếu không phải hình vuông */
+    border: 1px solid #eee; /* Viền nhẹ cho ảnh nổi bật */
+}
+
+.chat-header {
+    display: flex;       /* Dàn hàng ngang các phần tử */
+    align-items: center; /* Căn giữa ảnh và chữ theo chiều dọc */
+}

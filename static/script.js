@@ -72,7 +72,6 @@ function guiTinNhanAI() {
     let msg = input.value.trim();
     if (!msg) return;
 
-    // Hiển thị tin nhắn của bạn lên khung chat
     document.getElementById("chatbox").innerHTML += `
         <div style="margin-bottom:15px; text-align:right;">
             <span style="background:#4facfe; color:white; padding:8px 12px; border-radius:12px; display:inline-block;">
@@ -80,29 +79,39 @@ function guiTinNhanAI() {
             </span>
         </div>`;
 
-    input.value = ""; // Xóa ô nhập sau khi gửi
+    input.value = ""; 
 
     fetch("/chat_ai", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
             message: msg,
-            context: cau_dang_xem // cau_dang_xem đã được cập nhật khi bạn nhấn "Giải thích"
+            context: cau_dang_xem 
         })
     })
     .then(res => res.json())
     .then(data => {
+        // KIỂM TRA NẾU CÓ LỖI TỪ SERVER
+        let phan_hoi = data.answer || "AI không trả về câu trả lời. Vui lòng kiểm tra API Key.";
+        
         document.getElementById("chatbox").innerHTML += `
-            <div style="margin-bottom:15px;">
-                <b style="color:#ff7a18;">🤖 AI:</b>
-                <div style="background:#f1f1f1; padding:10px; border-radius:8px; margin-top:5px;">
-                    ${data.answer}
+            <div style="margin-bottom:15px; display: flex; flex-direction: column;">
+                <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 5px;">
+                    <img src="/static/cheems.jpg" style="width: 25px; height: 25px; border-radius: 50%; object-fit: cover; border: 1px solid #ddd;">
+                    <b style="color:#ff7a18;">cheems AI:</b>
+                </div>
+                <div style="background:#f1f1f1; padding:10px; border-radius:8px; margin-left: 33px;">
+                    ${phan_hoi}
                 </div>
             </div>`;
 
         let chatbox = document.getElementById("chatbox");
         chatbox.scrollTop = chatbox.scrollHeight;
         if (window.MathJax) MathJax.typesetPromise();
+    })
+    .catch(err => {
+        console.error("Lỗi Fetch:", err);
+        document.getElementById("chatbox").innerHTML += `<div style="color:red; text-align:center;">Lỗi kết nối Server!</div>`;
     });
 }
 

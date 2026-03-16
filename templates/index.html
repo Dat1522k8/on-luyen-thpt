@@ -2,7 +2,7 @@
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
-    <title>AI Tutor - Hoàn chỉnh</title>
+    <title></title>
     <link rel="stylesheet" href="/static/style.css">
     <script>
         window.MathJax = {
@@ -13,6 +13,9 @@
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 <body>
+    <div class="top-corner-logo">
+        <img src="{{ url_for('static', filename='410248302_265238099893030_4556676985882445566_n.jpg') }}" alt="logo jet jet" >
+    </div>
     <div class="main-wrapper" id="main-wrapper">
         <div class="exam-container">
             <div class="container">
@@ -34,8 +37,9 @@
         </div>
         <div id="resizer" class="resizer"></div>
         <div class="ai-panel" id="ai-panel">
-            <div class="chat-header">
-                <span>🤖 AI Gia sư</span>
+           <div class="chat-header" style="display: flex; align-items: center; gap: 10px; padding: 10px; border-bottom: 1px solid #ddd;">
+                <img src="{{ url_for('static', filename='cheems.jpg') }}" alt="cheems jet jet" class="chat-avt">
+                <span style="flex-grow: 1; font-weight: bold;">jet jet gia sư Việt Đức</span>
                 <button onclick="dongAI()" style="background:none; color:#333; font-size:20px; border:none; cursor:pointer;">✕</button>
             </div>
             <div id="chatbox"></div>
