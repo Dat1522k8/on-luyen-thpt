@@ -63,106 +63,106 @@
         "level": "Khó",
         "question": "Một dây dẫn thẳng dài có dòng điện $I$ chạy qua, từ trường tại điểm $P$ cách dây dẫn một khoảng $r$ được tính bằng công thức nào?",
         "options": [
-            "\\(B = \\frac{\\mu_0 I}{2 \\pi r}\\)",
-            "\\(B = \\frac{\\mu_0 I r}{2 \\pi}\\)",
-            "\\(B = \\frac{\\mu_0 I}{r}\\)",
-            "\\(B = \\frac{2 \\pi I}{\\mu_0 r}\\)"
+            "$\\(B = \\frac{\\mu_0 I}{2 \\pi r}\\)$",
+            "$\\(B = \\frac{\\mu_0 I r}{2 \\pi}\\)$",
+            "$\\(B = \\frac{\\mu_0 I}{r}\\)$",
+            "$\\(B = \\frac{2 \\pi I}{\\mu_0 r}\\)$"
         ],
-        "answer": "\\(B = \\frac{\\mu_0 I}{2 \\pi r}\\)",
+        "answer": "$\\(B = \\frac{\\mu_0 I}{2 \\pi r}\\)$",
         "concept": "tu_truong"
     },
     {
         "level": "Khó",
         "question": "Từ trường của một nam châm thẳng tại điểm $P$ cách cực bắc một khoảng $r$ được tính bằng công thức nào?",
         "options": [
-            "\\(B = \\frac{\\mu_0 m}{4 \\pi r^3}\\)",
-            "\\(B = \\frac{4 \\pi m}{\\mu_0 r^3}\\)",
-            "\\(B = \\frac{m}{\\mu_0 r^2}\\)",
-            "\\(B = \\frac{\\mu_0 r}{m}\\)"
+            "$\\(B = \\frac{\\mu_0 m}{4 \\pi r^3}\\)$",
+            "$\\(B = \\frac{4 \\pi m}{\\mu_0 r^3}\\)$",
+            "$\\(B = \\frac{m}{\\mu_0 r^2}\\)$",
+            "$\\(B = \\frac{\\mu_0 r}{m}\\)$"
         ],
-        "answer": "\\(B = \\frac{\\mu_0 m}{4 \\pi r^3}\\)",
+        "answer": "$\\(B = \\frac{\\mu_0 m}{4 \\pi r^3}\\)$",
         "concept": "tu_truong"
     },
     {
         "level": "Khó",
         "question": "Một vòng dây dẫn có dòng điện $I$ chạy qua, bán kính $R$, từ trường tại tâm vòng dây được tính bằng công thức nào?",
         "options": [
-            "\\(B = \\frac{\\mu_0 I}{2 R}\\)",
-            "\\(B = \\frac{\\mu_0 I R}{2}\\)",
-            "\\(B = \\frac{\\mu_0 I}{R}\\)",
-            "\\(B = \\frac{2 I}{\\mu_0 R}\\)"
+            "$\\(B = \\frac{\\mu_0 I}{2 R}\\)$",
+            "$\\(B = \\frac{\\mu_0 I R}{2}\\)$",
+            "$\\(B = \\frac{\\mu_0 I}{R}\\)$",
+            "$\\(B = \\frac{2 I}{\\mu_0 R}\\)$"
         ],
-        "answer": "\\(B = \\frac{\\mu_0 I}{2 R}\\)",
+        "answer": "$\\(B = \\frac{\\mu_0 I}{2 R}\\)$",
         "concept": "tu_truong"
     },
     {
         "level": "Khó",
         "question": "Từ trường của một solenoid dài tại điểm bên trong solenoid được tính bằng công thức nào?",
         "options": [
-            "\\(B = \\frac{\\mu_0 n I}{2}\\)",
-            "\\(B = \\frac{\\mu_0 n I}{4}\\)",
-            "\\(B = \\mu_0 n I\\)",
-            "\\(B = \\frac{\\mu_0 I}{n}\\)"
+            "$\\(B = \\frac{\\mu_0 n I}{2}\\)$",
+            "$\\(B = \\frac{\\mu_0 n I}{4}\\)$",
+            "$\\(B = \\mu_0 n I\\)$",
+            "$\\(B = \\frac{\\mu_0 I}{n}\\)$"
         ],
-        "answer": "\\(B = \\mu_0 n I\\)",
+        "answer": "$\\(B = \\mu_0 n I\\)$",
         "concept": "tu_truong"
     },
     {
         "level": "Khó",
         "question": "Một dòng điện $I$ chạy qua một dây dẫn thẳng dài, từ trường tại điểm $P$ cách dây dẫn một khoảng $r$ tạo một góc $\\theta$ với dây dẫn được tính bằng công thức nào?",
         "options": [
-            "\\(B = \\frac{\\mu_0 I}{2 \\pi r} \\sin \\theta\\)",
-            "\\(B = \\frac{\\mu_0 I}{2 \\pi r} \\cos \\theta\\)",
-            "\\(B = \\frac{\\mu_0 I r}{2 \\pi} \\sin \\theta\\)",
-            "\\(B = \\frac{\\mu_0 I r}{2 \\pi} \\cos \\theta\\)"
+            "$\\(B = \\frac{\\mu_0 I}{2 \\pi r} \\sin \\theta\\)$",
+            "$\\(B = \\frac{\\mu_0 I}{2 \\pi r} \\cos \\theta\\)$",
+            "$\\(B = \\frac{\\mu_0 I r}{2 \\pi} \\sin \\theta\\)$",
+            "$\\(B = \\frac{\\mu_0 I r}{2 \\pi} \\cos \\theta\\)$"
         ],
-        "answer": "\\(B = \\frac{\\mu_0 I}{2 \\pi r} \\sin \\theta\\)",
+        "answer": "$\\(B = \\frac{\\mu_0 I}{2 \\pi r} \\sin \\theta\\)$",
         "concept": "tu_truong"
     },
     {
         "level": "Khó",
         "question": "Một dây dẫn thẳng dài có dòng điện $I$ chạy qua, tạo ra từ trường. Cảm ứng từ tại điểm $P$ cách dây dẫn một khoảng $r$ được tính bằng công thức nào?",
         "options": [
-            "\\(B = \\frac{\\mu_0 I}{2 \\pi r}\\)",
-            "\\(B = \\frac{\\mu_0 I r}{2 \\pi}\\)",
-            "\\(B = \\frac{\\mu_0 I}{4 \\pi r^2}\\)",
-            "\\(B = \\frac{\\mu_0 I r^2}{2 \\pi}\\)"
+            "$\\(B = \\frac{\\mu_0 I}{2 \\pi r}\\)$",
+            "$\\(B = \\frac{\\mu_0 I r}{2 \\pi}\\)$",
+            "$\\(B = \\frac{\\mu_0 I}{4 \\pi r^2}\\)$",
+            "$\\(B = \\frac{\\mu_0 I r^2}{2 \\pi}\\)$"
         ],
-        "answer": "\\(B = \\frac{\\mu_0 I}{2 \\pi r}\\)",
+        "answer": "$\\(B = \\frac{\\mu_0 I}{2 \\pi r}\\)$",
         "concept": "tu_truong"
     },
     {
         "level": "Khó",
         "question": "Một vòng dây dẫn có bán kính $R$ và có $N$ vòng, có dòng điện $I$ chạy qua. Cảm ứng từ tại tâm vòng dây được tính bằng công thức nào?",
         "options": [
-            "\\(B = \\frac{\\mu_0 N I}{2 R}\\)",
-            "\\(B = \\frac{\\mu_0 N I R}{2}\\)",
-            "\\(B = \\frac{\\mu_0 I}{2 N R}\\)",
-            "\\(B = \\frac{\\mu_0 I R}{2 N}\\)"
+            "$\\(B = \\frac{\\mu_0 N I}{2 R}\\)$",
+            "$\\(B = \\frac{\\mu_0 N I R}{2}\\)$",
+            "$\\(B = \\frac{\\mu_0 I}{2 N R}\\)$",
+            "$\\(B = \\frac{\\mu_0 I R}{2 N}\\)$"
         ],
-        "answer": "\\(B = \\frac{\\mu_0 N I}{2 R}\\)",
+        "answer": "$\\(B = \\frac{\\mu_0 N I}{2 R}\\)$",
         "concept": "tu_truong"
     },
     {
         "level": "Khó",
         "question": "Một dây dẫn thẳng dài có dòng điện $I$ chạy qua, tạo ra từ trường. Cảm ứng từ tại điểm $P$ cách dây dẫn một khoảng $r$ được tính bằng công thức nào?",
         "options": [
-            "\\(B = \\frac{\\mu_0 I}{2 \\pi r}\\)",
-            "\\(B = \\frac{\\mu_0 I r}{2 \\pi}\\)",
-            "\\(B = \\frac{\\mu_0 I}{4 \\pi r^2}\\)",
-            "\\(B = \\frac{\\mu_0 I r}{4 \\pi}\\)"
+            "$\\(B = \\frac{\\mu_0 I}{2 \\pi r}\\)$",
+            "$\\(B = \\frac{\\mu_0 I r}{2 \\pi}\\)$",
+            "$\\(B = \\frac{\\mu_0 I}{4 \\pi r^2}\\)$",
+            "$\\(B = \\frac{\\mu_0 I r}{4 \\pi}\\)$"
         ],
-        "answer": "\\(B = \\frac{\\mu_0 I}{2 \\pi r}\\)",
+        "answer": "$\\(B = \\frac{\\mu_0 I}{2 \\pi r}\\)$",
         "concept": "tu_truong"
     },
     {
         "level": "Khó",
         "question": "Một vòng dây tròn có bán kính $R$ và có $N$ vòng, mỗi vòng có dòng điện $I$ chạy qua. Cảm ứng từ tại tâm vòng dây được tính bằng công thức nào?",
         "options": [
-            "\\(B = \\frac{\\mu_0 N I}{2 R}\\)",
-            "\\(B = \\frac{\\mu_0 N I R}{2}\\)",
-            "\\(B = \\frac{\\mu_0 N I}{4 R^2}\\)",
-            "\\(B = \\frac{\\mu_0 N I R}{4}\\)"
+            "$\\(B = \\frac{\\mu_0 N I}{2 R}\\)$",
+            "$\\(B = \\frac{\\mu_0 N I R}{2}\\)$",
+            "$\\(B = \\frac{\\mu_0 N I}{4 R^2}\\)$",
+            "$\\(B = \\frac{\\mu_0 N I R}{4}\\)$"
         ],
         "answer": "\\(B = \\frac{\\mu_0 N I}{2 R}\\)",
         "concept": "tu_truong"
@@ -171,72 +171,72 @@
         "level": "Khó",
         "question": "Một dây dẫn thẳng dài có dòng điện $I$ chạy qua. Tại một điểm $P$ cách dây dẫn một khoảng $r$, từ trường tạo ra bởi dây dẫn tại điểm $P$ có độ lớn là",
         "options": [
-            "\\(B = \\frac{\\mu_0 I}{2 \\pi r}\\)",
-            "\\(B = \\frac{\\mu_0 I}{4 \\pi r}\\)",
-            "\\(B = \\frac{\\mu_0 I r}{2 \\pi}\\)",
-            "\\(B = \\frac{\\mu_0 I r}{4 \\pi}\\)"
+            "$\\(B = \\frac{\\mu_0 I}{2 \\pi r}\\)$",
+            "$\\(B = \\frac{\\mu_0 I}{4 \\pi r}\\)$",
+            "$\\(B = \\frac{\\mu_0 I r}{2 \\pi}\\)$",
+            "$\\(B = \\frac{\\mu_0 I r}{4 \\pi}\\)$"
         ],
-        "answer": "\\(B = \\frac{\\mu_0 I}{2 \\pi r}\\)",
+        "answer": "$\\(B = \\frac{\\mu_0 I}{2 \\pi r}\\)$",
         "concept": "tu_truong"
     },
     {
         "level": "Khó",
         "question": "Một vòng dây dẫn có bán kính $R$ có dòng điện $I$ chạy qua. Tại tâm của vòng dây, từ trường tạo ra bởi vòng dây có độ lớn là",
         "options": [
-            "\\(B = \\frac{\\mu_0 I}{2 R}\\)",
-            "\\(B = \\frac{\\mu_0 I}{R}\\)",
-            "\\(B = \\frac{\\mu_0 I R}{2}\\)",
-            "\\(B = \\frac{\\mu_0 I}{4 R}\\)"
+            "$\\(B = \\frac{\\mu_0 I}{2 R}\\)$",
+            "$\\(B = \\frac{\\mu_0 I}{R}\\)$",
+            "$\\(B = \\frac{\\mu_0 I R}{2}\\)$",
+            "$\\(B = \\frac{\\mu_0 I}{4 R}\\)$"
         ],
-        "answer": "\\(B = \\frac{\\mu_0 I}{2 R}\\)",
+        "answer": "$\\(B = \\frac{\\mu_0 I}{2 R}\\)$",
         "concept": "tu_truong"
     },
     {
         "level": "Khó",
         "question": "Một dây dẫn thẳng dài có dòng điện $I$ chạy qua, tạo ra từ trường. Cảm ứng từ tại điểm $P$ cách dây dẫn một khoảng $r$ được tính bằng công thức nào?",
         "options": [
-            "\\(B = \\frac{\\mu_0 I}{2\\pi r}\\)",
-            "\\(B = \\frac{\\mu_0 I r}{2\\pi}\\)",
-            "\\(B = \\frac{\\mu_0 I}{r}\\)",
-            "\\(B = \\frac{2\\pi I}{\\mu_0 r}\\)"
+            "$\\(B = \\frac{\\mu_0 I}{2\\pi r}\\)$",
+            "$\\(B = \\frac{\\mu_0 I r}{2\\pi}\\)$",
+            "$\\(B = \\frac{\\mu_0 I}{r}\\)$",
+            "$\\(B = \\frac{2\\pi I}{\\mu_0 r}\\)$"
         ],
-        "answer": "\\(B = \\frac{\\mu_0 I}{2\\pi r}\\)",
+        "answer": "$\\(B = \\frac{\\mu_0 I}{2\\pi r}\\)$",
         "concept": "tu_truong"
     },
     {
         "level": "Khó",
         "question": "Một vòng dây dẫn có bán kính $R$ và có $N$ vòng, có dòng điện $I$ chạy qua. Cảm ứng từ tại tâm vòng dây được tính bằng công thức nào?",
         "options": [
-            "\\(B = \\frac{\\mu_0 N I}{2R}\\)",
-            "\\(B = \\frac{\\mu_0 I}{2NR}\\)",
-            "\\(B = \\frac{\\mu_0 I R}{2N}\\)",
-            "\\(B = \\frac{2N I}{\\mu_0 R}\\)"
+            "$\\(B = \\frac{\\mu_0 N I}{2R}\\)$",
+            "$\\(B = \\frac{\\mu_0 I}{2NR}\\)$",
+            "$\\(B = \\frac{\\mu_0 I R}{2N}\\)$",
+            "$\\(B = \\frac{2N I}{\\mu_0 R}\\)$"
         ],
-        "answer": "\\(B = \\frac{\\mu_0 N I}{2R}\\)",
+        "answer": "$\\(B = \\frac{\\mu_0 N I}{2R}\\)$",
         "concept": "tu_truong"
     },
     {
         "level": "Khó",
         "question": "Một dây dẫn thẳng dài có dòng điện $I$ chạy qua, tạo ra từ trường. Cảm ứng từ tại điểm $P$ cách dây dẫn một khoảng $r$ được tính bằng công thức",
         "options": [
-            "\\(B = \\frac{\\mu_0 I}{2 \\pi r}\\)",
-            "\\(B = \\frac{\\mu_0 I r}{2 \\pi}\\)",
-            "\\(B = \\frac{\\mu_0 I}{4 \\pi r^2}\\)",
-            "\\(B = \\frac{\\mu_0 I r^2}{2 \\pi}\\)"
+            "$\\(B = \\frac{\\mu_0 I}{2 \\pi r}\\)$",
+            "$\\(B = \\frac{\\mu_0 I r}{2 \\pi}\\)$",
+            "$\\(B = \\frac{\\mu_0 I}{4 \\pi r^2}\\)$",
+            "$\\(B = \\frac{\\mu_0 I r^2}{2 \\pi}\\)$"
         ],
-        "answer": "\\(B = \\frac{\\mu_0 I}{2 \\pi r}\\)",
+        "answer": "$\\(B = \\frac{\\mu_0 I}{2 \\pi r}\\)$",
         "concept": "tu_truong"
     },
     {
         "level": "Khó",
         "question": "Một vòng dây tròn có bán kính $R$ và có $N$ vòng, mang dòng điện $I$. Cảm ứng từ tại tâm vòng dây được tính bằng công thức",
         "options": [
-            "\\(B = \\frac{\\mu_0 N I}{2 R}\\)",
-            "\\(B = \\frac{\\mu_0 I}{2 N R}\\)",
-            "\\(B = \\frac{\\mu_0 I R}{2 N}\\)",
-            "\\(B = \\frac{\\mu_0 N I R}{2}\\)"
+            "$\\(B = \\frac{\\mu_0 N I}{2 R}\\)$",
+            "$\\(B = \\frac{\\mu_0 I}{2 N R}\\)$",
+            "$\\(B = \\frac{\\mu_0 I R}{2 N}\\)$",
+            "$\\(B = \\frac{\\mu_0 N I R}{2}\\)$"
         ],
-        "answer": "\\(B = \\frac{\\mu_0 N I}{2 R}\\)",
+        "answer": "$\\(B = \\frac{\\mu_0 N I}{2 R}\\)$",
         "concept": "tu_truong"
     },
     {
@@ -762,7 +762,7 @@
             "\\left( P + \\frac{a}{V^2} \\right)(V - b) = RT",
             "\\left( P - \\frac{a}{V^2} \\right)(V + b) = RT",
             "\\left( P + \\frac{a}{V} \\right)(V - b) = RT",
-            "\\left( P - \\frac{a}{V} \\right)(V + b) = RT"
+            "\left( P - \\frac{a}{V} \\right)(V + b) = RT"
         ],
         "answer": "\\left( P + \\frac{a}{V^2} \\right)(V - b) = RT",
         "concept": "pttt"
@@ -783,12 +783,12 @@
         "level": "Khó",
         "question": "Biểu thức của phương trình trạng thái Van der Waals cho chất khí thực là gì?",
         "options": [
-            "\\left( P + \\frac{a}{V^2} \\right) (V - b) = RT",
-            "\\left( P - \\frac{a}{V^2} \\right) (V + b) = RT",
-            "\\left( P + \\frac{a}{V} \\right) (V - b) = RT",
-            "\\left( P - \\frac{a}{V} \\right) (V + b) = RT"
+            "$\\left( P + \\frac{a}{V^2} \\right) (V - b) = RT$",
+            "$\\left( P - \\frac{a}{V^2} \\right) (V + b) = RT$",
+            "$\\left( P + \\frac{a}{V} \\right) (V - b) = RT$",
+            "$\\left( P - \\frac{a}{V} \\right) (V + b) = RT$"
         ],
-        "answer": "\\left( P + \\frac{a}{V^2} \\right) (V - b) = RT",
+        "answer": "$\\left( P + \\frac{a}{V^2} \\right) (V - b) = RT$",
         "concept": "pttt"
     },
     {
@@ -807,12 +807,12 @@
         "level": "Khó",
         "question": "Biểu thức của phương trình trạng thái Van der Waals cho chất khí thực là gì?",
         "options": [
-            "\\left( P + \\frac{a}{V^2} \\right)(V - b) = RT",
-            "\\left( P - \\frac{a}{V^2} \\right)(V + b) = RT",
-            "\\left( P + \\frac{a}{V} \\right)(V - b) = RT",
-            "\\left( P - \\frac{a}{V} \\right)(V + b) = RT"
+            "$\\left( P + \\frac{a}{V^2} \\right)(V - b) = RT$",
+            "$\\left( P - \\frac{a}{V^2} \\right)(V + b) = RT$",
+            "$\\left( P + \\frac{a}{V} \\right)(V - b) = RT$",
+            "$\\left( P - \\frac{a}{V} \\right)(V + b) = RT$"
         ],
-        "answer": "\\left( P + \\frac{a}{V^2} \\right)(V - b) = RT",
+        "answer": "$\\left( P + \\frac{a}{V^2} \\right)(V - b) = RT$",
         "concept": "pttt"
     },
     {
@@ -831,12 +831,12 @@
         "level": "Khó",
         "question": "Biểu thức của phương trình trạng thái Van der Waals cho chất khí thực là gì?",
         "options": [
-            "\\left( P + \\frac{a}{V^2} \\right) (V - b) = RT",
-            "\\left( P - \\frac{a}{V^2} \\right) (V + b) = RT",
-            "\\left( P + \\frac{a}{V} \\right) (V - b) = RT",
-            "\\left( P - \\frac{a}{V} \\right) (V + b) = RT"
+            "$\\left( P + \\frac{a}{V^2} \\right) (V - b) = RT$",
+            "$\\left( P - \\frac{a}{V^2} \\right) (V + b) = RT$",
+            "$\\left( P + \\frac{a}{V} \\right) (V - b) = RT$",
+            "$\\left( P - \\frac{a}{V} \\right) (V + b) = RT$"
         ],
-        "answer": "\\left( P + \\frac{a}{V^2} \\right) (V - b) = RT",
+        "answer": "$\\left( P + \\frac{a}{V^2} \\right) (V - b) = RT$",
         "concept": "pttt"
     },
     {
@@ -951,72 +951,72 @@
         "level": "Khó",
         "question": "Một dây dẫn thẳng dài có dòng điện $I$ chạy qua, tạo ra từ trường. Cảm ứng từ tại điểm $P$ cách dây dẫn một khoảng $r$ được tính bằng công thức nào?",
         "options": [
-            "\\(B = \\frac{\\mu_0 I}{2 \\pi r}\\)",
-            "\\(B = \\frac{\\mu_0 I r}{2 \\pi}\\)",
-            "\\(B = \\frac{\\mu_0 I}{4 \\pi r^2}\\)",
-            "\\(B = \\frac{\\mu_0 I r^2}{2 \\pi}\\)"
+            "$\\(B = \\frac{\\mu_0 I}{2 \\pi r}\\)$",
+            "$\\(B = \\frac{\\mu_0 I r}{2 \\pi}\\)$",
+            "$\\(B = \\frac{\\mu_0 I}{4 \\pi r^2}\\)$",
+            "$\\(B = \\frac{\\mu_0 I r^2}{2 \\pi}\\)$"
         ],
-        "answer": "\\(B = \\frac{\\mu_0 I}{2 \\pi r}\\)",
+        "answer": "$\\(B = \\frac{\\mu_0 I}{2 \\pi r}\\)$",
         "concept": "tu_truong"
     },
     {
         "level": "Khó",
         "question": "Một vòng dây dẫn có bán kính $R$ và có $N$ vòng, có dòng điện $I$ chạy qua. Cảm ứng từ tại tâm vòng dây được tính bằng công thức nào?",
         "options": [
-            "\\(B = \\frac{\\mu_0 N I}{2 R}\\)",
-            "\\(B = \\frac{\\mu_0 N I R}{2}\\)",
-            "\\(B = \\frac{\\mu_0 I}{2 N R}\\)",
-            "\\(B = \\frac{\\mu_0 I R}{2 N}\\)"
+            "$\\(B = \\frac{\\mu_0 N I}{2 R}\\)$",
+            "$\\(B = \\frac{\\mu_0 N I R}{2}\\)$",
+            "$\\(B = \\frac{\\mu_0 I}{2 N R}\\)$",
+            "$\\(B = \\frac{\\mu_0 I R}{2 N}\\)$"
         ],
-        "answer": "\\(B = \\frac{\\mu_0 N I}{2 R}\\)",
+        "answer": "$\\(B = \\frac{\\mu_0 N I}{2 R}\\)$",
         "concept": "tu_truong"
     },
     {
         "level": "Khó",
         "question": "Một dây dẫn thẳng dài có dòng điện $I$ chạy qua, tạo ra từ trường. Cảm ứng từ tại điểm $P$ cách dây dẫn một khoảng $r$ được tính bằng công thức",
         "options": [
-            "\\(B = \\frac{\\mu_0 I}{2 \\pi r}\\)",
-            "\\(B = \\frac{\\mu_0 I r}{2 \\pi}\\)",
-            "\\(B = \\frac{\\mu_0 I}{4 \\pi r^2}\\)",
-            "\\(B = \\frac{\\mu_0 I r^2}{2 \\pi}\\)"
+            "$\\(B = \\frac{\\mu_0 I}{2 \\pi r}\\)$",
+            "$\\(B = \\frac{\\mu_0 I r}{2 \\pi}\\)$",
+            "$\\(B = \\frac{\\mu_0 I}{4 \\pi r^2}\\)$",
+            "$\\(B = \\frac{\\mu_0 I r^2}{2 \\pi}\\)$"
         ],
-        "answer": "\\(B = \\frac{\\mu_0 I}{2 \\pi r}\\)",
+        "answer": "$\\(B = \\frac{\\mu_0 I}{2 \\pi r}\\)$",
         "concept": "tu_truong"
     },
     {
         "level": "Khó",
         "question": "Một vòng dây tròn có bán kính $R$ và có $N$ vòng, mang dòng điện $I$. Cảm ứng từ tại tâm vòng dây được tính bằng công thức",
         "options": [
-            "\\(B = \\frac{\\mu_0 N I}{2 R}\\)",
-            "\\(B = \\frac{\\mu_0 N I R}{2}\\)",
-            "\\(B = \\frac{\\mu_0 I}{2 N R}\\)",
-            "\\(B = \\frac{\\mu_0 I R}{2 N}\\)"
+            "$\\(B = \\frac{\\mu_0 N I}{2 R}\\)$",
+            "$\\(B = \\frac{\\mu_0 N I R}{2}\\)$",
+            "$\\(B = \\frac{\\mu_0 I}{2 N R}\\)$",
+            "$\\(B = \\frac{\\mu_0 I R}{2 N}\\)$"
         ],
-        "answer": "\\(B = \\frac{\\mu_0 N I}{2 R}\\)",
+        "answer": "$\\(B = \\frac{\\mu_0 N I}{2 R}\\)$",
         "concept": "tu_truong"
     },
     {
         "level": "Khó",
         "question": "Một dây dẫn thẳng dài có dòng điện $I$ chạy qua, tạo ra từ trường. Cảm ứng từ tại điểm $P$ cách dây dẫn một khoảng $r$ được tính bằng công thức nào?",
         "options": [
-            "\\(B = \\frac{\\mu_0 I}{2 \\pi r}\\)",
-            "\\(B = \\frac{\\mu_0 I r}{2 \\pi}\\)",
-            "\\(B = \\frac{\\mu_0 I}{4 \\pi r^2}\\)",
-            "\\(B = \\frac{\\mu_0 I r}{4 \\pi}\\)"
+            "$\\(B = \\frac{\\mu_0 I}{2 \\pi r}\\)$",
+            "$\\(B = \\frac{\\mu_0 I r}{2 \\pi}\\)$",
+            "$\\(B = \\frac{\\mu_0 I}{4 \\pi r^2}\\)$",
+            "$\\(B = \\frac{\\mu_0 I r}{4 \\pi}\\)$"
         ],
-        "answer": "\\(B = \\frac{\\mu_0 I}{2 \\pi r}\\)",
+        "answer": "$\\(B = \\frac{\\mu_0 I}{2 \\pi r}\\)$",
         "concept": "tu_truong"
     },
     {
         "level": "Khó",
         "question": "Một vòng dây dẫn có bán kính $R$ và có $N$ vòng, có dòng điện $I$ chạy qua. Cảm ứng từ tại tâm vòng dây được tính bằng công thức nào?",
         "options": [
-            "\\(B = \\frac{\\mu_0 N I}{2 R}\\)",
-            "\\(B = \\frac{\\mu_0 N I R}{2}\\)",
-            "\\(B = \\frac{\\mu_0 I}{2 N R}\\)",
-            "\\(B = \\frac{\\mu_0 I R}{2 N}\\)"
+            "$\\(B = \\frac{\\mu_0 N I}{2 R}\\)$",
+            "$\\(B = \\frac{\\mu_0 N I R}{2}\\)$",
+            "$\\(B = \\frac{\\mu_0 I}{2 N R}\\)$",
+            "$\\(B = \\frac{\\mu_0 I R}{2 N}\\)$"
         ],
-        "answer": "\\(B = \\frac{\\mu_0 N I}{2 R}\\)",
+        "answer": "$\\(B = \\frac{\\mu_0 N I}{2 R}\\)$",
         "concept": "tu_truong"
     },
     {
