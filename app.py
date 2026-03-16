@@ -39,9 +39,9 @@ def home():
 def concepts():
     mon = request.args.get("mon")
     if mon == "toan":
-        concepts = ["dao_ham", "nguyen_ham", "logarit", "cap_so_cong", "cap_so_nhan", "xac_suat"]
+        concepts = ["dao_ham", "nguyen_ham", "logarit", "cap_so_cong", "cap_so_nhan", "nhan_xac_suat","xac_suat_co_dieu_kien", "xac_suat"]
     else:
-        concepts = ["luc", "dong_luc_hoc", "chuyen_dong", "cong", "van_toc", "dien_ap", "tu_truong", "khi_ly_tuong", "nhiet_hoc", "hat_nhan"]
+        concepts = ["dien_ap", "tu_truong", "khi_ly_tuong", "nhiet_hoc", "hat_nhan", "mo_men_luc", "pttt", "vat_ly_nhiet"]
     return jsonify(concepts)
 
 @app.route("/tao_de")
@@ -50,23 +50,26 @@ def tao_de():
     mon = request.args.get("mon")
     concept = request.args.get("concept")
     so_cau = int(request.args.get("so_cau", 10))
+    
+    # 1. Tải toàn bộ dữ liệu (vốn dĩ đã là câu khó)
     data = tai_du_lieu(mon)
+    
+    # 2. Lọc theo chủ đề (concept) nếu người dùng yêu cầu cụ thể
     if concept and concept != "all":
         data = [q for q in data if q.get("concept") == concept]
-    if not data: return jsonify({"de": []})
+    
+    # 3. Kiểm tra xem có dữ liệu không
+    if not data: 
+        return jsonify({"de": [], "message": "Không tìm thấy câu hỏi!"})
 
-    l_de = [q for q in data if q.get("level") in ["Cơ bản", "Dễ"]]
-    l_tb = [q for q in data if q.get("level") == "Trung bình"]
-    l_kho = [q for q in data if q.get("level") == "Khó"]
-    l_vdc = [q for q in data if q.get("level") in ["Nâng cao", "Nâng cao (VDC)"]]
-
-    n_de, n_tb, n_kho = round(so_cau*0.2), round(so_cau*0.4), round(so_cau*0.3)
-    n_vdc = so_cau - (n_de + n_tb + n_kho)
-
-    def lay(ds, n): return random.sample(ds, min(n, len(ds))) if n > 0 else []
-    de_moi = lay(l_de, n_de) + lay(l_tb, n_tb) + lay(l_kho, n_kho) + lay(l_vdc, n_vdc)
+    # 4. Lấy ngẫu nhiên số lượng câu (đảm bảo không lấy quá số câu hiện có)
+    so_luong_lay = min(so_cau, len(data))
+    de_moi = random.sample(data, so_luong_lay)
+    
+    # 5. Trộn đề cho khách quan
     random.shuffle(de_moi)
     de_hien_tai = de_moi
+    
     return jsonify({"de": de_hien_tai})
 
 @app.route("/nop_bai", methods=["POST"])
