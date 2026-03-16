@@ -44,6 +44,9 @@ def concepts():
         concepts = ["dien_ap", "tu_truong", "khi_ly_tuong", "nhiet_hoc", "hat_nhan", "mo_men_luc", "pttt", "vat_ly_nhiet"]
     return jsonify(concepts)
 
+import random
+from flask import jsonify, request
+
 @app.route("/tao_de")
 def tao_de():
     global de_hien_tai
@@ -64,11 +67,25 @@ def tao_de():
 
     # 4. Lấy ngẫu nhiên số lượng câu (đảm bảo không lấy quá số câu hiện có)
     so_luong_lay = min(so_cau, len(data))
-    de_moi = random.sample(data, so_luong_lay)
+    selected_qs = random.sample(data, so_luong_lay)
     
-    # 5. Trộn đề cho khách quan
-    random.shuffle(de_moi)
-    de_hien_tai = de_moi
+    # 5. Xáo trộn các đáp án (options) trong từng câu hỏi
+    de_sau_khi_tron = []
+    for q in selected_qs:
+        # Tạo bản sao để tránh thay đổi trực tiếp vào biến data gốc
+        q_copy = q.copy()
+        
+        # Lấy mảng options, xáo trộn nó
+        shuffled_options = list(q_copy["options"])
+        random.shuffle(shuffled_options)
+        
+        # Gán lại mảng đã trộn vào câu hỏi
+        q_copy["options"] = shuffled_options
+        de_sau_khi_tron.append(q_copy)
+    
+    # 6. Trộn lại thứ tự các câu hỏi trong đề cho khách quan
+    random.shuffle(de_sau_khi_tron)
+    de_hien_tai = de_sau_khi_tron
     
     return jsonify({"de": de_hien_tai})
 
