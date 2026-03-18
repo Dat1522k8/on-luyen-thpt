@@ -46,10 +46,11 @@ def home():
 def concepts():
     mon = request.args.get("mon")
     if mon == "toan":
-        concepts = ["dao_ham", "nguyen_ham", "logarit", "cap_so_cong", "cap_so_nhan", "xac_suat"]
+        concepts = ["hàm số và đồ thị", "nguyên hàm tích phân", "hình học không gian", "khối tròn xoay", "tọa độ không gian", "số mũ và logarit", "số phức", "tổ hợp và xác suất",
+"đạo hàm", "cấp số cộng", "cấp số nhân", "tiệm cận"]
     else:
         # SỬA LỖI: Danh sách này phải khớp 100% với trường "concept" trong file physics.json
-        concepts = ["Vật lý nhiệt", "Các đẳng quá trình", "Từ trường", "Vật lý hạt nhân", "Điện xoay chiều", "Sóng điện từ", "Sóng cơ"]
+        concepts = ["Khí lí tưởng", "Vật lý hạt nhân", "Từ trường", "Vật lí nhiệt"]
     return jsonify(concepts)
 
 @app.route("/tao_de")
