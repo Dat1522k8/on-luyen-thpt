@@ -2,13 +2,17 @@ from flask import Flask, render_template, jsonify, request
 import json
 import random
 import os
+import csv
+from datetime import datetime
+# Import các hàm từ file ai_tutor của chúng ta
+from ai_tutor import hoi_ai, phan_tich_hoc_tap
 
 app = Flask(__name__)
 
 # Lưu trữ đề hiện tại để đối chiếu khi nộp bài
 de_hien_tai = []
 
-# SỬA LỖI: Cập nhật key gợi ý khớp hoàn toàn với Concept tiếng Việt trong JSON để nop_bai hoạt động
+# Gợi ý học tập
 goi_y_hoc = {
     "dao_ham": "Ôn quy tắc đạo hàm (x^n)' = n*x^(n-1)",
     "nguyen_ham": "Ôn nguyên hàm ∫x^n dx = x^(n+1)/(n+1) + C",
@@ -28,9 +32,7 @@ goi_y_hoc = {
 def tai_du_lieu(mon):
     try:
         filename = "dataset/math.json" if mon == "toan" else "dataset/physics.json"
-        # SỬA LỖI: Kiểm tra file tồn tại trước khi mở để tránh lỗi crash
         if not os.path.exists(filename):
-            print(f"Cảnh báo: Không tìm thấy file {filename}")
             return []
         with open(filename, "r", encoding="utf-8") as f:
             return json.load(f)
@@ -46,10 +48,8 @@ def home():
 def concepts():
     mon = request.args.get("mon")
     if mon == "toan":
-        concepts = ["hàm số và đồ thị", "nguyên hàm tích phân", "hình học không gian", "khối tròn xoay", "tọa độ không gian", "số mũ và logarit", "số phức", "tổ hợp và xác suất",
-"đạo hàm", "cấp số cộng", "cấp số nhân", "tiệm cận"]
+        concepts = ["hàm số và đồ thị", "nguyên hàm tích phân", "hình học không gian", "khối tròn xoay", "tọa độ không gian", "số mũ và logarit", "số phức", "tổ hợp và xác suất", "đạo hàm", "cấp số cộng", "cấp số nhân", "tiệm cận"]
     else:
-        # SỬA LỖI: Danh sách này phải khớp 100% với trường "concept" trong file physics.json
         concepts = ["Khí lí tưởng", "Vật lý hạt nhân", "Từ trường", "Vật lí nhiệt"]
     return jsonify(concepts)
 
@@ -61,9 +61,7 @@ def tao_de():
     so_cau = int(request.args.get("so_cau", 10))
     
     data = tai_du_lieu(mon)
-    
     if concept and concept != "all":
-        # SỬA LỖI: Đảm bảo so sánh chuỗi chính xác để lọc được dữ liệu vật lý
         data = [q for q in data if q.get("concept") == concept]
     
     if not data: 
@@ -82,13 +80,15 @@ def tao_de():
     
     random.shuffle(de_sau_khi_tron)
     de_hien_tai = de_sau_khi_tron
-    
     return jsonify({"de": de_hien_tai})
 
 @app.route("/nop_bai", methods=["POST"])
 def nop_bai():
+    global de_hien_tai
     data = request.json
+    student_name = data.get("student_name", "Ẩn danh")
     cau_tra_loi = data.get("cau_tra_loi", [])
+    
     if not de_hien_tai:
         return jsonify({"error": "Chưa tạo đề"}), 400
 
@@ -107,7 +107,19 @@ def nop_bai():
             "dung": dung
         })
     
-    # SỬA LỖI: Lấy gợi ý dựa trên các concept bị sai
+    file_path = "lich_su_thi.csv"
+    file_exists = os.path.isfile(file_path)
+    thoi_gian = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
+    
+    try:
+        with open(file_path, mode="a", newline="", encoding="utf-8-sig") as f:
+            writer = csv.writer(f)
+            if not file_exists:
+                writer.writerow(["Thời gian", "Thí sinh", "Số câu đúng", "Tổng số câu", "Phần trăm"])
+            writer.writerow([thoi_gian, student_name, score, len(de_hien_tai), f"{round(score/len(de_hien_tai)*100, 2)}%"])
+    except Exception as e:
+        print("Lỗi lưu file CSV:", e)
+
     goi_y = [goi_y_hoc[k] for k in weak if k in goi_y_hoc]
     
     return jsonify({
@@ -117,27 +129,21 @@ def nop_bai():
         "goi_y": goi_y
     })
 
-# Các route còn lại (ai_lo_trinh, chat_ai) giữ nguyên như cũ
-@app.route("/ai_lo_trinh", methods=["POST"])
-def ai_lo_trinh():
-    from ai_tutor import phan_tich_hoc_tap
-    data = request.json
-    cau_sai = data.get("cau_sai", [])
-    result = phan_tich_hoc_tap(cau_sai)
-    return jsonify({"answer": result})
-
 @app.route("/chat_ai", methods=["POST"])
 def chat_ai():
-    from ai_tutor import hoi_ai
     data = request.json
     msg = data.get("message", "")
+    user_name = data.get("user_name", "Học sinh")
     ctx = data.get("context")
-    if ctx:
-        prompt = f"Câu hỏi: {ctx['question']}\nĐúng: {ctx['correct_answer']}\nHọc sinh chọn: {ctx['student_choice']}\nCâu hỏi: {msg}"
-    else:
-        prompt = msg
-    return jsonify({"answer": hoi_ai(prompt)})
+
+    # Nếu có context chứa thông tin câu sai
+    if ctx and "student_choice" in ctx:
+        response = phan_tich_hoc_tap(ctx['student_choice'], user_name=user_name)
+        return jsonify({"answer": response})
+
+    # Chat bình thường
+    response = hoi_ai(msg, user_name=user_name)
+    return jsonify({"answer": response})
 
 if __name__ == "__main__":
-    port = int(os.environ.get("PORT", 5000))
-    app.run(host='0.0.0.0', port=port, debug=True)
+    app.run(host='0.0.0.0', port=5000, debug=True)

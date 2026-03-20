@@ -1,18 +1,45 @@
+// BIẾN TOÀN CỤC
 let danh_sach_cau_hoi = [];
-let cau_dang_xem = null;
+let cau_sai_list = [];
+let timerInterval;
 
+// --- 1. HÀM ĐĂNG NHẬP ---
+function login() {
+    const nameInput = document.getElementById("user_name");
+    const lopInput = document.getElementById("user_class");
+    const loginScreen = document.getElementById("login-screen");
+    const mainApp = document.getElementById("main-app");
+
+    if (!nameInput || !lopInput) return;
+
+    const name = nameInput.value.trim();
+    const lop = lopInput.value.trim();
+
+    if (name === "" || lop === "") {
+        alert("Đạt ơi, nhập đủ tên và lớp mới làm bài được nhé!");
+        return;
+    }
+
+    // Lưu thông tin người dùng
+    window.userName = name;
+    window.userClass = lop;
+
+    loginScreen.style.display = "none";
+    mainApp.style.display = "block";
+    
+    taiConcept();
+}
+
+// --- 2. LOGIC TẢI ĐỀ ---
 function taiConcept() {
     let mon = document.getElementById("mon").value;
     fetch("/concepts?mon=" + mon)
         .then(res => res.json())
         .then(data => {
             let select = document.getElementById("concept");
+            if(!select) return;
             select.innerHTML = '<option value="all">Tất cả chủ đề</option>';
-            data.forEach(c => {
-                let op = document.createElement("option");
-                op.value = c; op.text = c;
-                select.appendChild(op);
-            });
+            data.forEach(c => { select.innerHTML += `<option value="${c}">${c}</option>`; });
         });
 }
 
@@ -20,163 +47,275 @@ function taiDe() {
     let mon = document.getElementById("mon").value;
     let concept = document.getElementById("concept").value;
     let so_cau = document.getElementById("so_cau").value;
+    
     fetch(`/tao_de?mon=${mon}&concept=${concept}&so_cau=${so_cau}`)
     .then(res => res.json())
     .then(data => {
         danh_sach_cau_hoi = data.de || [];
         let html = "";
         danh_sach_cau_hoi.forEach((q, i) => {
-            html += `<div class="question-card" onclick="setCtx(${i})">
+            html += `
+            <div class="question-card">
                 <h3>Câu ${i+1}</h3>
                 <div class="question-text">${q.question}</div>
-                <div class="options-container">`; // Bọc các phương án
-            q.options.forEach(opt => {
-                html += `
-                <label class="option">
-                    <input type="radio" name="cau${i}" value="${opt}" onchange="setCtx(${i})">
-                    <span>${opt}</span>
-                </label>`;
-            });
-            html += `</div></div>`;
+                <div class="options-container">
+                    ${q.options.map(opt => `
+                        <label class="option">
+                            <input type="radio" name="cau${i}" value="${opt}"> 
+                            <span>${opt}</span>
+                        </label>
+                    `).join('')}
+                </div>
+            </div>`;
         });
         document.getElementById("de").innerHTML = html;
+        document.getElementById("ketqua").innerHTML = "";
+        document.getElementById("btn-analyze").style.display = "none";
+        
         if (window.MathJax) MathJax.typesetPromise();
+        batDauDemNguoc();
     });
 }
 
-function setCtx(i) {
-    let q = danh_sach_cau_hoi[i];
-    let chk = document.querySelector(`input[name="cau${i}"]:checked`);
-    cau_dang_xem = {
-        question: q.question,
-        correct_answer: q.answer,
-        student_choice: chk ? chk.value : "Chưa chọn"
-    };
+// --- 3. THỜI GIAN & NỘP BÀI ---
+function batDauDemNguoc() {
+    clearInterval(timerInterval);
+    let timeLeft = (parseInt(document.getElementById("so_cau").value) || 5) * 120;
+    const totalTime = timeLeft;
+    const timerCont = document.getElementById("timer-container");
+    timerCont.style.display = "block";
+
+    timerInterval = setInterval(() => {
+        let m = Math.floor(timeLeft / 60);
+        let s = timeLeft % 60;
+        document.getElementById("timer-display").innerText = `${m.toString().padStart(2,'0')}:${s.toString().padStart(2,'0')}`;
+        document.getElementById("progress-fill").style.width = (timeLeft/totalTime)*100 + "%";
+        if (timeLeft <= 0) { clearInterval(timerInterval); nopBai(); }
+        timeLeft--;
+    }, 1000);
 }
-function hoiNhanh(i) {
-    setCtx(i); // Gắn ngữ cảnh câu hỏi thứ i
-    moAI();    // Mở Panel AI
 
-    let input = document.getElementById("ai_input");
-    input.value = "Giải thích cho em kỹ hơn về câu này...";
-    input.focus(); // Đưa con trỏ vào ô nhập để bạn có thể xóa hoặc viết tiếp
+function nopBai() {
+    let studentFullName = (window.userName || "Thí sinh") + " - " + (window.userClass || "");
+    let ans = [];
+    
+    for(let i=0; i<danh_sach_cau_hoi.length; i++) {
+        let chk = document.querySelector(`input[name="cau${i}"]:checked`);
+        if(!chk) { alert("Đạt ơi, bạn chưa làm hết bài kìa!"); return; }
+        ans.push(chk.value);
+    }
+    
+    clearInterval(timerInterval);
+    document.getElementById("timer-container").style.display = "none";
 
-    // Thông báo cho người dùng biết AI đang tập trung vào câu nào
-    document.getElementById("chatbox").innerHTML += `
-        <div style="text-align:center; color:#4facfe; font-size:12px; margin:10px 0; border-bottom: 1px dashed #4facfe;">
-            --- Đang tập trung giải thích Câu ${i+1} ---
+    fetch("/nop_bai", { 
+        method: "POST", 
+        headers: {"Content-Type":"application/json"}, 
+        body: JSON.stringify({ student_name: studentFullName, cau_tra_loi: ans }) 
+    })
+    .then(res => res.json()).then(data => {
+        cau_sai_list = data.ket_qua.filter(k => !k.dung);
+        const btnAnalyze = document.getElementById("btn-analyze");
+        if(btnAnalyze) btnAnalyze.style.display = cau_sai_list.length > 0 ? "inline-block" : "none";
+
+        let html = `<h2>Kết quả: ${studentFullName} - ${data.diem}/${danh_sach_cau_hoi.length}</h2>`;
+        data.ket_qua.forEach((kq, i) => {
+            let color = kq.dung ? "green" : "red";
+            html += `<div class="question-card" style="border-left: 5px solid ${color}">
+                <b>Câu ${i+1}:</b> ${kq.cau_hoi}<br>
+                Chọn: <span style="color:${color}">${kq.tra_loi_cua_ban}</span> | Đáp án đúng: <b>${kq.dap_an_dung}</b>
+            </div>`;
+        });
+        document.getElementById("ketqua").innerHTML = html;
+        window.scrollTo(0, 0);
+        if (window.MathJax) MathJax.typesetPromise();
+        if (data.diem === danh_sach_cau_hoi.length && data.diem > 0) {
+        setTimeout(() => {
+            showSpecialCongrats(); // Gọi anh Bảnh lên quẩy
+        }, 500);
+    }
+    });
+}
+
+// --- 4. GIAO DIỆN CHAT AI ---
+function renderMessage(sender, text) {
+    const chatbox = document.getElementById("chatbox");
+    const isAI = sender === "ai";
+    
+    // Xác định tên hiển thị
+    const displayName = isAI ? "Gia sư Cheems" : (window.userName || "Học sinh");
+    
+    // --- ĐỔI LINK ẢNH SANG STATIC ---
+    // Giả sử file ảnh của Đạt tên là cheems.jpg nằm trong thư mục static
+    const imgUrl = isAI ? "/static/cheems.jpg" : ""; 
+    
+    const msgRowClass = isAI ? "ai-msg-row" : "user-msg-row";
+    const avatarHtml = isAI ? `<img src="${imgUrl}" class="chat-avt">` : "";
+
+    const html = `
+        <div class="msg-row ${msgRowClass}">
+            ${avatarHtml}
+            <div class="msg-content-wrapper">
+                <div class="msg-bubble">${text}</div>
+                <div class="msg-author">${displayName}</div>
+            </div>
         </div>`;
+    
+    chatbox.innerHTML += html;
+    chatbox.scrollTop = chatbox.scrollHeight;
+    if (window.MathJax) MathJax.typesetPromise();
 }
+
 function guiTinNhanAI() {
-    let input = document.getElementById("ai_input");
-    let msg = input.value.trim();
-    if (!msg) return;
+    const input = document.getElementById("ai_input");
+    const message = input.value.trim();
+    if (!message) return;
 
-    document.getElementById("chatbox").innerHTML += `
-        <div style="margin-bottom:15px; text-align:right;">
-            <span style="background:#4facfe; color:white; padding:8px 12px; border-radius:12px; display:inline-block;">
-                ${msg}
-            </span>
-        </div>`;
+    // Hiện tin nhắn của người dùng lên bên phải
+    renderMessage("user", message);
+    input.value = "";
 
-    input.value = ""; 
-
+    // Gửi sang Server kèm tên người dùng
     fetch("/chat_ai", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-            message: msg,
-            context: cau_dang_xem 
+            message: message,
+            user_name: window.userName || "Học sinh" // GỬI TÊN SANG AI
         })
     })
     .then(res => res.json())
     .then(data => {
-        // KIỂM TRA NẾU CÓ LỖI TỪ SERVER
-        let phan_hoi = data.answer || "AI không trả về câu trả lời. Vui lòng kiểm tra API Key.";
-        
-        document.getElementById("chatbox").innerHTML += `
-            <div style="margin-bottom:15px; display: flex; flex-direction: column;">
-                <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 5px;">
-                    <img src="/static/cheems.jpg" style="width: 25px; height: 25px; border-radius: 50%; object-fit: cover; border: 1px solid #ddd;">
-                    <b style="color:#ff7a18;">cheems AI:</b>
-                </div>
-                <div style="background:#f1f1f1; padding:10px; border-radius:8px; margin-left: 33px;">
-                    ${phan_hoi}
-                </div>
-            </div>`;
-
-        let chatbox = document.getElementById("chatbox");
-        chatbox.scrollTop = chatbox.scrollHeight;
-        if (window.MathJax) MathJax.typesetPromise();
-    })
-    .catch(err => {
-        console.error("Lỗi Fetch:", err);
-        document.getElementById("chatbox").innerHTML += `<div style="color:red; text-align:center;">Lỗi kết nối Server!</div>`;
-    });
-}
-
-// Các hàm khác (initResizer, nopBai, phanTichAI, moAI, dongAI, moChatTuDo) giữ nguyên như bản trước...
-function initResizer() {
-    const resizer = document.getElementById("resizer");
-    const aiPanel = document.getElementById("ai-panel");
-    let isResizing = false;
-    resizer.addEventListener("mousedown", () => { isResizing = true; document.body.style.cursor = "col-resize"; });
-    document.addEventListener("mousemove", (e) => {
-        if (!isResizing) return;
-        let newWidth = window.innerWidth - e.clientX;
-        if (newWidth > 300 && newWidth < window.innerWidth * 0.7) aiPanel.style.width = newWidth + "px";
-    });
-    document.addEventListener("mouseup", () => { isResizing = false; document.body.style.cursor = "default"; });
-}
-
-function nopBai() {
-    let ans = [];
-    for(let i=0; i<danh_sach_cau_hoi.length; i++) {
-        let chk = document.querySelector(`input[name="cau${i}"]:checked`);
-        if(!chk) { alert("Làm hết bài đã nhé!"); return; }
-        ans.push(chk.value);
-    }
-    fetch("/nop_bai", { method: "POST", headers: {"Content-Type":"application/json"}, body: JSON.stringify({cau_tra_loi: ans}) })
-    .then(res => res.json())
-    .then(data => {
-        let html = `<h2>Kết quả: ${data.diem}/${danh_sach_cau_hoi.length}</h2>`;
-        data.ket_qua.forEach((kq, i) => {
-            let color = kq.dung ? "green" : "red";
-            html += `<div class="question-card" style="border-left-color:${color}">
-                <b>Câu ${i+1}:</b> ${kq.cau_hoi}<br>
-                Chọn: <span style="color:${color}">${kq.tra_loi_cua_ban}</span> | Đáp án: ${kq.dap_an_dung}<br>
-                <button onclick="hoiNhanh(${i})">💡 Giải thích</button>
-            </div>`;
-        });
-        document.getElementById("ketqua").innerHTML = html;
-        if (window.MathJax) MathJax.typesetPromise();
+        renderMessage("ai", data.answer); // Hiện tin nhắn AI bên trái
     });
 }
 
 function phanTichAI() {
+    if (cau_sai_list.length === 0) return;
     moAI();
-    let cauSai = [];
-    danh_sach_cau_hoi.forEach((q, i) => {
-        let chk = document.querySelector(`input[name="cau${i}"]:checked`);
-        if (chk && chk.value != q.answer) cauSai.push(q.question);
-    });
-    fetch("/ai_lo_trinh", { method: "POST", headers: {"Content-Type":"application/json"}, body: JSON.stringify({cau_sai: cauSai}) })
-    .then(res => res.json())
-    .then(data => {
-        document.getElementById("chatbox").innerHTML += `<div style="background:#f0f7ff; padding:15px; border-radius:8px; margin-bottom:10px;"><b>🤖 Lộ trình AI:</b><br>${data.answer}</div>`;
-        document.getElementById("chatbox").scrollTop = document.getElementById("chatbox").scrollHeight;
-        if (window.MathJax) MathJax.typesetPromise();
+    
+    const tenHocSinh = window.userName || "Học sinh";
+    
+    // 1. Tạo danh sách số câu sai dưới dạng chuỗi "Câu 1, Câu 2..."
+    // cau_sai_list là mảng các object kết quả từ /nop_bai
+    // Ta cần tìm index của nó trong danh_sach_cau_hoi gốc
+    let danhSachText = cau_sai_list.map(sai => {
+        let index = danh_sach_cau_hoi.findIndex(q => q.question === sai.cau_hoi);
+        return `Câu ${index + 1}`;
+    }).join(", ");
+
+    renderMessage("ai", `Đợi mình xíu, mình đang tổng hợp lại ${cau_sai_list.length} câu ${tenHocSinh} làm chưa đúng để giải thích nhé...`);
+
+    // 2. Gửi chuỗi "Câu 1, Câu 2..." sang cho Python
+    fetch("/chat_ai", {
+        method: "POST",
+        headers: {"Content-Type":"application/json"},
+        body: JSON.stringify({ 
+            message: "Hãy giải thích chi tiết các câu mình đã làm sai.",
+            user_name: tenHocSinh,
+            // Gửi chuỗi text sạch sẽ để Python dễ lọc
+            context: { 
+                question: "Phân tích lỗi sai bài thi",
+                student_choice: danhSachText 
+            }
+        })
+    }).then(res => res.json()).then(data => {
+        renderMessage("ai", data.answer);
     });
 }
 
-function hoiNhanh(i) { setCtx(i); moAI(); document.getElementById("ai_input").value = "Tại sao câu này em làm sai?"; guiTinNhanAI(); }
+// --- 5. TIỆN ÍCH ---
 function moAI() { document.getElementById("main-wrapper").classList.add("split"); }
 function dongAI() { document.getElementById("main-wrapper").classList.remove("split"); }
-function moChatTuDo() { cau_dang_xem = null; moAI(); document.getElementById("chatbox").innerHTML += `<div style="text-align:center; color:#888;">--- Chat tự do ---</div>`; }
+function moChatTuDo() { moAI(); }
 
 document.addEventListener("DOMContentLoaded", () => {
-    initResizer();
-    taiConcept();
     document.getElementById("mon").addEventListener("change", taiConcept);
-    document.getElementById("ai_input").addEventListener("keydown", (e) => { if(e.key === "Enter") { e.preventDefault(); guiTinNhanAI(); } });
 });
+// --- LOGIC CHÚC MỪNG TÁCH NỀN KHÁ BẢNH ---
+
+function startChromaKey() {
+    const video = document.getElementById('raw-video');
+    const canvas = document.getElementById('keyed-canvas');
+    const ctx = canvas.getContext('2d', { willReadFrequently: true });
+
+    function render() {
+        if (video.paused || video.ended) return;
+        
+        // Cập nhật kích thước canvas theo video
+        if (canvas.width !== video.videoWidth) {
+            canvas.width = video.videoWidth;
+            canvas.height = video.videoHeight;
+        }
+
+        ctx.drawImage(video, 0, 0);
+        const frame = ctx.getImageData(0, 0, canvas.width, canvas.height);
+        const length = frame.data.length;
+
+        for (let i = 0; i < length; i += 4) {
+            const r = frame.data[i];
+            const g = frame.data[i + 1];
+            const b = frame.data[i + 2];
+            
+            // Tách nền xanh lá: Nếu màu Green trội hơn Red và Blue
+            if (g > 100 && g > r * 1.4 && g > b * 1.4) {
+                frame.data[i + 3] = 0; // Độ trong suốt = 0
+            }
+        }
+        ctx.putImageData(frame, 0, 0);
+        requestAnimationFrame(render);
+    }
+    video.play().catch(e => console.log("Chưa chạy được video:", e));
+    render();
+}
+
+function showFireWorks() {
+    const box = document.getElementById('fireworks-box');
+    box.innerHTML = ''; // Reset
+    for (let i = 0; i < 60; i++) {
+        const dot = document.createElement('div');
+        dot.className = 'firework-dot';
+        dot.style.left = Math.random() * 100 + '%';
+        dot.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
+        dot.style.animationDelay = Math.random() * 3 + 's';
+        box.appendChild(dot);
+    }
+}
+
+function showSpecialCongrats() {
+    const name = window.userName || "Ái My";
+    const nameElement = document.getElementById('congrats-name');
+    if (nameElement) {
+        nameElement.innerText = `CHÚC MỪNG ${name.toUpperCase()}!`;
+    }
+    
+    const modal = document.getElementById('congrats-modal');
+    const video = document.getElementById('raw-video');
+    
+    modal.style.display = 'block';
+
+    // 1. Thiết lập âm thanh video (vặn volume to lên)
+    video.muted = false; 
+    video.volume = 1.0; 
+
+    // 2. Tự động đóng khi hết video nhảy
+    video.onended = function() {
+        closeCongrats(); 
+    };
+
+    startChromaKey(); // Bắt đầu vẽ lên canvas (nhạc sẽ tự phát theo video.play())
+    showFireWorks();  
+}
+
+function closeCongrats() {
+    const modal = document.getElementById('congrats-modal');
+    const video = document.getElementById('raw-video');
+
+    modal.style.display = 'none';
+    
+    if (video) {
+        video.pause();
+        video.currentTime = 0; 
+    }
+    // Không cần xử lý 'win-audio' nữa vì đã dùng nhạc từ video
+}

@@ -5,97 +5,104 @@
     <title>Hệ thống luyện tập AI</title>
     <link rel="stylesheet" href="/static/style.css">
     <style>
-        /* Đảm bảo trang luôn có chiều cao tối thiểu */
-        html, body {
-            height: 100%;
-            margin: 0;
-            padding: 0;
-            position: relative; /* Làm gốc tọa độ cho footer */
-        }
-
-        /* Thêm khoảng trống ở dưới cùng của nội dung chính để không bị footer đè lên */
-        .main-wrapper {
-            padding-bottom: 120px; /* Độ cao ước tính của footer + khoảng cách */
-            min-height: calc(100vh - 120px);
-            display: flex; /* Giữ nguyên logic chia đôi màn hình cũ */
-        }
-
-        /* Footer cố định ở đáy nhưng không can thiệp vào luồng kéo dãn */
-        footer {
-            position: relative; /* Hoặc dùng absolute nếu bạn muốn nó luôn ở đáy dù nội dung ngắn */
-            width: 100%;
-            padding: 20px 0;
-            border-top: 1px solid #eee;
-            text-align: center;
-            color: #666;
-            font-size: 0.9em;
-            background-color: #fff;
-            margin-top: 20px;
-        }
-
-        /* Đảm bảo khung chat và đề thi vẫn co giãn được */
-        .exam-container, .ai-panel {
-            height: auto; 
-            min-height: 500px; /* Hoặc chiều cao bạn mong muốn */
-        }
+        html, body { height: 100%; margin: 0; padding: 0; position: relative; }
+        .main-wrapper { padding-bottom: 120px; min-height: calc(100vh - 120px); display: flex; }
+        footer { position: relative; width: 100%; padding: 20px 0; border-top: 1px solid #eee; text-align: center; color: #666; background-color: #fff; margin-top: 20px; }
+        #timer-container { cursor: move; user-select: none; z-index: 10000; }
     </style>
     <script>
         window.MathJax = {
-            tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$']], processEscapes: true },
-            options: { skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre'] }
+            tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$']], processEscapes: true }
         };
     </script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 <body>
-    <div class="top-corner-logo">
-        <img src="{{ url_for('static', filename='410248302_265238099893030_4556676985882445566_n.jpg') }}" alt="logo jet jet">
-    </div>
-
-    <div class="main-wrapper" id="main-wrapper">
-        <div class="exam-container">
-            <div class="container">
-                <h1>Hệ thống luyện tập AI</h1>
-                <div class="controls">
-                    Môn: <select id="mon"><option value="toan">Toán học</option><option value="ly">Vật lý</option></select>
-                    Chủ đề: <select id="concept"></select>
-                    Câu: <input id="so_cau" type="number" value="5" style="width:45px;">
-                    <button onclick="taiDe()">Tạo đề</button>
-                    <button class="btn-chat-free" onclick="moChatTuDo()">💬 Trò chuyện</button>
-                </div>
-                <div id="de"></div>
-                <div style="margin-top:20px;">
-                    <button onclick="nopBai()" style="background:#28a745;">Nộp bài</button>
-                    <button onclick="phanTichAI()" style="background:#17a2b8;">AI Phân tích lỗi</button>
-                </div>
-                <div id="ketqua"></div>
-            </div>
-        </div>
-
-        <div id="resizer" class="resizer"></div>
-
-        <div class="ai-panel" id="ai-panel">
-           <div class="chat-header">
-                <div style="display: flex; align-items: center; gap: 10px;">
-                    <img src="{{ url_for('static', filename='cheems.jpg') }}" alt="cheems jet jet" class="chat-avt">
-                    <span>jet jet gia sư Việt Đức</span>
-                </div>
-                <button onclick="dongAI()" style="background:none; color:#333; font-size:20px; border:none; cursor:pointer; margin:0; padding:0;">✕</button>
-            </div>
-            <div id="chatbox"></div>
-            <div class="chat-input">
-                <input id="ai_input" placeholder="Hỏi AI bất cứ điều gì và nhấn Enter...">
-                <button onclick="guiTinNhanAI()">Gửi</button>
-            </div>
+    <div id="login-screen" style="position:fixed; top:0; left:0; width:100%; height:100%; background:linear-gradient(135deg, #4facfe, #00f2fe); display:flex; justify-content:center; align-items:center; z-index:20000;">
+        <div style="background:white; padding:40px; border-radius:15px; text-align:center; box-shadow:0 15px 35px rgba(0,0,0,0.2); width:350px;">
+            <img src="{{ url_for('static', filename='410248302_265238099893030_4556676985882445566_n.jpg') }}" style="width:80px; margin-bottom:15px; border-radius:10px;">
+            <h2>Đăng nhập hệ thống</h2>
+            <input id="user_name" type="text" placeholder="Họ và tên..." style="width:100%; padding:12px; margin-bottom:10px; border:1px solid #ddd; border-radius:8px;">
+            <input id="user_class" type="text" placeholder="Lớp (VD: 12A1)..." style="width:100%; padding:12px; margin-bottom:20px; border:1px solid #ddd; border-radius:8px;">
+            <button onclick="login()" style="width:100%; background:#ff7a18; color:white; border:none; padding:12px; border-radius:8px; font-weight:bold; cursor:pointer;">VÀO LÀM BÀI</button>
         </div>
     </div>
 
-    <footer class="site-footer">
-        <p style="font-weight: bold; color: #333; margin-bottom: 5px;">Trung Học Phổ Thông Việt Đức</p>
-        <p style="margin: 2px 0;">Địa chỉ: Km12, Quốc lộ 27, Xã Ea Ktur, Tỉnh Đắk Lắk</p>
-        <p style="margin: 10px 0 0 0; font-style: italic; opacity: 0.8;">Code by: Hoàng Gia Đạt</p>
-    </footer>
+    <div id="main-app" style="display:none;">
+        <div id="timer-container" class="timer-card" style="display: none; position: fixed; top: 20px; right: 20px;">
+            <div class="timer-header">🕒 KÉO ĐỂ DI CHUYỂN</div>
+            <div id="timer-display">00:00</div>
+            <div id="meme-status" class="meme-text">Khó nha bro!</div>
+            <div class="progress-bar-container"><div id="progress-fill" class="progress-fill"></div></div>
+        </div>
 
+        <div class="top-corner-logo">
+            <img src="{{ url_for('static', filename='410248302_265238099893030_4556676985882445566_n.jpg') }}" alt="logo">
+        </div>
+
+        <div class="main-wrapper" id="main-wrapper">
+            <div class="exam-container">
+                <div class="container">
+                    <h1>Hệ thống luyện tập AI</h1>
+                    <div class="controls">
+                        Môn: <select id="mon"><option value="toan">Toán học</option><option value="ly">Vật lý</option></select>
+                        Chủ đề: <select id="concept"></select>
+                        Câu: <input id="so_cau" type="number" value="5" style="width:45px;">
+                        <button onclick="taiDe()">Tạo đề</button>
+                        <button class="btn-chat-free" onclick="moChatTuDo()">💬 Trò chuyện</button>
+                    </div>
+                    <div id="de"></div>
+                    <div style="margin-top:20px;">
+                        <button onclick="nopBai()" style="background:#28a745;">Nộp bài</button>
+                        <button id="btn-analyze" onclick="phanTichAI()" style="background:#17a2b8; display:none; margin-left:10px; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;">
+                            🤖 Hỏi Cheems về các câu sai
+                        </button>
+                        <button id="btn-analyze" onclick="phanTichAI()" style="background:#17a2b8; display:none; margin-left:10px;">AI Giải thích câu sai</button>
+                    </div>
+                    <div id="ketqua"></div>
+                </div>
+            </div>
+
+            <div id="resizer" class="resizer"></div>
+
+            <div class="ai-panel" id="ai-panel">
+               <div class="chat-header">
+                    <div style="display: flex; align-items: center; gap: 10px;">
+                        <img src="{{ url_for('static', filename='cheems.jpg') }}" class="chat-avt">
+                        <span>jet jet gia sư Việt Đức</span>
+                    </div>
+                    <button onclick="dongAI()" style="background:none; border:none; font-size:20px; cursor:pointer;">✕</button>
+                </div>
+                <div id="chatbox"></div>
+                <div class="chat-input">
+                    <input id="ai_input" placeholder="Hỏi AI bất cứ điều gì...">
+                    <button onclick="guiTinNhanAI()">Gửi</button>
+                </div>
+            </div>
+        </div>
+
+        <footer class="site-footer">
+            <p style="font-weight: bold; color: #333;">Trung Học Phổ Thông Việt Đức</p>
+            <p>Địa chỉ: Km12, Quốc lộ 27, Xã Ea Ktur, Tỉnh Đắk Lắk</p>
+            <p style="margin-top: 10px; font-style: italic; opacity: 0.8;">Code by: Hoàng Gia Đạt</p>
+        </footer>
+    </div>
+    <div id="congrats-modal">
+    <div class="congrats-content">
+        <h1 id="congrats-name">CHÚC MỪNG!</h1>
+        <p style="font-size: 1.2rem; margin-top: 10px; color: #fff;">Quá đẳng cấp, đúng 100% luôn!</p>
+        
+        <div class="video-wrapper">
+            <video id="raw-video" src="/static/kha_banh.mp4" crossorigin="anonymous" style="display: none;"></video>
+            
+            <canvas id="keyed-canvas"></canvas>
+            
+            <div id="fireworks-box" style="position: absolute; top:0; left:0; width:100%; height:100%; pointer-events: none;"></div>
+        </div>
+
+        <button class="btn-close-congrats" onclick="closeCongrats()">Đỉnh quá bạn ơi! Tiếp tục nào</button>
+    </div>
+</div>
     <script src="/static/script.js"></script>
 </body>
 </html>
