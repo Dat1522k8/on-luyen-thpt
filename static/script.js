@@ -16,7 +16,7 @@ function login() {
     const lop = lopInput.value.trim();
 
     if (name === "" || lop === "") {
-        alert("Đạt ơi, nhập đủ tên và lớp mới làm bài được nhé!");
+        alert(" Bro!, nhập đủ tên và lớp vàooooooo!");
         return;
     }
 
@@ -141,14 +141,8 @@ function nopBai() {
 function renderMessage(sender, text) {
     const chatbox = document.getElementById("chatbox");
     const isAI = sender === "ai";
-    
-    // Xác định tên hiển thị
     const displayName = isAI ? "Gia sư Cheems" : (window.userName || "Học sinh");
-    
-    // --- ĐỔI LINK ẢNH SANG STATIC ---
-    // Giả sử file ảnh của Đạt tên là cheems.jpg nằm trong thư mục static
     const imgUrl = isAI ? "/static/cheems.jpg" : ""; 
-    
     const msgRowClass = isAI ? "ai-msg-row" : "user-msg-row";
     const avatarHtml = isAI ? `<img src="${imgUrl}" class="chat-avt">` : "";
 
@@ -163,71 +157,109 @@ function renderMessage(sender, text) {
     
     chatbox.innerHTML += html;
     chatbox.scrollTop = chatbox.scrollHeight;
-    if (window.MathJax) MathJax.typesetPromise();
+
+    // QUAN TRỌNG: Lệnh này giúp MathJax quét lại toàn bộ chatbox để vẽ công thức
+    if (window.MathJax && window.MathJax.typesetPromise) {
+        MathJax.typesetPromise([chatbox]).catch((err) => console.log("Lỗi MathJax:", err));
+    }
 }
 
 function guiTinNhanAI() {
     const input = document.getElementById("ai_input");
-    const message = input.value.trim();
-    if (!message) return;
+    let userMsg = input.value.trim();
+    if (!userMsg) return;
 
-    // Hiện tin nhắn của người dùng lên bên phải
-    renderMessage("user", message);
+    renderMessage("user", userMsg);
     input.value = "";
 
-    // Gửi sang Server kèm tên người dùng
-    fetch("/chat_ai", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-            message: message,
-            user_name: window.userName || "Học sinh" // GỬI TÊN SANG AI
-        })
-    })
-    .then(res => res.json())
-    .then(data => {
-        renderMessage("ai", data.answer); // Hiện tin nhắn AI bên trái
-    });
-}
+    // TỰ ĐỘNG KIỂM TRA: Nếu học sinh hỏi "giải câu X"
+    let match = userMsg.match(/giải câu (\d+)/i);
+    let extraContext = "";
 
-function phanTichAI() {
-    if (cau_sai_list.length === 0) return;
-    moAI();
-    
-    const tenHocSinh = window.userName || "Học sinh";
-    
-    // 1. Tạo danh sách số câu sai dưới dạng chuỗi "Câu 1, Câu 2..."
-    // cau_sai_list là mảng các object kết quả từ /nop_bai
-    // Ta cần tìm index của nó trong danh_sach_cau_hoi gốc
-    let danhSachText = cau_sai_list.map(sai => {
-        let index = danh_sach_cau_hoi.findIndex(q => q.question === sai.cau_hoi);
-        return `Câu ${index + 1}`;
-    }).join(", ");
+    if (match) {
+        let soCau = parseInt(match[1]);
+        // Tìm đề bài của câu đó trong danh sách câu hỏi gốc
+        let cauHoiGoc = danh_sach_cau_hoi[soCau - 1]; 
+        if (cauHoiGoc) {
+            extraContext = `\n(Dữ liệu đề bài cho bạn giải: ${cauHoiGoc.question}. Đáp án đúng là: ${cauHoiGoc.answer})`;
+        }
+    }
 
-    renderMessage("ai", `Đợi mình xíu, mình đang tổng hợp lại ${cau_sai_list.length} câu ${tenHocSinh} làm chưa đúng để giải thích nhé...`);
-
-    // 2. Gửi chuỗi "Câu 1, Câu 2..." sang cho Python
     fetch("/chat_ai", {
         method: "POST",
         headers: {"Content-Type":"application/json"},
         body: JSON.stringify({ 
-            message: "Hãy giải thích chi tiết các câu mình đã làm sai.",
-            user_name: tenHocSinh,
-            // Gửi chuỗi text sạch sẽ để Python dễ lọc
-            context: { 
-                question: "Phân tích lỗi sai bài thi",
-                student_choice: danhSachText 
-            }
+            message: userMsg + extraContext, // Gộp đề bài vào đây khi học sinh hỏi
+            user_name: window.userName || "ông bạn"
         })
     }).then(res => res.json()).then(data => {
         renderMessage("ai", data.answer);
     });
 }
 
+function phanTichAI() {
+    console.log("Đang bắt đầu phân tích...");
+
+    if (typeof cau_sai_list === 'undefined' || cau_sai_list.length === 0) {
+        alert("Bạn chưa làm sai câu nào hoặc chưa nộp bài!");
+        return;
+    }
+    
+    const panel = document.getElementById("ai-panel");
+    if (panel) panel.style.display = "flex";
+    
+    const tenHocSinh = window.userName || "ông bạn";
+
+    // 1. Lấy danh sách số câu sai (Câu 1, Câu 2...)
+    let danhSachSoCau = cau_sai_list.map(sai => {
+        let index = danh_sach_cau_hoi.findIndex(q => q.question === sai.cau_hoi);
+        return `Câu ${index + 1}`;
+    }).join(", ");
+
+    // 2. Tạo nội dung tin nhắn DUY NHẤT kèm Mật lệnh cấm giải
+    const lenhGuiAI = `[WAIT_MODE] Hệ thống: Học sinh ${tenHocSinh} vừa làm sai các câu sau: ${danhSachSoCau}. 
+    YÊU CẦU: Chỉ chào và liệt kê số câu sai. TUYỆT ĐỐI KHÔNG GIẢI BÀI LÚC NÀY.`;
+
+    renderMessage("ai", `Đợi Cheems xíu, đang check list lỗi sai của bro ${tenHocSinh}...`);
+
+    // 3. Chỉ Fetch 1 lần duy nhất
+    fetch("/chat_ai", {
+        method: "POST",
+        headers: {"Content-Type":"application/json"},
+        body: JSON.stringify({ 
+            message: lenhGuiAI, 
+            user_name: tenHocSinh 
+        })
+    })
+    .then(res => res.json())
+    .then(data => {
+        renderMessage("ai", data.answer);
+    })
+    .catch(err => {
+        console.error("Lỗi:", err);
+        renderMessage("ai", "Server lag rồi bro ơi!");
+    });
+}
 // --- 5. TIỆN ÍCH ---
-function moAI() { document.getElementById("main-wrapper").classList.add("split"); }
-function dongAI() { document.getElementById("main-wrapper").classList.remove("split"); }
-function moChatTuDo() { moAI(); }
+function toggleChat() {
+    const panel = document.getElementById("ai-panel");
+    if (panel.style.display === "flex") {
+        panel.style.display = "none";
+    } else {
+        panel.style.display = "flex";
+        // Khi mở chat thì cuộn xuống dưới cùng luôn cho tiện
+        const chatbox = document.getElementById("chatbox");
+        chatbox.scrollTop = chatbox.scrollHeight;
+    }
+}
+function moChatTuDo() {
+    const panel = document.getElementById("ai-panel");
+    panel.style.display = "flex"; // Hiện khung chat nổi lên
+    
+    // Cuộn xuống tin nhắn cuối cùng cho mượt
+    const chatbox = document.getElementById("chatbox");
+    if(chatbox) chatbox.scrollTop = chatbox.scrollHeight;
+}
 
 document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("mon").addEventListener("change", taiConcept);
@@ -319,3 +351,46 @@ function closeCongrats() {
     }
     // Không cần xử lý 'win-audio' nữa vì đã dùng nhạc từ video
 }
+// 2. Logic kéo thả bong bóng (Drag & Drop)
+const wrapper = document.getElementById("chat-wrapper");
+const bubble = document.getElementById("chat-bubble");
+let isDragging = false;
+let startX, startY, initialX, initialY;
+
+bubble.addEventListener("mousedown", (e) => {
+    isDragging = false;
+    startX = e.clientX;
+    startY = e.clientY;
+    
+    // Lấy vị trí hiện tại của toàn bộ khối chat
+    initialX = wrapper.offsetLeft;
+    initialY = wrapper.offsetTop;
+
+    function onMouseMove(e) {
+        isDragging = true;
+        const dx = e.clientX - startX;
+        const dy = e.clientY - startY;
+
+        // Di chuyển cả khối cha (bao gồm cả nút và màn hình chat)
+        wrapper.style.left = (initialX + dx) + "px";
+        wrapper.style.top = (initialY + dy) + "px";
+        wrapper.style.bottom = "auto";
+        wrapper.style.right = "auto";
+    }
+
+    function onMouseUp() {
+        document.removeEventListener("mousemove", onMouseMove);
+        document.removeEventListener("mouseup", onMouseUp);
+        
+        // Nếu không phải kéo mà là click thì mới đóng/mở chat
+        if (!isDragging) toggleChat();
+    }
+
+    document.addEventListener("mousemove", onMouseMove);
+    document.addEventListener("mouseup", onMouseUp);
+});
+
+// Chặn kéo ảnh
+bubble.querySelector("img").draggable = false;
+
+

@@ -4,15 +4,13 @@ import random
 import os
 import csv
 from datetime import datetime
-# Import các hàm từ file ai_tutor của chúng ta
-from ai_tutor import hoi_ai, phan_tich_hoc_tap
+# Nhớ import đủ 3 hàm từ ai_tutor
+from ai_tutor import hoi_ai, phan_tich_hoc_tap, cap_nhat_bo_nho_de
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder='static', static_url_path='/static')
 
-# Lưu trữ đề hiện tại để đối chiếu khi nộp bài
 de_hien_tai = []
 
-# Gợi ý học tập
 goi_y_hoc = {
     "dao_ham": "Ôn quy tắc đạo hàm (x^n)' = n*x^(n-1)",
     "nguyen_ham": "Ôn nguyên hàm ∫x^n dx = x^(n+1)/(n+1) + C",
@@ -31,8 +29,10 @@ goi_y_hoc = {
 
 def tai_du_lieu(mon):
     try:
+        # GIỮ NGUYÊN ĐƯỜNG DẪN CŨ CỦA ĐẠT
         filename = "dataset/math.json" if mon == "toan" else "dataset/physics.json"
         if not os.path.exists(filename):
+            print(f"❌ Không tìm thấy file: {filename}")
             return []
         with open(filename, "r", encoding="utf-8") as f:
             return json.load(f)
@@ -80,6 +80,10 @@ def tao_de():
     
     random.shuffle(de_sau_khi_tron)
     de_hien_tai = de_sau_khi_tron
+
+    # --- THÊM DÒNG NÀY ĐỂ AI LƯU ĐỀ VÀO BỘ NHỚ ---
+    cap_nhat_bo_nho_de(de_hien_tai) 
+
     return jsonify({"de": de_hien_tai})
 
 @app.route("/nop_bai", methods=["POST"])
@@ -107,6 +111,7 @@ def nop_bai():
             "dung": dung
         })
     
+    # Lưu lịch sử thi (giữ nguyên)
     file_path = "lich_su_thi.csv"
     file_exists = os.path.isfile(file_path)
     thoi_gian = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
@@ -131,19 +136,44 @@ def nop_bai():
 
 @app.route("/chat_ai", methods=["POST"])
 def chat_ai():
-    data = request.json
-    msg = data.get("message", "")
-    user_name = data.get("user_name", "Học sinh")
-    ctx = data.get("context")
+    try:
+        data = request.json
+        msg = data.get("message", "")
+        user_name = data.get("user_name", "Hoàng Gia Đạt")
+        
+        # ĐỊNH NGHĨA BIẾN Ở ĐÂY ĐỂ KHÔNG BỊ LỖI 'NOT DEFINED'
+        system_prompt = f"""
+Mày là "Gia sư Cheems" - Huyền thoại dạy kèm Toán và Lý tại THPT Việt Đức. Đang dạy bro {user_name}.
+Phong cách: Lầy lội, Gen Z (bro, đỉnh nóc, kịch trần, khum, chê).
 
-    # Nếu có context chứa thông tin câu sai
-    if ctx and "student_choice" in ctx:
-        response = phan_tich_hoc_tap(ctx['student_choice'], user_name=user_name)
-        return jsonify({"answer": response})
+[QUY TẮC TỐI CAO]:
+1. Nếu tin nhắn có '[WAIT_MODE]': TUYỆT ĐỐI CẤM GIẢI BÀI. Chỉ chào và liệt kê số câu sai.
+2. Chỉ giải bài khi học sinh hỏi 'Giải câu X'. 
+3. Dùng $ cho công thức cùng dòng, $$ cho công thức xuống dòng.
+"""
 
-    # Chat bình thường
-    response = hoi_ai(msg, user_name=user_name)
-    return jsonify({"answer": response})
+        # 1. Kiểm tra Mật lệnh để ép AI vào chế độ liệt kê
+        if "[WAIT_MODE]" in msg:
+            # Gửi tin nhắn trực tiếp cho hàm gọi AI của Đạt
+            # Mình giả sử hàm của Đạt là hoi_ai(nội_dung, tên, chế_độ)
+            response_text = hoi_ai(msg, user_name=user_name, mode="tutor")
+            
+        else:
+            # 2. Chat bình thường
+            response_text = hoi_ai(msg, user_name=user_name, mode="tutor")
 
+        # 3. Dọn dẹp LaTeX trước khi trả về (Ép AI dùng đúng chuẩn $)
+        if response_text:
+            response_text = response_text.replace("\\[", "$$").replace("\\]", "$$")
+            response_text = response_text.replace("\\(", "$").replace("\\)", "$")
+
+        return jsonify({"answer": response_text})
+
+    except Exception as e:
+        # In lỗi ra màn hình đen (Terminal) để Đạt soi cho dễ
+        print(f"Lỗi rồi bro Đạt ơi: {e}")
+        return jsonify({"answer": f"Lỗi rồi bro: {str(e)}"}), 500
+
+        
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=5000, debug=True)
