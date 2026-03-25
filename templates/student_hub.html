@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trung tâm Học tập - THPT Việt Đức</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        /* GIỮ NGUYÊN PHẦN CSS CỦA ĐẠT */
+        .hub-wrapper { display: flex; justify-content: center; align-items: center; min-height: 80vh; padding: 20px; }
+        .hub-grid { display: flex; gap: 30px; width: 100%; max-width: 900px; }
+        .hub-card { flex: 1; text-align: center; padding: 50px 30px; cursor: pointer; transition: all 0.3s ease; border: 2px solid transparent; display: flex; flex-direction: column; justify-content: space-between; }
+        .hub-card:hover { border-color: #ff7a18; transform: translateY(-12px); box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2); }
+        .hub-card i { font-size: 4.5rem; margin-bottom: 25px; background: linear-gradient(135deg, #4facfe, #00f2fe); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .hub-card h2 { font-size: 1.8rem; margin-bottom: 15px; color: #2d3436; }
+        .hub-card p { color: #636e72; line-height: 1.6; margin-bottom: 30px; }
+        .welcome-msg { text-align: center; margin-top: 40px; color: white; text-shadow: 0 2px 4px rgba(0,0,0,0.2); }
+    </style>
+</head>
+<body>
+
+    <div id="main-app">
+        <div class="top-corner-logo">
+            <img src="{{ url_for('static', filename='410248302_265238099893030_4556676985882445566_n.jpg') }}" alt="Logo">
+        </div>
+
+        <div class="welcome-msg">
+            <h1 id="welcome-title">Chào mừng bạn quay trở lại!</h1>
+            <p>Hôm nay bạn muốn bắt đầu với hoạt động nào?</p>
+        </div>
+
+        <div class="hub-wrapper">
+            <div class="hub-grid">
+                <div class="container hub-card" onclick="location.href='/practice'">
+                    <div>
+                        <i class="fas fa-lightbulb"></i>
+                        <h2>LUYỆN TẬP</h2>
+                        <p>Ôn tập kiến thức theo từng chương, có trợ lý AI Cheems hỗ trợ giải đáp thắc mắc ngay lập tức.</p>
+                    </div>
+                    <button class="btn-chat-free">VÀO ÔN TẬP</button>
+                </div>
+
+                <div class="container hub-card" onclick="location.href='/exam_lobby'">
+                    <div>
+                        <i class="fas fa-user-clock"></i>
+                        <h2>LÀM BÀI THI</h2>
+                        <p>Chế độ thi nghiêm túc: Nhập mã đề, giới hạn thời gian, không có AI. Kết quả sẽ được lưu lại.</p>
+                    </div>
+                    <button>VÀO PHÒNG THI</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // --- 1. TỰ ĐỘNG NHẬN DIỆN KHI QUAY LẠI ---
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedName = localStorage.getItem('user_name');
+            const savedClass = localStorage.getItem('user_class');
+
+            if (savedName && savedClass) {
+                // Đã có tên -> Ẩn login luôn
+                document.getElementById('login-screen').style.display = 'none';
+                document.getElementById('welcome-title').innerText = `Chào bro ${savedName}!`;
+                window.userName = savedName;
+            }
+        });
+
+        // --- 2. HÀM ĐĂNG NHẬP ---
+        async function loginHub() {
+            const name = document.getElementById('user_name').value.trim();
+            const lop = document.getElementById('user_class').value.trim();
+
+            if (!name || !lop) return alert("Nhập đủ tên lớp đi bro!");
+
+            const response = await fetch('/api/set-session', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ name: name, class: lop })
+            });
+
+            if (response.ok) {
+                // Lưu vào máy để lần sau không phải nhập
+                localStorage.setItem('user_name', name);
+                localStorage.setItem('user_class', lop);
+                window.userName = name; 
+
+                document.getElementById('login-screen').style.display = 'none';
+                document.getElementById('welcome-title').innerText = `Chào bro ${name}!`;
+            } else {
+                alert("Lỗi server rồi ní!");
+            }
+        }
+    </script>
+
+    <footer class="site-footer">
+        <p><strong>Hệ thống luyện thi AI - THPT Việt Đức</strong></p>
+        <p>Chúc bạn có một buổi học tập hiệu quả!</p>
+    </footer>
+</body>
+</html>

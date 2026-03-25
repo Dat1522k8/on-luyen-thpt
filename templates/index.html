@@ -2,118 +2,135 @@
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
-    <title>Hệ thống luyện tập AI</title>
-    <link rel="stylesheet" href="/static/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hệ Thống Luyện Tập AI - THPT Việt Đức</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
     <style>
-        html, body { height: 100%; margin: 0; padding: 0; position: relative; }
-        .main-wrapper { padding-bottom: 120px; min-height: calc(100vh - 120px); display: flex; }
-        footer { position: relative; width: 100%; padding: 20px 0; border-top: 1px solid #eee; text-align: center; color: #666; background-color: #fff; margin-top: 20px; }
-        #timer-container { cursor: move; user-select: none; z-index: 10000; }
+        /* Thêm một chút CSS bổ trợ dựa trên phong cách của bạn */
+        .portal-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: calc(100vh - 100px); /* Trừ đi khoảng cách footer */
+            padding: 20px;
+        }
+        .portal-grid {
+            display: flex;
+            gap: 25px;
+            width: 100%;
+            max-width: 850px;
+        }
+        .choice-card {
+            flex: 1;
+            text-align: center;
+            padding: 40px 20px;
+            cursor: pointer;
+            transition: 0.3s;
+            border: 2px solid transparent;
+        }
+        .choice-card:hover {
+            border-color: #ff7a18; /* Màu cam thương hiệu của Đạt */
+            transform: translateY(-10px);
+        }
+        .choice-card i {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #4facfe, #00f2fe);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        /* Modal đăng nhập admin dựa trên màu sắc của bạn */
+        #login-modal {
+            display: none;
+            position: fixed;
+            z-index: 10000;
+            left: 0; top: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.7);
+            backdrop-filter: blur(5px);
+            justify-content: center; align-items: center;
+        }
+        .modal-content {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            width: 320px;
+            text-align: center;
+            border-top: 5px solid #6f42c1; /* Màu tím bạn dùng cho nút chat */
+        }
+        .modal-content input {
+            width: 90%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
     </style>
-    <script>
-        window.MathJax = {
-    tex: { 
-        inlineMath: [['$', '$'], ['\\(', '\\)']], 
-        displayMath: [['$$', '$$']], 
-        processEscapes: true 
-    },
-    // Thêm phần này để MathJax chạy mượt hơn trên các trình duyệt
-    options: {
-        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-    }
-};
-    </script>
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 <body>
-    <div id="login-screen" style="position:fixed; top:0; left:0; width:100%; height:100%; background:linear-gradient(135deg, #4facfe, #00f2fe); display:flex; justify-content:center; align-items:center; z-index:20000;">
-        <div style="background:white; padding:40px; border-radius:15px; text-align:center; box-shadow:0 15px 35px rgba(0,0,0,0.2); width:350px;">
-            <img src="{{ url_for('static', filename='410248302_265238099893030_4556676985882445566_n.jpg') }}" style="width:80px; margin-bottom:15px; border-radius:10px;">
-            <h2>Đăng nhập hệ thống</h2>
-            <input id="user_name" type="text" placeholder="Họ và tên..." style="width:100%; padding:12px; margin-bottom:10px; border:1px solid #ddd; border-radius:8px;">
-            <input id="user_class" type="text" placeholder="Lớp (VD: 12A1)..." style="width:100%; padding:12px; margin-bottom:20px; border:1px solid #ddd; border-radius:8px;">
-            <button onclick="login()" style="width:100%; background:#ff7a18; color:white; border:none; padding:12px; border-radius:8px; font-weight:bold; cursor:pointer;">VÀO LÀM BÀI</button>
-        </div>
+
+    <div class="top-corner-logo">
+        <img src="{{ url_for('static', filename='410248302_265238099893030_4556676985882445566_n.jpg') }}" alt="Logo">
     </div>
 
-    <div id="main-app" style="display:none;">
-        <div id="timer-container" class="timer-card" style="display: none; position: fixed; top: 20px; right: 20px;">
-            <div class="timer-header">🕒 KÉO ĐỂ DI CHUYỂN</div>
-            <div id="timer-display">00:00</div>
-            <div id="meme-status" class="meme-text">Khó nha bro!</div>
-            <div class="progress-bar-container"><div id="progress-fill" class="progress-fill"></div></div>
-        </div>
-
-        <div class="top-corner-logo">
-            <img src="{{ url_for('static', filename='410248302_265238099893030_4556676985882445566_n.jpg') }}" alt="logo">
-        </div>
-
-        <div class="main-wrapper" id="main-wrapper">
-            <div class="exam-container">
-                <div class="container">
-                    <h1>Hệ thống luyện tập AI</h1>
-                    <div class="controls">
-                        Môn: <select id="mon"><option value="toan">Toán học</option><option value="ly">Vật lý</option></select>
-                        Chủ đề: <select id="concept"></select>
-                        Câu: <input id="so_cau" type="number" value="5" style="width:45px;">
-                        <button onclick="taiDe()">Tạo đề</button>
-                    </div>
-                    <div id="de"></div>
-                    <div style="margin-top:20px;">
-                        <button onclick="nopBai()" style="background:#28a745;">Nộp bài</button>
-                        <button id="btn-analyze" onclick="phanTichAI()" style="background:#17a2b8; display:none; margin-left:10px; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;">
-                            🤖 Hỏi Cheems về các câu sai
-                        </button>
-                        <button id="btn-analyze" onclick="phanTichAI()" style="background:#17a2b8; display:none; margin-left:10px;">AI Giải thích câu sai</button>
-                    </div>
-                    <div id="ketqua"></div>
-                </div>
+    <div class="portal-wrapper">
+        <div class="portal-grid">
+            
+            <div class="container choice-card" onclick="location.href='/student_hub'">
+                <i class="fas fa-user-graduate"></i>
+                <h2 style="color: #2d3436;">HỌC SINH</h2>
+                <p style="color: #636e72;">Vào luyện đề thi THPT Quốc gia với trợ lý Cheems</p>
+                <button>BẮT ĐẦU NGAY</button>
             </div>
 
-            <div id="chat-wrapper" style="position: fixed; bottom: 30px; right: 30px; z-index: 9999;">
-    
-    <div id="chat-bubble" class="chat-bubble" style="position: relative; bottom: 0; right: 0;">
-        <img src="{{ url_for('static', filename='cheems.jpg') }}" alt="Cheems">
-    </div>
-
-    <div class="ai-panel-floating" id="ai-panel" style="position: absolute; bottom: 80px; right: 0; display: none;">
-        <div class="chat-header">
-            <div style="display: flex; align-items: center; gap: 10px;">
-                <img src="{{ url_for('static', filename='cheems.jpg') }}" class="chat-avt">
-                <span>Gia sư Cheems</span>
+            <div class="container choice-card" onclick="showLogin()">
+                <i class="fas fa-user-tie"></i>
+                <h2 style="color: #2d3436;">GIÁO VIÊN</h2>
+                <p style="color: #636e72;">Tạo mã đề mới và theo dõi kết quả của học sinh</p>
+                <button class="btn-chat-free">QUẢN TRỊ VIÊN</button>
             </div>
-            <button onclick="toggleChat()" style="background:none; border:none; font-size:20px; cursor:pointer;"></button>
-        </div>
-        <div id="chatbox"></div>
-        <div class="chat-input">
-            <input id="ai_input" placeholder="Hỏi Cheems đi bro...">
-            <button onclick="guiTinNhanAI()">Gửi</button>
-        </div>
-    </div>
-    </div>
-        </div>
 
-        <footer class="site-footer">
-            <p style="font-weight: bold; color: #333;">Trung Học Phổ Thông Việt Đức</p>
-            <p>Địa chỉ: Km12, Quốc lộ 27, Xã Ea Ktur, Tỉnh Đắk Lắk</p>
-            <p style="margin-top: 10px; font-style: italic; opacity: 0.8;">Code by: Hoàng Gia Đạt</p>
-        </footer>
-    <div id="congrats-modal">
-    <div class="congrats-content">
-        <h1 id="congrats-name">CHÚC MỪNG!</h1>
-        <p style="font-size: 1.2rem; margin-top: 10px; color: #fff;">Quá đẳng cấp, đúng 100% luôn!</p>
-        
-        <div class="video-wrapper">
-            <video id="raw-video" src="/static/kha_banh.mp4" crossorigin="anonymous" style="display: none;"></video>
-            
-            <canvas id="keyed-canvas"></canvas>
-            
-            <div id="fireworks-box" style="position: absolute; top:0; left:0; width:100%; height:100%; pointer-events: none;"></div>
         </div>
-
-        <button class="btn-close-congrats" onclick="closeCongrats()">Đỉnh quá bạn ơi! Tiếp tục nào</button>
     </div>
-</div>
-    <script src="/static/script.js"></script>
+
+    <div id="login-modal">
+        <div class="modal-content container">
+            <h3 style="margin-top:0;">Đăng nhập Admin</h3>
+            <input type="text" id="username" placeholder="Tên đăng nhập...">
+            <input type="password" id="password" placeholder="Mật khẩu...">
+            <button onclick="login()" style="width: 100%;">XÁC NHẬN</button>
+            <button onclick="hideLogin()" style="background: #dfe6e9; color: #333; width: 100%;">HỦY</button>
+        </div>
+    </div>
+
+    <footer class="site-footer">
+        <p><strong>Hệ thống luyện thi AI - THPT Việt Đức</strong></p>
+        <p>code by: Hoàng Gia Đạt &copy; 2026</p>
+        <p>co-founder: Hoàng Thị Khánh Vân<p>
+    </footer>
+
+    <script>
+        function showLogin() { document.getElementById('login-modal').style.display = 'flex'; }
+        function hideLogin() { document.getElementById('login-modal').style.display = 'none'; }
+
+        async function login() {
+            const user = document.getElementById('username').value;
+            const pass = document.getElementById('password').value;
+            
+            const response = await fetch('/api/teacher-login', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ user, pass })
+            });
+
+            if (response.ok) {
+                window.location.href = '/teacher_dashboard';
+            } else {
+                alert('Sai tài khoản hoặc mật khẩu rồi!');
+            }
+        }
+    </script>
 </body>
 </html>

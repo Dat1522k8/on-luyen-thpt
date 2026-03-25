@@ -4,32 +4,7 @@ let cau_sai_list = [];
 let timerInterval;
 
 // --- 1. HÀM ĐĂNG NHẬP ---
-function login() {
-    const nameInput = document.getElementById("user_name");
-    const lopInput = document.getElementById("user_class");
-    const loginScreen = document.getElementById("login-screen");
-    const mainApp = document.getElementById("main-app");
-
-    if (!nameInput || !lopInput) return;
-
-    const name = nameInput.value.trim();
-    const lop = lopInput.value.trim();
-
-    if (name === "" || lop === "") {
-        alert(" Bro!, nhập đủ tên và lớp vàooooooo!");
-        return;
-    }
-
-    // Lưu thông tin người dùng
-    window.userName = name;
-    window.userClass = lop;
-
-    loginScreen.style.display = "none";
-    mainApp.style.display = "block";
-    
-    taiConcept();
-}
-
+//
 // --- 2. LOGIC TẢI ĐỀ ---
 function taiConcept() {
     let mon = document.getElementById("mon").value;

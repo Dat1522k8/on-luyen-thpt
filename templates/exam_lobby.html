@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xác thực đề thi - THPT Việt Đức</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        .lobby-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 80vh;
+        }
+        .lobby-box {
+            max-width: 500px;
+            width: 90%;
+            text-align: center;
+            padding: 40px 30px;
+        }
+        .lobby-box i {
+            font-size: 3rem;
+            color: #ff7a18;
+            margin-bottom: 15px;
+        }
+        .code-input-wrapper {
+            margin-bottom: 15px;
+        }
+        /* Style cho các ô input mới */
+        .info-input {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 10px;
+            border: 2px solid #eee;
+            border-radius: 10px;
+            font-size: 1rem;
+            box-sizing: border-box;
+            transition: 0.3s;
+        }
+        .info-input:focus {
+            border-color: #ff7a18;
+            outline: none;
+        }
+        #quiz-code-input {
+            width: 100%;
+            padding: 15px;
+            font-size: 1.2rem;
+            text-align: center;
+            letter-spacing: 3px;
+            border: 2px solid #eee;
+            border-radius: 10px;
+            text-transform: uppercase;
+            box-sizing: border-box;
+            transition: 0.3s;
+            font-weight: bold;
+            color: #ff7a18;
+        }
+        .warning-note {
+            background: #fff5eb;
+            color: #d46b08;
+            padding: 12px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            margin-top: 20px;
+            border: 1px dashed #ff7a18;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-corner-logo">
+        <img src="{{ url_for('static', filename='410248302_265238099893030_4556676985882445566_n.jpg') }}" alt="Logo">
+    </div>
+
+    <div class="lobby-wrapper">
+        <div class="container lobby-box">
+            <i class="fas fa-user-edit"></i>
+            <h2>THÔNG TIN THÍ SINH</h2>
+            <p>Vui lòng điền đúng thông tin để hệ thống ghi nhận kết quả.</p>
+
+            <div class="code-input-wrapper">
+                <input type="text" id="student-name-input" class="info-input" placeholder="Họ và Tên của bạn" autocomplete="off">
+                <input type="text" id="student-class-input" class="info-input" placeholder="Lớp (Ví dụ: 12A1)" autocomplete="off">
+                <hr style="margin: 20px 0; border: none; border-top: 1px solid #eee;">
+                <input type="text" id="quiz-code-input" placeholder="MÃ ĐỀ THI" autocomplete="off">
+            </div>
+
+            <button onclick="checkAndStart()" style="width: 100%; padding: 15px; font-size: 1.1rem; cursor: pointer;">
+                XÁC NHẬN VÀO THI <i class="fas fa-arrow-right" style="margin-left: 10px; font-size: 1rem; color: white;"></i>
+            </button>
+
+            <div class="warning-note">
+                <i class="fas fa-exclamation-triangle"></i> 
+                Lưu ý: Thời gian sẽ đếm ngược ngay khi bạn nhấn nút.
+            </div>
+            
+            <a href="/student_hub" style="display: inline-block; margin-top: 20px; color: #636e72; text-decoration: none; font-size: 0.9rem;">
+                <i class="fas fa-chevron-left"></i> Quay lại
+            </a>
+        </div>
+    </div>
+
+    <footer class="site-footer">
+        <p><strong>Hệ thống luyện thi AI - THPT Việt Đức</strong></p>
+    </footer>
+
+    <script>
+        function checkAndStart() {
+            // Lấy dữ liệu từ các ID đã tạo ở trên
+            const name = document.getElementById('student-name-input').value.trim();
+            const className = document.getElementById('student-class-input').value.trim();
+            const code = document.getElementById('quiz-code-input').value.trim().toUpperCase();
+
+            // Kiểm tra xem có ô nào trống không
+            if (!name || !className || !code) {
+                alert("Ní ơi, nhập đầy đủ Họ tên, Lớp và Mã đề nhé!");
+                return;
+            }
+
+            // Lưu thông tin vào bộ nhớ trình duyệt để trang exam_room lấy ra dùng
+            localStorage.setItem('student_name', name);
+            localStorage.setItem('student_class', className);
+
+            console.log("Đang chuyển hướng với mã đề:", code);
+            window.location.href = `/exam_room?code=${code}`;
+        }
+
+        // Cho phép nhấn Enter
+        document.addEventListener('keypress', function (e) {
+            if (e.key === 'Enter') {
+                checkAndStart();
+            }
+        });
+    </script>
+</body>
+</html>

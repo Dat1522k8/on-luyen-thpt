@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phòng Thi Trực Tuyến - THPT Việt Đức</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Tùy chỉnh riêng cho phòng thi để tạo không khí nghiêm túc */
+        .exam-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #4facfe;
+        }
+        .exam-title-info h2 { margin: 0; color: #2d3436; font-size: 1.5rem; }
+        .exam-title-info p { margin: 5px 0 0; color: #636e72; font-size: 0.9rem; }
+        
+        /* Ẩn các thành phần không cần thiết khi thi */
+        .chat-bubble, .ai-panel-floating { display: none !important; }
+        
+        #questions-list { margin-top: 20px; }
+        .submit-section { text-align: center; margin-top: 40px; padding-top: 20px; border-top: 1px solid #eee; }
+    </style>
+    <script>
+    window.MathJax = {
+        tex: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']],
+            displayMath: [['$$', '$$'], ['\\[', '\\]']],
+            processEscapes: true
+        },
+        options: {
+            ignoreHtmlClass: 'tex2jax_ignore',
+            processHtmlClass: 'tex2jax_process'
+        }
+    };
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+
+    <div class="top-corner-logo">
+        <img src="{{ url_for('static', filename='410248302_265238099893030_4556676985882445566_n.jpg') }}" alt="Logo">
+    </div>
+
+    <div class="timer-card" id="exam-timer">
+        <div class="timer-header">THỜI GIAN CÒN LẠI</div>
+        <div id="timer-display">00:00</div>
+        <div class="meme-text" id="meme-status">Bình tĩnh làm bài nhé!</div>
+        <div class="progress-bar-container">
+            <div class="progress-fill" id="timer-progress"></div>
+        </div>
+    </div>
+
+    <div class="main-wrapper">
+        <div class="exam-container">
+            <div class="container">
+                <div class="exam-header">
+                    <div class="exam-title-info">
+                        <h2 id="quiz-title">Đang tải đề thi...</h2>
+                        <p id="quiz-meta">Mã đề: -- | Giáo viên: --</p>
+                    </div>
+                    <i class="fas fa-file-signature" style="font-size: 2rem; color: #4facfe;"></i>
+                </div>
+
+                <div id="questions-list">
+                    </div>
+
+                <div class="submit-section">
+                    <button onclick="confirmSubmit()" style="background: #28a745; padding: 15px 40px; font-size: 1.2rem;">
+                        <i class="fas fa-paper-plane"></i> NỘP BÀI THI
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="site-footer">
+        <p><strong>Nghiêm túc làm bài - Không sử dụng tài liệu</strong></p>
+    </footer>
+
+    <script>
+        // 1. Lấy mã đề từ URL
+const urlParams = new URLSearchParams(window.location.search);
+const quizCode = urlParams.get('code');
+let timerInterval;
+
+window.onload = async function() {
+    if (!quizCode) {
+        alert("Không tìm thấy mã đề!");
+        window.location.href = '/student_hub';
+        return;
+    }
+    await fetchQuizData();
+};
+
+// 2. Tải dữ liệu đề thi từ Server
+async function fetchQuizData() {
+    try {
+        const response = await fetch(`/api/get-quiz?code=${quizCode}`);
+        if (!response.ok) throw new Error("Mã đề không tồn tại hoặc lỗi server");
+        
+        const data = await response.json();
+        
+        // --- SỬA LỖI TẠI ĐÂY ---
+        // Vì dữ liệu Đạt lưu không có thuộc tính .info, ta dùng trực tiếp hoặc giá trị mặc định
+        const title = data.title || data.quiz_code || "ĐỀ THI TRỰC TUYẾN";
+        const code = data.quiz_code || quizCode;
+        const durationInMinutes = parseInt(data.duration) || 45; // Mặc định 45p nếu lỗi
+        
+        document.getElementById('quiz-title').innerText = title;
+        document.getElementById('quiz-meta').innerText = `Mã đề: ${code} | Thời gian: ${durationInMinutes} phút`;
+        
+        if (data.questions && data.questions.length > 0) {
+            renderQuestions(data.questions);
+            startExamTimer(durationInMinutes * 60); // Chuyển phút sang giây
+        } else {
+            alert("Đề thi này chưa có câu hỏi!");
+        }
+        
+    } catch (error) {
+        console.error("Lỗi chi tiết:", error);
+        alert("Lỗi: " + error.message);
+        window.location.href = '/student_hub';
+    }
+}
+
+// 3. Hiển thị câu hỏi (Đã thêm phần hiển thị ảnh nếu có)
+function renderQuestions(questions) {
+    const list = document.getElementById('questions-list');
+    list.innerHTML = questions.map((q, index) => {
+        let inputHtml = '';
+
+        if (q.type === 'multiple_choice') {
+            inputHtml = `<div class="options-grid">
+                ${q.options.map((opt, i) => `
+                    <label class="option-item">
+                        <input type="radio" name="q${index}" value="${['A','B','C','D'][i]}">
+                        <span>${opt}</span>
+                    </label>`).join('')}
+            </div>`;
+        } 
+        else if (q.type === 'true_false') {
+            inputHtml = `<div class="tf-table">
+                ${q.sub_questions.map((sub, i) => `
+                    <div class="tf-row" style="display:flex; justify-content:space-between; padding:10px; border-bottom:1px solid #eee;">
+                        <span>${sub.text}</span>
+                        <div>
+                            <label><input type="radio" name="q${index}_s${i}" value="Đ"> Đúng</label>
+                            <label style="margin-left:10px;"><input type="radio" name="q${index}_s${i}" value="S"> Sai</label>
+                        </div>
+                    </div>`).join('')}
+            </div>`;
+        } 
+        else if (q.type === 'short_answer') {
+            // ĐẢM BẢO VALUE TRỐNG, KHÔNG ĐỂ VALUE="A"
+            inputHtml = `
+                <div style="margin-top:15px;">
+                    <input type="text" name="q${index}" class="short-ans-input" 
+                           placeholder="Nhập đáp số tại đây..." 
+                           style="width:100%; padding:12px; border:2px solid #eee; border-radius:8px;">
+                </div>`;
+        }
+
+        return `<div class="question-card" id="q-card-${index}">
+            <p><strong>Câu ${index + 1}:</strong> ${q.content}</p>
+            ${inputHtml}
+        </div>`;
+    }).join('');
+
+    if (window.MathJax) MathJax.typesetPromise();
+}
+
+function collectAnswers() {
+    const questions = document.querySelectorAll('.question-card');
+    let answers = [];
+    
+    questions.forEach((card, i) => {
+        // Kiểm tra xem là loại gì (Dựa vào class hoặc cấu trúc bên trong)
+        if (card.querySelector('.tf-table')) {
+            let subAns = [];
+            card.querySelectorAll('tr').forEach((tr, subIdx) => {
+                const selected = card.querySelector(`input[name="q${i}_s${subIdx}"]:checked`);
+                subAns.push(selected ? selected.value : null);
+            });
+            answers.push(subAns);
+        } else if (card.querySelector('.short-ans')) {
+            answers.push(card.querySelector('.short-ans').value.trim());
+        } else {
+            const selected = card.querySelector(`input[name="q${i}"]:checked`);
+            answers.push(selected ? selected.value : null);
+        }
+    });
+    return answers;
+}
+
+// 4. Bộ đếm thời gian
+function startExamTimer(seconds) {
+    let timeLeft = seconds;
+    const display = document.getElementById('timer-display');
+    const progress = document.getElementById('timer-progress');
+    const totalSeconds = seconds;
+
+    timerInterval = setInterval(() => {
+        let mins = Math.floor(timeLeft / 60);
+        let secs = timeLeft % 60;
+        display.innerText = `${mins < 10 ? '0' : ''}${mins}:${secs < 10 ? '0' : ''}${secs}`;
+        
+        // Cập nhật thanh tiến trình
+        progress.style.width = (timeLeft / totalSeconds * 100) + "%";
+
+        if (timeLeft <= 60) {
+            document.getElementById('exam-timer').style.background = "#fff2f0";
+            document.getElementById('timer-display').style.color = "#ff4d4f";
+            document.getElementById('meme-status').innerText = "Nhanh lên ní ơi, sắp hết giờ!";
+        }
+
+        if (timeLeft <= 0) {
+            clearInterval(timerInterval);
+            alert("Hết giờ làm bài! Hệ thống sẽ tự động nộp.");
+            autoSubmit();
+        }
+        timeLeft--;
+    }, 1000);
+}
+
+function confirmSubmit() {
+    // Kiểm tra xem học sinh đã làm hết chưa (không bắt buộc nhưng nên có)
+    const totalQ = document.querySelectorAll('.question-card').length;
+    const answeredQ = document.querySelectorAll('input[type="radio"]:checked').length;
+    
+    if (confirm(`Bạn đã làm ${answeredQ}/${totalQ} câu. Xác nhận nộp bài?`)) {
+        autoSubmit();
+    }
+}
+
+// --- HÀM NỘP BÀI HOÀN CHỈNH ---
+async function autoSubmit() {
+    clearInterval(timerInterval);
+    
+    // 1. THU THẬP ĐÁP ÁN (Hỗ trợ cả 3 dạng)
+    const cards = document.querySelectorAll('.question-card');
+    let answers = [];
+    
+    cards.forEach((card, i) => {
+        // Kiểm tra loại câu hỏi dựa trên nội dung bên trong card
+        if (card.querySelector('.tf-row')) {
+            // Dạng Đúng/Sai: Thu thập mảng [ "Đ", "S", ... ]
+            let subAns = [];
+            const rows = card.querySelectorAll('.tf-row');
+            rows.forEach((row, subIdx) => {
+                const selected = row.querySelector(`input:checked`);
+                subAns.push(selected ? selected.value : "");
+            });
+            answers.push(subAns);
+        } 
+        else if (card.querySelector('.short-ans-input')) {
+            // Dạng Trả lời ngắn
+            const val = card.querySelector('.short-ans-input').value.trim();
+            answers.push(val);
+        } 
+        else {
+            // Dạng Trắc nghiệm 4 lựa chọn
+            const selected = card.querySelector(`input[name="q${i}"]:checked`);
+            answers.push(selected ? selected.value : "");
+        }
+    });
+
+    // 2. LẤY THÔNG TIN HỌC SINH
+    const name = localStorage.getItem('student_name') || "Ẩn danh";
+    const className = localStorage.getItem('student_class') || "K/X";
+
+    // Hiện loading nhẹ cho chuyên nghiệp
+    document.querySelector('.submit-section').innerHTML = `<i class="fas fa-spinner fa-spin"></i> Đang chấm điểm...`;
+
+    try {
+        const response = await fetch('/api/submit-exam', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ 
+                quiz_code: quizCode, 
+                answers: answers, // ĐÃ SỬA: Dùng đúng biến answers
+                student_name: name,
+                student_class: className
+            })
+        });
+
+        const res = await response.json();
+
+        if (res.status === 'success') {
+            // Hiển thị kết quả (SỬA LỖI UNDEFINED TẠI ĐÂY)
+            const score = res.score;
+            const total = res.total_questions; 
+
+            alert(`Chúc mừng ${name}! Bạn đạt ${score} điểm trên tổng số ${total} câu hỏi.`);
+            
+            // Thay đổi giao diện thành bảng điểm
+            document.querySelector('.main-wrapper').innerHTML = `
+                <div class="exam-container" style="text-align:center; padding:40px;">
+                    <i class="fas fa-check-circle" style="font-size:4rem; color:#28a745;"></i>
+                    <h1 style="margin-top:20px;">KẾT QUẢ THI</h1>
+                    <div style="font-size:2.5rem; font-weight:bold; color:#ff7a18; margin:20px 0;">
+                        ${score} <span style="font-size:1.2rem; color:#666;">Điểm</span>
+                    </div>
+                    <p>Học sinh: <strong>${name}</strong> - Lớp: <strong>${className}</strong></p>
+                    <p>Số câu hỏi trong đề: ${total}</p>
+                    <hr style="margin:20px 0; border:none; border-top:1px solid #eee;">
+                    <button onclick="window.location.href='/student_hub'" class="btn-chat-free" style="padding:10px 30px;">
+                        Quay về trang chủ
+                    </button>
+                </div>
+            `;
+        } else {
+            alert("Lỗi từ server: " + res.message);
+        }
+    } catch (e) {
+        console.error(e);
+        alert("Lỗi kết nối server khi nộp bài!");
+    }
+}
+    </script>
+</body>
+</html>

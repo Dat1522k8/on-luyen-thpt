@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản Trị Viên - THPT Việt Đức</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    
+    <style>
+        .admin-wrapper { display: flex; min-height: 100vh; background: #f0f2f5; }
+        
+        /* Sidebar bên trái */
+        .sidebar { width: 250px; background: white; border-right: 1px solid #ddd; padding: 20px; position: sticky; top: 0; height: 100vh; }
+        .sidebar h3 { color: #ff7a18; border-bottom: 2px solid #eee; padding-bottom: 10px; text-align: center; }
+        .nav-item { padding: 12px; margin: 8px 0; cursor: pointer; border-radius: 8px; transition: 0.3s; color: #555; display: flex; align-items: center; gap: 10px; }
+        .nav-item i { width: 20px; }
+        .nav-item:hover, .nav-item.active { background: #ff7a18; color: white; }
+
+        /* Vùng nội dung chính */
+        .main-content { flex: 1; padding: 30px; overflow-y: auto; }
+        
+        /* Khu vực Upload */
+        .upload-zone { 
+            border: 3px dashed #4facfe; border-radius: 15px; padding: 60px 40px; 
+            text-align: center; background: white; transition: 0.3s; cursor: pointer;
+        }
+        .upload-zone:hover { background: #eef7ff; border-color: #00f2fe; transform: translateY(-2px); }
+
+        /* Thẻ chỉnh sửa câu hỏi */
+        .edit-q-card { 
+            background: white; padding: 25px; border-radius: 12px; 
+            margin-bottom: 25px; box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border-left: 6px solid #ff7a18; animation: fadeIn 0.4s ease;
+        }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        
+        .edit-q-card textarea { width: 100%; border: 1px solid #ddd; border-radius: 8px; padding: 12px; margin-bottom: 10px; font-family: inherit; font-size: 1rem; }
+        .opt-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 10px; }
+        .opt-val { padding: 10px; border: 1px solid #eee; border-radius: 6px; }
+        
+        /* Khu vực xử lý ảnh */
+        .image-attach-zone {
+            margin: 15px 0; padding: 15px; background: #fdfdfd; border: 2px dashed #ddd; 
+            border-radius: 10px; text-align: center; transition: 0.3s;
+        }
+        .image-attach-zone:hover { border-color: #ff7a18; background: #fffcf9; }
+        .preview-img-slot img { max-width: 100%; max-height: 250px; border-radius: 8px; margin-top: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+
+        /* Thanh trượt cấu hình */
+        .config-panel { background: white; padding: 25px; border-radius: 15px; margin-top: 30px; box-shadow: 0 -5px 20px rgba(0,0,0,0.05); }
+        input[type="range"] { width: 100%; accent-color: #ff7a18; height: 8px; cursor: pointer; }
+        
+        .publish-btn { 
+            width: 100%; margin-top: 25px; padding: 15px; font-size: 1.2rem; 
+            background: linear-gradient(135deg, #ff7a18, #ff4b2b); color: white;
+            border: none; border-radius: 10px; cursor: pointer; font-weight: bold; transition: 0.3s;
+        }
+        .publish-btn:hover { transform: scale(1.01); box-shadow: 0 5px 15px rgba(255,122,24,0.4); }
+    </style>
+</head>
+<body>
+
+<div class="admin-wrapper">
+    <div class="sidebar">
+        <h3>ADMIN</h3>
+        <div class="nav-item active" onclick="location.reload()"><i class="fas fa-plus-circle"></i> Tạo đề thi mới</div>
+        <div class="nav-item" onclick="showQuizList()">
+            <i class="fas fa-folder-open"></i> Kho đề đã tạo
+        </div>
+        <div class="nav-item" onclick="showResultsList()">
+            <i class="fas fa-chart-bar"></i> Xem điểm (Bảng)
+        </div>
+        <hr style="margin: 20px 0; border: none; border-top: 1px solid #eee;">
+        <div class="nav-item" onclick="location.href='/'" style="color: #e74c3c;"><i class="fas fa-sign-out-alt"></i> Thoát hệ thống</div>
+    </div>
+
+    <div class="main-content">
+        
+        <div id="step-1">
+            <h2 style="color: #2d3436; margin-bottom: 20px;"><i class="fas fa-cloud-upload-alt"></i> Nhập dữ liệu đề thi</h2>
+            <div class="upload-zone" onclick="document.getElementById('fileInput').click()">
+                <i class="fas fa-file-word" style="font-size: 5rem; color: #2b579a; margin-bottom: 20px;"></i>
+                <p style="font-size: 1.2rem; color: #555;">Kéo thả file <strong>.docx</strong> vào đây hoặc click để chọn file</p>
+                <span style="color: #888; font-size: 0.9rem;">(Hệ thống sẽ tự động bóc tách Câu hỏi, Đáp án và Lời giải)</span>
+                <input type="file" id="fileInput" hidden accept=".docx">
+            </div>
+        </div>
+
+        <div id="step-2" style="display:none;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px;">
+                <h2 style="color: #2d3436; margin: 0;">Kiểm tra & Chỉnh sửa nội dung</h2>
+                <button class="btn-chat-free" onclick="addNewQuestion()" style="background: #3498db;">
+                    <i class="fas fa-plus"></i> Thêm câu hỏi thủ công
+                </button>
+            </div>
+            
+            <div id="questions-edit-list"></div>
+
+            <div class="config-panel">
+                <h3 style="margin-top: 0; color: #2d3436; border-bottom: 1px solid #eee; padding-bottom: 10px;">Cấu hình đề thi</h3>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px;">
+                    <div>
+                        <label><strong>Mã đề thi (Ví dụ: HK2_LY10):</strong></label>
+                        <input type="text" id="final-quiz-code" placeholder="Nhập mã đề duy nhất..." 
+                               style="width: 100%; margin-top: 10px; padding: 12px; border: 1px solid #ddd; border-radius: 8px; font-weight: bold; color: #ff7a18;">
+                    </div>
+                    <div>
+                        <label><strong>Thời gian làm bài: <span id="time-val" style="color: #ff7a18; font-size: 1.2rem;">45</span> phút</strong></label>
+                        <div style="margin-top: 15px;">
+                            <input type="range" min="15" max="180" step="5" value="45" oninput="document.getElementById('time-val').innerText = this.value">
+                        </div>
+                    </div>
+                </div>
+                <button onclick="publishQuiz()" class="publish-btn">
+                    <i class="fas fa-rocket"></i> LƯU VÀ XUẤT BẢN ĐỀ THI
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="{{ url_for('static', filename='admin_controller.js') }}"></script>
+
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Đăng nhập Giáo viên - THPT Việt Đức</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        .login-box {
+            max-width: 400px;
+            margin: 100px auto;
+            padding: 40px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        input {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            display: block;
+            box-sizing: border-box; 
+        }
+        button {
+            width: 100%;
+            padding: 12px;
+            background: #ff7a18;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body style="background: #f0f2f5;">
+
+    <div class="login-box">
+        <img src="{{ url_for('static', filename='410248302_265238099893030_4556676985882445566_n.jpg') }}" style="width:80px; border-radius:10px;">
+        <h2>Cổng Giáo Viên - test</h2>
+        <p style="color: #666; font-size: 14px;">Vui lòng đăng nhập để quản lý điểm</p>
+        
+        <form action="/api/teacher-login" method="POST">
+    <input type="text" 
+           name="username" 
+           id="username" 
+           placeholder="Tên đăng nhập" 
+           autocomplete="username" 
+           required>
+    
+    <input type="password" 
+           name="password" 
+           id="password" 
+           placeholder="Mật khẩu" 
+           autocomplete="current-password" 
+           required>
+    
+    <button type="submit">ĐĂNG NHẬP</button>
+</form>
+
+        <br>
+        <a href="/" style="text-decoration: none; color: #4facfe; font-size: 13px;"> Quay lại trang học sinh</a>
+    </div>
+
+</body>
+</html>
