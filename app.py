@@ -24,7 +24,7 @@ for path in ['static/uploads', 'data/quizzes', 'data/results', 'dataset']:
 
 # Mật khẩu giáo viên (Đạt có thể đổi tùy ý)
 ADMIN_USER = "admin"
-ADMIN_PASS = "admin123" 
+ADMIN_PASS = "12a312a6" 
 
 # --- PHẦN ĐĂNG NHẬP GIÁO VIÊN ---
 
@@ -446,7 +446,7 @@ def concepts():
     if mon == "toan":
         concepts = ["hàm số và đồ thị", "nguyên hàm tích phân", "hình học không gian", "khối tròn xoay", "tọa độ không gian", "số mũ và logarit", "số phức", "tổ hợp và xác suất", "đạo hàm", "cấp số cộng", "cấp số nhân", "tiệm cận"]
     else:
-        concepts = ["Khí lí tưởng", "Vật lý hạt nhân", "Từ trường", "Vật lí nhiệt"]
+        concepts = ["Khí lí tưởng", "Vật lý hạt nhân", "Từ trường", "Vật lý nhiệt"]
     return jsonify(concepts)
 
 @app.route("/tao_de")
